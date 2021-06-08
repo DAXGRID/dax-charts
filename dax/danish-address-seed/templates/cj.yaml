@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-danish-address-seed
+spec:
+  schedule: "{{ .Values.schedule }}"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: {{ .Values.backoffLimit }}
+      template:
+        spec:
+          containers:
+            - name: danish-address-seed
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              imagePullPolicy: IfNotPresent
+              restartPolicy: {{ .Values.restartPolicy }}
