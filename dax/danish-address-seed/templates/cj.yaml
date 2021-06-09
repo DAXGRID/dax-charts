@@ -17,7 +17,7 @@ spec:
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               resources:
                 requests:
-                  memory: {{ .Values.request.memoryRequest }}
+                  memory: {{ .Values.requests.memoryRequest }}
                 limits:
                   memory: {{ .Values.requests.memoryLimit }}
               env:
