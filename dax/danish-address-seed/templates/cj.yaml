@@ -15,5 +15,16 @@ spec:
           containers:
             - name: danish-address-seed
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              resources:
+                requests:
+                  memory: {{ .Values.memoryRequest }}
+                limits:
+                  memory: {{ .Values.requests.memoryLimit }}
+              env:
+                - name: CONNECTION_STRING
+                  valueFrom:
+                    secretKeyRef:
+                      key: connectionString
+                      name: {{ .Release.Name }}-{{ .Chart.Name }}-danish-address-seed
               imagePullPolicy: IfNotPresent
-              restartPolicy: {{ .Values.restartPolicy }}
+          restartPolicy: {{ .Values.restartPolicy }}

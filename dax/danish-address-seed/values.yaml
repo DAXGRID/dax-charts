@@ -6,3 +6,9 @@ schedule: "0 0 * * *"
 
 restartPolicy: Never
 backoffLimit: 0
+
+requests:
+  memoryRequest: "100Mi"
+  memoryLimit: "150Mi"
+
+connectionString: "Host=localhost;Port=5432;Username=postgres;Password=postgres;Database=OPEN_FTTH"
