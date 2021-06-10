@@ -16,6 +16,11 @@ spec:
       containers:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.memoryRequest }}
+            limits:
+              memory: {{ .Values.resources.memoryLimit }}
           env:
             - name: TYPESENSE_DATA_DIR
               value: {{ .Values.storage.path }}
