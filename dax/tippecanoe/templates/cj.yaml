@@ -1,0 +1,48 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-tippecanoe
+spec:
+  schedule: "{{ .Values.schedule }}"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: {{ .Values.backoffLimit }}
+      template:
+        spec:
+          {{ if (eq .Values.prejob.enabled true) }}
+          initContainers:
+          - name: gdal
+            image: {{ .Values.prejob.image.repository }}:{{ .Values.prejob.image.tag }}
+            command:
+            - /bin/sh
+            - -c
+            - '{{ .Values.prejob.commandArgs }}'
+            {{ if (eq .Values.storage.enabled true) }}
+            volumeMounts:
+             - name: {{ .Values.storage.claimName }}-data
+               mountPath: {{ .Values.storage.path }}
+            {{ end }}
+          {{ end }}
+          containers:
+            - name: tippecanoe
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              imagePullPolicy: IfNotPresent
+              command:
+                - /bin/sh
+                - -c
+                - '{{ .Values.commandArgs }}'
+              {{ if (eq .Values.storage.enabled true) }}
+              volumeMounts:
+                - name: {{ .Values.storage.claimName }}-data
+                  mountPath: {{ .Values.storage.path }}
+              {{ end }}
+          restartPolicy: {{ .Values.restartPolicy }}
+          {{ if (eq .Values.storage.enabled true) }}
+          volumes:
+            - name: {{ .Values.storage.claimName }}-data
+              persistentVolumeClaim:
+                claimName: {{ .Values.storage.claimName }}
+          {{ end }}

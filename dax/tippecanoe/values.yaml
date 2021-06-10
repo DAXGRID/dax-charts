@@ -1,0 +1,22 @@
+image:
+  repository: openftth/tippecanoe
+  tag: v1.36.0
+
+schedule: "0 0 * * *"
+
+commandArgs: "tippecanoe"
+
+restartPolicy: Never
+backoffLimit: 0
+
+storage:
+  enabled: false
+  claimName: ""
+  path: "/data"
+
+prejob:
+  enabled: false
+  commandArgs: "ogr2ogr"
+  image:
+    repository: osgeo/gdal
+    tag: alpine-small-3.2.2
