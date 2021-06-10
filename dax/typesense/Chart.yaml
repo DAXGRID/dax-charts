@@ -1,0 +1,6 @@
+apiVersion: v2
+name: typesense
+appVersion: "0.20.0"
+description: A Helm chart for Typesense
+version: 1.0.0
+type: application

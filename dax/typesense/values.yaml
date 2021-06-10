@@ -1,0 +1,14 @@
+image:
+  repository: typesense/typesense
+  tag: 0.20.0
+
+replicas: 1
+port: 80
+serviceType: NodePort
+
+apiKey: changeme!
+
+volumeClaim:
+  storageClassName: ""
+  size: 4Gi
+  path: /data

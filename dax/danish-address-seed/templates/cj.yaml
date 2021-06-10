@@ -25,6 +25,6 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       key: connectionString
-                      name: {{ .Release.Name }}-{{ .Chart.Name }}-danish-address-seed
+                      name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
               imagePullPolicy: IfNotPresent
           restartPolicy: {{ .Values.restartPolicy }}
