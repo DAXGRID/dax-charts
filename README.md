@@ -2,7 +2,6 @@
 
 DAX organization using [Kubernetes Helm](https://github.com/helm/helm)
 
-
 ## TL;DR
 
 ```bash
