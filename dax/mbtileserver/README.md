@@ -35,10 +35,3 @@ Parameters for the helm chart.
 | `commandArgs`          | Arguments mbtileserver is called with            | `{--enable-reload-signal, -d, /data}` |
 | `reload.enabled`       | Enable reload                                    | `true`                                |
 | `reload.watchPath`     | The path where changes should result in a reload | `/data`                               |
-
-helm upgrade --install openftth-routenetwork-tileserver mbtileserver \
-  --version 2.2.0 \
-  --namespace openftth \
-  --set service.type=NodePort \
-  --set storage.size=1Gi \
-  --set 'commandArgs={--enable-reload-signal, --disable-preview, -d, /data}'
