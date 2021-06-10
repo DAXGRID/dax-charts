@@ -8,7 +8,7 @@ serviceType: NodePort
 
 apiKey: changeme!
 
-volumeClaim:
-  storageClassName: ""
+storage:
+  className: ""
   size: 4Gi
   path: /data

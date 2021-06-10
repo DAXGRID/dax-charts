@@ -18,7 +18,7 @@ spec:
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           env:
             - name: TYPESENSE_DATA_DIR
-              value: {{ .Values.volumeClaim.path }}
+              value: {{ .Values.storage.path }}
             - name: TYPESENSE_API_KEY
               valueFrom:
                 secretKeyRef:
@@ -43,15 +43,15 @@ spec:
             periodSeconds: 5
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
-              mountPath: {{ .Values.volumeClaim.path }}
+              mountPath: {{ .Values.storage.path }}
   volumeClaimTemplates:
     - metadata:
         name: {{ .Release.Name }}-{{ .Chart.Name }}-data
       spec:
         accessModes: ["ReadWriteOnce"]
-        {{- if .Values.volumeClaim.storageClassName }}
-        storageClassName: {{ .Values.volumeClaim.storageClassName }}
+        {{- if .Values.storage.className }}
+        storageClassName: {{ .Values.vstorage.className }}
         {{- end }}
         resources:
           requests:
-            storage: {{ .Values.volumeClaim.size }}
+            storage: {{ .Values.storage.size }}
