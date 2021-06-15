@@ -2,9 +2,6 @@
 
 Helm 3 chart for [Tegola](https://github.com/go-spatial/tegola).
 
-#Note
-Moved to here
-
 ## Install/Upgrade
 
 First add the repo
@@ -27,3 +24,7 @@ Parameters for the helm chart.
 | `config`               | The config.toml file for Tegola | `""`           |
 | `service.type`         | Service type                    | `LoadBalancer` |
 | `service.externalPort` | External port                   | `80`           |
+| `storage.enabled`      | Enable storage                  | `false`        |
+| `storage.size`         | Storage size                    | `1Gi`          |
+| `storage.className`    | Storage class                   | `""`           |
+| `storage.path`         | Mount path                      | `"/data"`      |
