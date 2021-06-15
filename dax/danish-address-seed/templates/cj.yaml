@@ -26,5 +26,16 @@ spec:
                     secretKeyRef:
                       key: connectionString
                       name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+                - name: TYPESENSE_HOST
+                  value: {{ .Values.typesense.host }}
+                - name: TYPESENSE_PORT
+                  value: {{ .Values.typesense.port }}
+                - name: TYPESENSE_PROTOCOL
+                  value: {{ .Values.typesense.protocol }}
+                - name: TYPESENSE_APIKEY
+                  valueFrom:
+                    secretKeyRef:
+                      key: typesenseApiKey
+                      name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
               imagePullPolicy: IfNotPresent
           restartPolicy: {{ .Values.restartPolicy }}
