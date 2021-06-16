@@ -16,7 +16,7 @@ helm repo update
 Example of usage where it runs every night at 00.00.
 ```sh
 helm upgrade --install danish-address-seed dax/danish-address-seed \
-     --version 1.1.0 \
+     --version 1.1.1 \
      --namespace my-namespace \
      --set schedule="0 0 * * *" \
      --set connectionString="Host=my-host;Port=5432;Username=postgres;Password=postgres;Database=my-database" \
