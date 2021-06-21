@@ -13,7 +13,6 @@ helm repo update
 Install the chart
 ```sh
 helm upgrade --install my-release-name dax/typesense \
-  --version 1.0.0 \
   --namespace my-namespace \
   --set apiKey=changeMe!
 ```
