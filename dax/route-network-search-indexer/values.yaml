@@ -1,0 +1,16 @@
+loglevel: "Information"
+
+image:
+  repository: openftth/route-network-search-indexer
+  tag: v1.0.0
+
+kafka:
+  consumer: route_network_search_indexer
+  positionConnectionString: ""
+  topic: domain.route-network
+
+typesense:
+  host: openftth-search-typesense
+  port: 80
+  protocol: http
+  apiKey: ""

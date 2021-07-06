@@ -19,3 +19,4 @@ The repository contains the following Helm charts.
 * [Tippecanoe](https://github.com/DAXGRID/dax-charts/tree/master/dax/tippecanoe)
 * [Mbtileserver](https://github.com/DAXGRID/dax-charts/tree/master/dax/mbtileserver)
 * [Danish-address-seed](https://github.com/DAXGRID/dax-charts/tree/master/dax/danish-address-seed)
+* [Route-network-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/route-network-search-indexer)
