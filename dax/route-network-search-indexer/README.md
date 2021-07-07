@@ -1,6 +1,6 @@
-# Route node search indexer
+# Route network search indexer
 
-Route node search indexer consumes messages from Kafka in the OPEN-FTTH solution on topic `domain.route-network` and inserts the ones with `Naming.Name` set into Typesense. If there is any updates to an already inserted feature it will be either, updated or deleted.
+Route network search indexer consumes messages from Kafka in the OPEN-FTTH solution on topic `domain.route-network` and inserts the ones with `Naming.Name` set into Typesense. If there is any updates to an already inserted feature it will be either, updated or deleted.
 
 ## Install upgrade
 
@@ -10,12 +10,11 @@ helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
 ```
 
-Example of usage where it runs every night at 00.00.
 ```sh
 helm upgrade --install route-network-search-indexer dax/route-network-search-indexer \
      --namespace my-namespace \
      --set kafka.positionConnectionString="Host=my-host;Port=5432;Username=postgres;Password=postgres;Database=my-database" \
-     --set typesense.apiKey="myApiKey!" \
+     --set typesense.apiKey="myApiKey"
 ```
 
 ## Parameters
