@@ -29,8 +29,7 @@ Parameters for the helm chart.
 | `kafka.consumer`                 | Kafka consumer name                          | `route_network_search_indexer`   |
 | `kafka.positionConnectionString` | Kafka positon connectionstring               | `""`                             |
 | `kafka.topic`                    | Kafka topic to consume                       | `domain.route-network`           |
-| `connectionString`               | The connectionstring to the postgis database | `""`                             |
-| `typesense.host`                 | Typesense host                               | `""`                             |
+| `typesense.host`                 | Typesense host                               | `"openftth-search-typesense"`    |
 | `typesense.port`                 | Typesense port                               | `80`                             |
 | `typesense.protocol`             | Typesense protocol                           | `http`                           |
 | `typesense.apiKey`               | Typesense apikey                             | `""`                             |
