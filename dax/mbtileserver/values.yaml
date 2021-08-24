@@ -10,7 +10,7 @@ storage:
 
 reload:
   image: openftth/mbtileserver-watcher
-  tag: v1.0.0
+  tag: v1.1.0
   enabled: true
   watchPath: /data
 
