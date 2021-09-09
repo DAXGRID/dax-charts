@@ -52,7 +52,7 @@ spec:
               name: {{ .Release.Name }}-{{ .Chart.Name }}-secret        
 
         - name: GEODATABASE__HOST
-          value: {{ .Release.Name }}-postgis
+          value: openftth-postgis
         - name: GEODATABASE__PORT
           value: "5432"
         - name: GEODATABASE__DATABASE
