@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  labels:
+    app: {{ .Release.Name }}-{{ .Chart.Name }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-{{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-{{ .Chart.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 15
+          periodSeconds: 5
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/healthy
+          initialDelaySeconds: 15
+          periodSeconds: 15
+        env:
+        - name: LOGGING__LOGLEVEL_DEFAULT
+          value: {{ .Values.loglevel }}
+          
+        - name: EVENTSTOREDATABASE__HOST
+          value: openftth-event-store-postgresql
+        - name: EVENTSTOREDATABASE__PORT
+          value: "5432"
+        - name: EVENTSTOREDATABASE__DATABASE
+          value: {{ .Values.eventStoreDatabase.name }}
+        - name: EVENTSTOREDATABASE__USERNAME
+          value: {{ .Values.eventStoreDatabase.username }}
+        - name: EVENTSTOREDATABASE__PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: eventStoreDatabasePassword
+              name: {{ .Release.Name }}-{{ .Chart.Name }}-secret        
+
+        - name: GEODATABASE__HOST
+          value: {{ .Release.Name }}-postgis
+        - name: GEODATABASE__PORT
+          value: "5432"
+        - name: GEODATABASE__DATABASE
+          value: {{ .Values.geoDatabase.name }}
+        - name: GEODATABASE__USERNAME
+          value: {{ .Values.geoDatabase.username }}
+        - name: GEODATABASE__PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: geoDatabasePassword
+              name: {{ .Release.Name }}-{{ .Chart.Name }}-secret        
+      restartPolicy: Always
