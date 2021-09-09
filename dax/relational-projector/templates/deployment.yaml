@@ -31,7 +31,7 @@ spec:
             command:
             - cat
             - /tmp/healthy
-          initialDelaySeconds: 15
+          initialDelaySeconds: 60
           periodSeconds: 15
         env:
         - name: LOGGING__LOGLEVEL_DEFAULT
