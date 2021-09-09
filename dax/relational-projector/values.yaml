@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: openftth/relational-projector
-  tag: v1.0.0
+  tag: v1.0.1
   
 eventStoreDatabase:
   name: EVENT_STORE
