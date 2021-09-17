@@ -6,7 +6,7 @@ image:
   
 resources:
   memoryRequest: "512Mi"
-  memoryLimit: ""
+  memoryLimit: "768Mi"
 
 eventStoreDatabase:
   name: EVENT_STORE
