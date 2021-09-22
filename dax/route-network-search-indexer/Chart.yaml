@@ -1,6 +1,6 @@
 apiVersion: v2
 name: route-network-search-indexer
-appVersion: "1.1.0"
+appVersion: "1.1.1"
 description: A Helm chart for Route network search indexer
-version: 1.2.0
+version: 1.2.1
 type: application
