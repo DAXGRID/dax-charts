@@ -20,3 +20,4 @@ The repository contains the following Helm charts.
 * [Mbtileserver](https://github.com/DAXGRID/dax-charts/tree/master/dax/mbtileserver)
 * [Danish-address-seed](https://github.com/DAXGRID/dax-charts/tree/master/dax/danish-address-seed)
 * [Route-network-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/route-network-search-indexer)
+* [Relational-projector](https://github.com/DAXGRID/dax-charts/tree/master/dax/relational-projector)
