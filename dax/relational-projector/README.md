@@ -8,9 +8,8 @@ helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
 ```
 
-Example of usage where it runs every night at 00.00.
 ```sh
-helm upgrade --install danish-address-seed dax/danish-address-seed \
+helm upgrade --install relational-projector dax/relational-projector \
      --namespace my-namespace \
      --set eventStoreDatabase.name="EVENT_STORE" \
      --set eventStoreDatabase.username="postgres" \
