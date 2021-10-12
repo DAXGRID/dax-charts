@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  labels:
+    app: {{ .Release.Name }}-{{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-{{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Chart.Name }}
+    spec:
+      volumes:
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-{{ .Chart.Name }}
+      containers:
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GHFS_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+            - name: GHFS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+          volumeMounts:
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
+              mountPath: {{ .Values.storage.path }}
+          args:
+            - "-l"
+            - "8080"
+            - "--global-auth"
+            - "--user"
+            - "$(GHFS_USERNAME):$(GHFS_PASSWORD)"
+            - "-r"
+            - "/data"
+            - "-U"
+            - "--global-delete"
+      restartPolicy: Always
