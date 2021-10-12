@@ -1,6 +1,6 @@
 image:
   repository: openftth/danish-address-seed
-  tag: v2.2.3
+  tag: v2.2.4
 
 schedule: "0 0 * * *"
 
