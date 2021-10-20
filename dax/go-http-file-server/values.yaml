@@ -13,3 +13,14 @@ storage:
 
 username: user1
 password: pass1
+
+fileWatcher:
+  image: openftth/file-watcher-kafka
+  tag: v1.1.0
+  kafka:
+    consumer: file_watcher_kafka
+    server: openftth-kafka-cluster-kafka-bootstrap:9092
+    topic: notification.file-changes
+  watch:
+    directory: "/data"
+
