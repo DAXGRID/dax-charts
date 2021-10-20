@@ -40,6 +40,8 @@ spec:
           args:
             - "-l"
             - "8080"
+            - "-L"
+            - "-"
             - "--global-auth"
             - "--user"
             - "$(GHFS_USERNAME):$(GHFS_PASSWORD)"
@@ -47,4 +49,18 @@ spec:
             - "/data"
             - "-U"
             - "--global-delete"
+        - name: file-watcher-kafka-sidecar
+          image: {{ .Values.fileWatcher.image }}:{{ .Values.fileWatcher.tag }}
+          env:
+            - name: KAFKA__CONSUMER
+              value: {{ .Values.fileWatcher.kafka.consumer }}
+            - name: KAFKA__SERVER
+              value: {{ .Values.fileWatcher.kafka.server }}
+            - name: KAFKA__TOPIC
+              value: {{ .Values.fileWatcher.kafka.topic }}
+            - name: WATCH__DIRECTORY
+              value: {{ .Values.fileWatcher.watch.directory }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
+              mountPath: {{ .Values.storage.path }}
       restartPolicy: Always
