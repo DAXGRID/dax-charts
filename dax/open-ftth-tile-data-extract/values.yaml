@@ -1,0 +1,12 @@
+image:
+  repository: openftth/tile-data-extract
+  tag: v1.4.0
+
+schedule: "*/30 * * * *"
+
+postgisConnectionString: ""
+
+fileServer:
+  uri: ""
+  username: ""
+  password: ""
