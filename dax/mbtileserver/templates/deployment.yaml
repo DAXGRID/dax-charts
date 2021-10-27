@@ -15,22 +15,17 @@ spec:
         app: {{ .Release.Name }}-{{ .Chart.Name }}
     spec:
       shareProcessNamespace: true
-      {{ if (eq .Values.storage.enabled true) }}
       volumes:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
-          persistentVolumeClaim:
-            claimName: {{ .Release.Name }}-{{ .Chart.Name }}
-      {{ end }}
+          emptyDir: {}
       containers:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 8000
-          {{ if (eq .Values.storage.enabled true) }}
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
-              mountPath: {{ .Values.storage.path }}
-          {{ end }}
+              mountPath: /data
           args:
             {{- range .Values.commandArgs }}
             - {{ . }}
@@ -47,19 +42,34 @@ spec:
               port: 8000
             initialDelaySeconds: 5
             periodSeconds: 5
-        {{ if (eq .Values.reload.enabled true) }}
+        {{ if (eq .Values.watcher.enabled true) }}
         - name: mbtileserver-watcher-sidecar
-          image: {{ .Values.reload.image }}:{{ .Values.reload.tag }}
-          {{ if (eq .Values.storage.enabled true) }}
+          image: {{ .Values.watcher.image }}:{{ .Values.watcher.tag }}
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
-              mountPath: {{ .Values.storage.path }}
-          {{ end }}
+              mountPath: /data
+          env:
+            - name: KAFKA__CONSUMER
+              value: {{ .Values.watcher.kafka.consumer }}
+            - name: KAFKA__SERVER
+              value: {{ .Values.watcher.kafka.server }}
+            - name: KAFKA__TOPIC
+              value: {{ .Values.watcher.kafka.topic }}
+            - name: FILESERVER__USERNAME
+              value: {{ .Values.watcher.fileServer.username }}
+            - name: FILESERVER__PASSWORD
+              value: {{ .Values.watcher.fileServer.password }}
+            - name: FILESERVER__URI
+              value: {{ .Values.watcher.fileServer.uri }}
+            - name: TILEPROCESS__DESTINATION
+              value: {{ .Values.watcher.tileProcess.destination }}
+            {{- range .Values.watcher.tileProcess.processes }}
+            - name: {{ .name }}
+              value: {{ .value }}
+            {{- end }}
           securityContext:
             capabilities:
               add:
                 - SYS_PTRACE
-          args:
-            - "{{ .Values.reload.watchPath }}"
         {{ end }}
       restartPolicy: Always

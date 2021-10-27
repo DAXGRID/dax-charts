@@ -2,21 +2,27 @@ image:
   repository: openftth/mbtileserver
   tag: v0.7.0
 
-storage:
-  enabled: true
-  size: 1Gi
-  className: ""
-  path: /data
-
-reload:
-  image: openftth/mbtileserver-watcher
+watcher:
+  image: openftth/tile-watcher
   tag: v1.1.0
-  enabled: true
-  watchPath: /data
+  enabled: false
+  kafka:
+    consumer: tile_watcher_route_network
+    server: ""
+    topic: notification.file-changes
+  fileServer:
+    username: ""
+    password: ""
+    uri: ""
+  tileProcess:
+    destination: /data
+    processes:
+      - name: ""
+        value: ""
 
 service:
   externalPort: 80
-  type: LoadBalancer
+  type: ClusterIP
 
 commandArgs:
   - "--enable-reload-signal"
