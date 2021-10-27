@@ -51,6 +51,20 @@ spec:
             - "--global-delete"
         - name: file-watcher-kafka-sidecar
           image: {{ .Values.fileWatcher.image }}:{{ .Values.fileWatcher.tag }}
+          readinessProbe:
+            exec:
+              command:
+              - cat
+              - /tmp/healthy
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          livenessProbe:
+            exec:
+              command:
+              - cat
+              - /tmp/healthy
+            initialDelaySeconds: 15
+            periodSeconds: 15
           env:
             - name: KAFKA__CONSUMER
               value: {{ .Values.fileWatcher.kafka.consumer }}
