@@ -48,6 +48,20 @@ spec:
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: /data
+          livenessProbe:
+            exec:
+              command:
+              - cat
+              - /tmp/healthy
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          startupProbe:
+            exec:
+              command:
+              - cat
+              - /tmp/healthy
+            failureThreshold: 100
+            periodSeconds: 10
           env:
             - name: KAFKA__CONSUMER
               value: {{ .Values.watcher.kafka.consumer }}
