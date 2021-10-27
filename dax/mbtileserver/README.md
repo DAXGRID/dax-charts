@@ -1,37 +1,27 @@
-# Mbtileserver helm chart
+# Mbtileserver
 
-Helm 3 chart for [mbtileserver](https://github.com/consbio/mbtileserver).
+A Helm chart for mbtileserver. This Chart is custom for our organization, so it is not a general purpose helm chart.
 
-The Chart enables you to host the mbtileserver project, it comes with automatic reload of the tileserver using `kill -HUP` when an mbtile is either created, updated or deleted.
+## Values
 
-## Install/Upgrade
-
-First add the repo
-```sh
-helm repo add dax https://daxgrid.github.io/charts/
-helm repo update
-```
-
-Install the chart
-```sh
-helm upgrade --install my-release-name dax/mbtileserver \
-  --set storage.claimName=my-claim-name \
-  --set 'commandArgs={--enable-reload-signal, -d, /data}'
-```
-
-## Parameters
-Parameters for the helm chart.
-
-| Parameter              | Description                                      | Default                               |
-|------------------------|--------------------------------------------------|---------------------------------------|
-| `image.repository`     | Image for mbtileserver                           | `"openftth/mbtileserver"`             |
-| `image.tag`            | Tag for mbtileserver                             | `v0.7.0`                              |
-| `storage.enabled`      | Enable storage                                   | `true`                                |
-| `storage.className`    | Name storage class                               | `""`                                  |
-| `storage.size`         | The size of the storage                          | `""`                                  |
-| `storage.path`         | Path where the storage should be mounted         | `/data`                               |
-| `service.externalPort` | The external port                                | `80`                                  |
-| `service.type`         | The service type                                 | `LoadBalancer`                        |
-| `commandArgs`          | Arguments mbtileserver is called with            | `{--enable-reload-signal, -d, /data}` |
-| `reload.enabled`       | Enable reload                                    | `true`                                |
-| `reload.watchPath`     | The path where changes should result in a reload | `/data`                               |
+| Key                                    | Type   | Default                        | Description |
+|----------------------------------------|--------|--------------------------------|-------------|
+| commandArgs[0]                         | string | `"--enable-reload-signal"`     |             |
+| commandArgs[1]                         | string | `"-d"`                         |             |
+| commandArgs[2]                         | string | `"/data"`                      |             |
+| image.repository                       | string | `"openftth/mbtileserver"`      |             |
+| image.tag                              | string | `"v0.7.0"`                     |             |
+| service.externalPort                   | int    | `80`                           |             |
+| service.type                           | string | `"ClusterIP"`                  |             |
+| watcher.enabled                        | bool   | `false`                        |             |
+| watcher.fileServer.password            | string | `""`                           |             |
+| watcher.fileServer.uri                 | string | `""`                           |             |
+| watcher.fileServer.username            | string | `""`                           |             |
+| watcher.image                          | string | `"openftth/tile-watcher"`      |             |
+| watcher.kafka.consumer                 | string | `"tile_watcher_route_network"` |             |
+| watcher.kafka.server                   | string | `""`                           |             |
+| watcher.kafka.topic                    | string | `"notification.file-changes"`  |             |
+| watcher.tag                            | string | `"v1.1.0"`                     |             |
+| watcher.tileProcess.destination        | string | `"/data"`                      |             |
+| watcher.tileProcess.processes[0].name  | string | `""`                           |             |
+| watcher.tileProcess.processes[0].value | string | `""`                           |             |

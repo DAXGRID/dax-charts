@@ -5,20 +5,20 @@ image:
 watcher:
   image: openftth/tile-watcher
   tag: v1.1.0
-  enabled: true
+  enabled: false
   kafka:
     consumer: tile_watcher_route_network
-    server: openftth-kafka-cluster-kafka-bootstrap:9092
+    server: ""
     topic: notification.file-changes
   fileServer:
-    username: "user1"
-    password: "pass1"
-    uri: "http://file-server-go-http-file-server"
+    username: ""
+    password: ""
+    uri: ""
   tileProcess:
     destination: /data
     processes:
-      - name: TILEPROCESS__PROCESS__route_network.geojson
-        value: "-z17 -pS -P -o /tmp/route_network.mbtiles /tmp/route_network.geojson --force --quiet"
+      - name: ""
+        value: ""
 
 service:
   externalPort: 80
