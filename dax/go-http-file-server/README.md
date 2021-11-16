@@ -36,7 +36,6 @@ Parameters for the helm chart.
 | `password`                    | Basic auth password                      | `pass1`                                       |
 | `fileWatcher.image`           | Filewatcher image                        | `openftth/file-watcher-kafka`                 |
 | `fileWatcher.tag`             | Filewatcher tag                          | `v1.1.0`                                      |
-| `fileWatcher.kafka.consumer`  | Filewatcher kafka consumer name          | `file_watcher_kafka`                          |
 | `fileWatcher.kafka.server`    | Filewathcer kafka server                 | `openftth-kafka-cluster-kafka-bootstrap:9092` |
 | `fileWatcher.kafka.topic`     | Filewatcher kafka topic                  | `notification.file-changes`                   |
 | `fileWatcher.watch.directory` | Filewatcher directory to watch           | `/data`                                       |
