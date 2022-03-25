@@ -1,0 +1,17 @@
+loglevel: "Information"
+
+image:
+  repository: openftth/equipment-search-indexer
+  tag: v1.0.0
+
+resources:
+  memoryRequest: "2Gi"
+  memoryLimit: "2.5Gi"
+
+connectionstring: ""
+
+typesense:
+  host: openftth-search-typesense
+  port: 80
+  protocol: http
+  apiKey: ""
