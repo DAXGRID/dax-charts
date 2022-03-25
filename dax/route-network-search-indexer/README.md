@@ -4,7 +4,8 @@ Route network search indexer consumes messages from Kafka in the OPEN-FTTH solut
 
 ## Install upgrade
 
-First add the repo
+First add the repository.
+
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
@@ -21,15 +22,15 @@ helm upgrade --install route-network-search-indexer dax/route-network-search-ind
 
 Parameters for the helm chart.
 
-| Parameter                        | Description                                  | Default                          |
-|----------------------------------|----------------------------------------------|----------------------------------|
-| `image.repository`               | Image for danish-address-seed                | `"openftth/danish-address-seed"` |
-| `image.tag`                      | Tag for typesense                            | `v2.0.0`                         |
-| `logLevel`                       | Log level for the application                | `"information"`                  |
-| `kafka.consumer`                 | Kafka consumer name                          | `route_network_search_indexer`   |
-| `kafka.positionConnectionString` | Kafka positon connectionstring               | `""`                             |
-| `kafka.topic`                    | Kafka topic to consume                       | `domain.route-network`           |
-| `typesense.host`                 | Typesense host                               | `"openftth-search-typesense"`    |
-| `typesense.port`                 | Typesense port                               | `80`                             |
-| `typesense.protocol`             | Typesense protocol                           | `http`                           |
-| `typesense.apiKey`               | Typesense apikey                             | `""`                             |
+| Parameter                        | Description                    | Default                                   |
+|----------------------------------|--------------------------------|-------------------------------------------|
+| `image.repository`               | Image for danish-address-seed  | `"openftth/route-network-search-indexer"` |
+| `image.tag`                      | Image tag                      | Latest version                            |
+| `logLevel`                       | Log level for the application  | `"information"`                           |
+| `kafka.consumer`                 | Kafka consumer name            | `route_network_search_indexer`            |
+| `kafka.positionConnectionString` | Kafka positon connectionstring | `""`                                      |
+| `kafka.topic`                    | Kafka topic to consume         | `domain.route-network`                    |
+| `typesense.host`                 | Typesense host                 | `"openftth-search-typesense"`             |
+| `typesense.port`                 | Typesense port                 | `80`                                      |
+| `typesense.protocol`             | Typesense protocol             | `http`                                    |
+| `typesense.apiKey`               | Typesense API-key              | `""`                                      |
