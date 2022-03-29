@@ -5,8 +5,8 @@ image:
   tag: v1.1.2
 
 resources:
-  memoryRequest: "2Gi"
-  memoryLimit: "2.5Gi"
+  memoryRequest: "1.25Gi"
+  memoryLimit: "1.5Gi"
 
 connectionstring: ""
 
