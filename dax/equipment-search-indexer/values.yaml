@@ -10,8 +10,12 @@ resources:
 
 connectionstring: ""
 
+specifications:
+  - ""
+
 typesense:
   host: openftth-search-typesense
   port: 80
   protocol: http
   apiKey: ""
+  collectionAlias: equipments
