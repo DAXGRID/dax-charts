@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: openftth/equipment-search-indexer
-  tag: v1.1.4
+  tag: v1.2.0
 
 resources:
   memoryRequest: "1Gi"
