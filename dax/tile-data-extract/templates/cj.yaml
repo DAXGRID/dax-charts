@@ -1,0 +1,44 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  schedule: "{{ .Values.schedule }}"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          volumes:
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-mnt
+              configMap:
+                name: {{ .Release.Name }}-{{ .Chart.Name }}
+                items:
+                  - key: config-env.js
+                    path: config-env.js
+          containers:
+            - name: tile-data-extract
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: FILE_SERVER_URI
+                  value: {{ .Values.fileServer.uri }}
+                - name: FILE_SERVER_USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      key: fileServerUsername
+                      name: {{ .Release.Name }}-secret
+                - name: FILE_SERVER_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: fileServerPassword
+                      name: {{ .Release.Name }}-secret
+              command:
+                - /bin/sh
+                - -c
+                - "dotnet TileDataExtractor.dll '$(POSTGIS_CONNECTIONSTRING)' 'route_network.geojson' && \
+                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=@route_network.geojson' '$(FILE_SERVER_URI)/?upload'"
+          restartPolicy: Never
