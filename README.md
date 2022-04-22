@@ -22,5 +22,5 @@ The repository contains the following Helm charts.
 * [Route-network-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/route-network-search-indexer)
 * [Relational-projector](https://github.com/DAXGRID/dax-charts/tree/master/dax/relational-projector)
 * [Go-http-file-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/go-http-file-server)
-* [OPEN-FTTH-tile-data-extract](https://github.com/DAXGRID/dax-charts/tree/master/dax/open-ftth-tile-data-extract)
+* [tile-data-extract](https://github.com/DAXGRID/dax-charts/tree/master/dax/tile-data-extract)
 * [Equipment-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/equipment-search-indexer)

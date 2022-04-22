@@ -12,31 +12,34 @@ spec:
       backoffLimit: 0
       template:
         spec:
+          volumes:
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-mnt
+              configMap:
+                name: {{ .Release.Name }}-{{ .Chart.Name }}
+                items:
+                  - key: appsettings
+                    path: appsettings.json
           containers:
             - name: tile-data-extract
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: IfNotPresent
               env:
-                - name: POSTGIS_CONNECTIONSTRING
-                  valueFrom:
-                    secretKeyRef:
-                      key: postgisConnectionString
-                      name: {{ .Release.Name }}-secret
                 - name: FILE_SERVER_URI
                   value: {{ .Values.fileServer.uri }}
                 - name: FILE_SERVER_USERNAME
-                  valueFrom:
-                    secretKeyRef:
-                      key: fileServerUsername
-                      name: {{ .Release.Name }}-secret
+                  value: {{ .Values.fileServer.username }}
                 - name: FILE_SERVER_PASSWORD
                   valueFrom:
                     secretKeyRef:
                       key: fileServerPassword
-                      name: {{ .Release.Name }}-secret
+                      name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+              volumeMounts:
+              - name: {{ .Release.Name }}-{{ .Chart.Name }}-mnt
+                mountPath: /app/appsettings.json
+                subPath: appsettings.json
               command:
                 - /bin/sh
                 - -c
-                - "dotnet OpenFTTH.TileDataExtractor.dll '$(POSTGIS_CONNECTIONSTRING)' 'route_network.geojson' && \
-                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=@route_network.geojson' '$(FILE_SERVER_URI)/?upload'"
+                - "dotnet TileDataExtract.dll && \
+                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=@/tmp/route_network.geojson' '$(FILE_SERVER_URI)/?upload'"
           restartPolicy: Never
