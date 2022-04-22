@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ .Release.Name }}
@@ -17,8 +17,8 @@ spec:
               configMap:
                 name: {{ .Release.Name }}-{{ .Chart.Name }}
                 items:
-                  - key: config-env.js
-                    path: config-env.js
+                  - key: appsettings
+                    path: appsettings.json
           containers:
             - name: tile-data-extract
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -27,18 +27,16 @@ spec:
                 - name: FILE_SERVER_URI
                   value: {{ .Values.fileServer.uri }}
                 - name: FILE_SERVER_USERNAME
-                  valueFrom:
-                    secretKeyRef:
-                      key: fileServerUsername
-                      name: {{ .Release.Name }}-secret
+                  value: {{ .Values.fileServer.username }}
                 - name: FILE_SERVER_PASSWORD
-                  valueFrom:
-                    secretKeyRef:
-                      key: fileServerPassword
-                      name: {{ .Release.Name }}-secret
+                  value: {{ .Values.fileServer.password }}
+              volumeMounts:
+              - name: {{ .Release.Name }}-{{ .Chart.Name }}-mnt
+                mountPath: /app/appsettings.json
+                subPath: appsettings.json
               command:
                 - /bin/sh
                 - -c
-                - "dotnet TileDataExtractor.dll '$(POSTGIS_CONNECTIONSTRING)' 'route_network.geojson' && \
-                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=@route_network.geojson' '$(FILE_SERVER_URI)/?upload'"
+                - "dotnet TileDataExtract.dll && \
+                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=@/tmp/route_network.geojson' '$(FILE_SERVER_URI)/?upload'"
           restartPolicy: Never
