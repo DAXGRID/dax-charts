@@ -1,11 +1,12 @@
 # Tile data extract
 
+In this example it uses chart version, change it to the latest version.
+
 ```sh
 helm upgrade --install route-network-tile-data-extract openftth/tile-data-extract \
-     --namespace openftth \
-     --set fileServer.uri=http://file-server-go-http-file-server \
-     --set fileServer.username=user1 \
-     --set fileServer.password=pass1
+    --set fileServer.uri=http://file-server-go-http-file-server \
+    --set fileServer.username=user1 \
+    --set fileServer.password=pass1
 ```
 
 Example of a app-settings values.
