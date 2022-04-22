@@ -3,7 +3,7 @@
 In this example it uses chart version, change it to the latest version.
 
 ```sh
-helm upgrade --install route-network-tile-data-extract openftth/tile-data-extract \
+helm upgrade --install route-network-tile-data-extract dax/tile-data-extract \
     --set fileServer.uri=http://file-server-go-http-file-server \
     --set fileServer.username=user1 \
     --set fileServer.password=pass1
