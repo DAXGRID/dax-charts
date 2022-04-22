@@ -1,6 +1,0 @@
-apiVersion: v2
-name: open-ftth-tile-data-extract
-appVersion: "v1.4.0"
-description: A helm chart for open ftth tile data extract
-version: 1.0.0
-type: application
