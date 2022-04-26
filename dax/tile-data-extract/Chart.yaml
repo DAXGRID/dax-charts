@@ -2,5 +2,5 @@ apiVersion: v2
 name: tile-data-extract
 appVersion: "0.1.3"
 description: A helm chart for open ftth tile data extract
-version: 1.0.4
+version: 1.0.5
 type: application
