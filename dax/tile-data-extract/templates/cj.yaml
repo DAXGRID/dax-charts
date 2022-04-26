@@ -43,5 +43,5 @@ spec:
                 - /bin/sh
                 - -c
                 - "dotnet TileDataExtract.dll && \
-                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=$(FILE_TO_UPLOAD_PATH)' '$(FILE_SERVER_URI)/?upload'"
+                   curl -u $(FILE_SERVER_USERNAME):$(FILE_SERVER_PASSWORD) -F 'file=@$(FILE_TO_UPLOAD_PATH)' '$(FILE_SERVER_URI)/?upload'"
           restartPolicy: Never
