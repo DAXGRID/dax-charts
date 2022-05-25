@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: openftth/relational-projector
-  tag: v1.7.2
+  tag: v1.7.3
   
 resources:
   memoryRequest: "512Mi"
