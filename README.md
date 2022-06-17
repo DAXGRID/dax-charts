@@ -24,3 +24,4 @@ The repository contains the following Helm charts.
 * [Go-http-file-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/go-http-file-server)
 * [tile-data-extract](https://github.com/DAXGRID/dax-charts/tree/master/dax/tile-data-extract)
 * [Equipment-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/equipment-search-indexer)
+* [Aura-csv-work-import](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-csv-work-import)

@@ -1,0 +1,22 @@
+image:
+  repository: openftth/aura-csv-work-import
+  tag: v0.3.0
+
+resources:
+  memoryRequest: "150Mi"
+  memoryLimit: "200Mi"
+
+appsettings:
+  settings:
+    kafka:
+      consumer: aura-csv-work-import-consumer
+      server: openftth-kafka-cluster-kafka-bootstrap:9092
+      topic: notification.file-changes
+      notificationFullFilePaths:
+        - "/test-file-one.csv"
+        - "/test-file-two.csv"
+    fileServer:
+      uri: http://file-server-go-http-file-server
+      username: user1
+      password: pass1
+    eventStoreConnectionString: ""
