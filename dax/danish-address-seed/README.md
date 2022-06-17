@@ -8,12 +8,14 @@ The first time it runs, it runs a full bulk import, and the next time it runs it
 ## Install/Upgrade
 
 First add the repo
+
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
 ```
 
 Example of usage where it runs every night at 00.00.
+
 ```sh
 helm upgrade --install danish-address-seed dax/danish-address-seed \
      --namespace my-namespace \
