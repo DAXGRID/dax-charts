@@ -18,7 +18,7 @@ helm upgrade --install aura-csv-work-import dax/aura-csv-work-import \
      --namespace openftth \
      --set "appsettings.settings.kafka.notificationFullFilePaths[0]"="/Projekter.csv" \
      --set "appsettings.settings.kafka.notificationFullFilePaths[1]"="/Eftertilslutninger.csv" \
-         --set "appsettings.settings.kafka.notificationFullFilePaths[2]"="/Opgaver i projekter.csv" \
+     --set "appsettings.settings.kafka.notificationFullFilePaths[2]"="/Opgaver i projekter.csv" \
      --set appsettings.settings.fileServer.username="user1" \
      --set appsettings.settings.fileServer.password="pass1" \
      --set appsettings.settings.eventStoreConnectionString="Host=openftth-event-store-postgresql;Port=5432;Username=postgres;Password=postgres;Database=EVENT_STORE"
