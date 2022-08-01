@@ -1,0 +1,7 @@
+image:
+  repository: openftth/address-import-dawa
+  tag: v0.1.0
+
+resources:
+  memoryRequest: "1.25Gi"
+  memoryLimit: "1.5Gi"
