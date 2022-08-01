@@ -5,3 +5,7 @@ image:
 resources:
   memoryRequest: "1.25Gi"
   memoryLimit: "1.5Gi"
+
+appsettings:
+  settings:
+    eventStoreConnectonString: ""
