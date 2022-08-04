@@ -17,9 +17,9 @@ spec:
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               resources:
                 requests:
-                  memory: {{ .Values.requests.memoryRequest }}
+                  memory: {{ .Values.resources.memoryRequest }}
                 limits:
-                  memory: {{ .Values.requests.memoryLimit }}
+                  memory: {{ .Values.resources.memoryLimit }}
               volumeMounts:
                 - name: {{ .Release.Name }}-{{ .Chart.Name }}-volume
                   mountPath: /app/appsettings.json
