@@ -10,7 +10,7 @@ helm repo update
 ```
 
 ```sh
-helm upgrade --install equipment-search-indexer equipment-search-indexer \
+helm upgrade --install address-import-dawa dax/address-import-dawa \
      --namespace openftth \
      --set appsettings.settings.eventStoreConnectionString="Host=openftth-event-store-postgresql;Port=5432;Username=postgres;Password=postgres;Database=EVENT_STORE"
 ```
