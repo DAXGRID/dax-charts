@@ -12,11 +12,12 @@ helm repo update
 ```sh
 helm upgrade --install equipment-search-indexer equipment-search-indexer \
      --namespace openftth \
-     --set appsettings.settings.eventStoreConnectionString="Host=openftth-event-store-postgresql;Port=5432;Username=postgres;Password=postgres;Database=EVENT_STORE" \
+     --set appsettings.settings.eventStoreConnectionString="Host=openftth-event-store-postgresql;Port=5432;Username=postgres;Password=postgres;Database=EVENT_STORE"
 ```
 
-| Parameter                                         | Description                         | Default                        |
-|---------------------------------------------------|-------------------------------------|--------------------------------|
-| `image.repository`                                | Image                               | `openftth/address-import-dawa` |
-| `image.tag`                                       | Image tag                           | Latest image tag               |
+| Parameter                                         | Description                          | Default                        |
+|---------------------------------------------------|--------------------------------------|--------------------------------|
+| `image.repository`                                | Image                                | `openftth/address-import-dawa` |
+| `image.tag`                                       | Image tag                            | Latest image tag               |
+| `schedule`                                        | How often the job should run         | `0 0 * * *`                    |
 | `appsettings.settings.eventStoreConnectionString` | Connection string to the event store | `""`                           |
