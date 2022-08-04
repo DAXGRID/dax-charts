@@ -7,8 +7,8 @@ restartPolicy: Never
 backoffLimit: 0
 
 resources:
-  memoryRequest: 1.5Gi
-  memoryLimit: 1.75Gi
+  memoryRequest: 2Gi
+  memoryLimit: 2.25Gi
 
 appsettings:
   settings:
