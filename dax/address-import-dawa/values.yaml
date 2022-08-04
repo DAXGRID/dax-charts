@@ -1,0 +1,15 @@
+image:
+  repository: openftth/address-import-dawa
+  tag: v0.1.0
+
+schedule: "0 0 * * *"
+restartPolicy: Never
+backoffLimit: 0
+
+resources:
+  memoryRequest: 1.5Gi
+  memoryLimit: 1.75Gi
+
+appsettings:
+  settings:
+    eventStoreConnectionString: ""
