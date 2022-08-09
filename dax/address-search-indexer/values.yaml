@@ -1,0 +1,16 @@
+image:
+  repository: openftth/address-search-indexer
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 1Gi
+  memoryLimit: 1.25Gi
+
+appsettings:
+  settings:
+    eventStoreConnectionString: ""
+    typesense:
+      uri: "http://openftth-search-typesense:80"
+      key: ""
+      collectionAlias: "Addresses"
+      batchSize: 1000
