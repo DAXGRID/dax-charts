@@ -26,3 +26,4 @@ The repository contains the following Helm charts.
 * [Equipment-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/equipment-search-indexer)
 * [Aura-csv-work-import](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-csv-work-import)
 * [Address-import-dawa](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-import-dawa)
+* [Address-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-search-indexer)
