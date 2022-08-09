@@ -1,6 +1,6 @@
 apiVersion: v2
 name: address-search-indexer
-appVersion: "0.1.6"
+appVersion: "0.1.7"
 description: Helm chart for address search indexer
-version: 1.0.6
+version: 1.0.7
 type: application
