@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}
 spec:
   schedule: "{{ .Values.schedule }}"
+  startingDeadlineSeconds: 30
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
