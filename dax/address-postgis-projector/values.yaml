@@ -1,6 +1,6 @@
 image:
   repository: openftth/address-postgis-projector
-  tag: v0.1.1
+  tag: v0.1.2
 
 schedule: "0 0 * * *"
 restartPolicy: Never
