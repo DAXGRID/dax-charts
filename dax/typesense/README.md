@@ -24,7 +24,7 @@ Parameters for the helm chart.
 | Parameter                 | Description                              | Default                 |
 |---------------------------|------------------------------------------|-------------------------|
 | `image.repository`        | Image for typesense                      | `"typesense/typesense"` |
-| `image.tag`               | Tag for typesense                        | `0.2.0`                 |
+| `image.tag`               | Tag for typesense                        | ``                 |
 | `apiKey`                  | Api key for Typesense                    | `changeme!`             |
 | `replicas`                | The replica count                        | `1`                     |
 | `port`                    | External port                            | `80`                    |
