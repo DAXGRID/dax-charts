@@ -8,8 +8,8 @@ resources:
 
 appsettings:
   settings:
-    eventStoreConnectionString: "",
-    serviceBusConnectionString: "",
-    serviceBusTopicName: "",
-    serviceBusSubscriptionName: "",
+    eventStoreConnectionString: ""
+    serviceBusConnectionString: ""
+    serviceBusTopicName: ""
+    serviceBusSubscriptionName: ""
     serviceBusHeaderTypeName: ""
