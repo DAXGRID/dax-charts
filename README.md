@@ -28,3 +28,4 @@ The repository contains the following Helm charts.
 * [Address-import-dawa](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-import-dawa)
 * [Address-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-search-indexer)
 * [Address-postgis-projector](https://github.com/DAXGRID/dax-charts/tree/master/dax/Address-postgis-projector)
+* [Aura-address-integrator](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-address-integrator)
