@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-address-integrator
-  tag: v0.2.1
+  tag: v0.2.2
 
 resources:
   memoryRequest: "750Mi"
