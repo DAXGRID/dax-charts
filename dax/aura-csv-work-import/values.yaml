@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-csv-work-import
-  tag: v0.4.2
+  tag: v0.4.3
 
 resources:
   memoryRequest: "150Mi"
