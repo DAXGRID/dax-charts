@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-work-integrator
-  tag: v0.1.0
+  tag: v0.1.2
 
 resources:
   memoryRequest: "125Mi"
