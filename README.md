@@ -30,3 +30,4 @@ The repository contains the following Helm charts.
 * [Address-postgis-projector](https://github.com/DAXGRID/dax-charts/tree/master/dax/Address-postgis-projector)
 * [Aura-address-integrator](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-address-integrator)
 * [Aura-work-integrator](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-work-integrator)
+* [Aura-outage-integration]("https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-outage-integration")
