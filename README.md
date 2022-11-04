@@ -36,3 +36,4 @@ The repository contains the following Helm charts.
 * [Aura-work-integrator](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-work-integrator)
 * [Aura-outage-integration](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-outage-integration)
 * [Aura-csv-work-import](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-csv-work-import)
+* [Aura-installation-integration](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-installation-integration)
