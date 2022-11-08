@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-outage-integration
-  tag: v0.1.0
+  tag: v0.1.1
 
 resources:
   memoryRequest: "300Mi"
