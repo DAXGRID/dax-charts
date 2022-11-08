@@ -6,6 +6,10 @@ resources:
   memoryRequest: "300Mi"
   memoryLimit: "350Mi"
 
+service:
+  externalPort: 80
+  type: ClusterIP
+
 appsettings:
   settings:
     eventStoreConnectionString: ""
