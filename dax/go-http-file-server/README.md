@@ -25,7 +25,7 @@ Parameters for the helm chart.
 | Parameter                     | Description                              | Default                                       |
 |-------------------------------|------------------------------------------|-----------------------------------------------|
 | `image.repository`            | Image for typesense                      | `"openftth/go-http-file-server"`              |
-| `image.tag`                   | Tag for typesense                        | `v1.2.0`                                      |
+| `image.tag`                   | Tag for typesense                        | `v1.15.5`                                      |
 | `replicas`                    | The replica count                        | `1`                                           |
 | `port`                        | External port                            | `80`                                          |
 | `serviceType`                 | External service type                    | `NodePort`                                    |
