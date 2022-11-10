@@ -1,6 +1,6 @@
 # Go HTTP File Server Chart
 
-This is made to be used by the OpenFTTH system and is not a general Chart for go-http-file-server.
+This is made to be used by the OpenFTTH system and is not a general Chart for [go-http-file-server](https://github.com/mjpclab/go-http-file-server).
 
 ## Install/Upgrade
 
@@ -24,8 +24,8 @@ Parameters for the helm chart.
 
 | Parameter                     | Description                              | Default                                       |
 |-------------------------------|------------------------------------------|-----------------------------------------------|
-| `image.repository`            | Image for typesense                      | `"openftth/go-http-file-server"`              |
-| `image.tag`                   | Tag for typesense                        | `v1.15.5`                                      |
+| `image.repository`            | Image repository                         | `"openftth/go-http-file-server"`              |
+| `image.tag`                   | Image tag                                | `v1.15.5`                                     |
 | `replicas`                    | The replica count                        | `1`                                           |
 | `port`                        | External port                            | `80`                                          |
 | `serviceType`                 | External service type                    | `NodePort`                                    |
