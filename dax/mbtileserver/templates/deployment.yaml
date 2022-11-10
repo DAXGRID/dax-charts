@@ -43,7 +43,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
         {{ if (eq .Values.watcher.enabled true) }}
-        - name: mbtileserver-watcher-sidecar
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-sidecar
           image: {{ .Values.watcher.image }}:{{ .Values.watcher.tag }}
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
