@@ -4,13 +4,15 @@ This is made to be used by the OpenFTTH system and is not a general Chart for [g
 
 ## Install/Upgrade
 
-First add the repo
+Add the repository.
+
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
 ```
 
-Install the chart
+Example of installing it with overridden parameters.
+
 ```sh
 helm upgrade --install my-release-name dax/go-http-file-server \
   --namespace my-namespace \

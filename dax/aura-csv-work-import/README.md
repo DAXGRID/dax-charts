@@ -4,7 +4,7 @@ Chart for Aura CSV work import [link.](https://github.com/DAXGRID/aura-csv-work-
 
 ## Install/Upgrade
 
-First add the repo
+Add the repository.
 
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/

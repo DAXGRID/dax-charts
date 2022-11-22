@@ -4,7 +4,7 @@ Chart for Aura Address integrator [link.](https://github.com/DAXGRID/aura-addres
 
 ## Install/Upgrade
 
-First add the repository
+Add the repository.
 
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/

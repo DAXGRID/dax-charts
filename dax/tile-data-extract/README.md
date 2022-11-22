@@ -1,5 +1,14 @@
 # Tile data extract
 
+## Install/Upgrade
+
+Add the repository.
+
+```sh
+helm repo add dax https://daxgrid.github.io/charts/
+helm repo update
+```
+
 In this example it uses chart version, change it to the latest version.
 
 ```sh

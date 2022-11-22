@@ -2,11 +2,14 @@
 
 ## Install/Upgrade
 
-First add the repo
+Add the repository.
+
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
 ```
+
+Example of installing it with overridden parameters.
 
 ```sh
 helm upgrade --install relational-projector dax/relational-projector \
@@ -18,21 +21,3 @@ helm upgrade --install relational-projector dax/relational-projector \
      --set geoDatabase.username="postgres" \
      --set geoDAtabase.password="postgres"
 ```
-
-## Parameters
-
-Parameters for the helm chart.
-
-| Parameter                     | Description                             | Default                           |
-|-------------------------------|-----------------------------------------|-----------------------------------|
-| `image.repository`            | Image for danish-address-seed           | `"openftth/relational-projector"` |
-| `image.tag`                   | Tag for typesense                       | `vx.x.x`                          |
-| `resources.memoryRequest`     | How much memory is requested            | `"512Mi"`                         |
-| `requests.memoryLimit`        | How much memory before app is restarted | `"768Mi"`                         |
-| `eventStoreDatabase.name`     | Eventstore database name                | `"EVENT_STORE"`                   |
-| `eventStoreDatabase.username` | Eventstore database username            | `"postgres"`                      |
-| `eventStoreDatabase.password` | Eventstore database password            | `"postgres"`                      |
-| `geoDatabase.name`            | Geodatabase database name               | `"OPEN_FTTH"`                     |
-| `eventStoreDatabase.username` | Geodatabase database username           | `"postgres"`                      |
-| `eventStoreDatabase.password` | Geodatabase database password           | `"postgres"`                      |
-| `loglevel`                    | Loglevel                                | `"Information"`                   |

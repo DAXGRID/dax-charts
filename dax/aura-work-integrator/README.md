@@ -4,7 +4,7 @@ Chart for Aura work integrator [link.](https://github.com/DAXGRID/aura-work-inte
 
 ## Install/Upgrade
 
-First add the repository
+Add the repository.
 
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
