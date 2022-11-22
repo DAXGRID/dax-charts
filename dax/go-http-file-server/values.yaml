@@ -1,6 +1,10 @@
 image:
   repository: openftth/go-http-file-server
-  tag: v1.15.5
+  tag: v1.15.5_v3
+
+resources:
+  memoryRequest: 200Mi
+  memoryLimit: 250Mi
 
 replicas: 1
 port: 80
@@ -17,6 +21,9 @@ password: pass1
 fileWatcher:
   image: openftth/file-watcher-kafka
   tag: v1.2.0
+  resources:
+    memoryRequest: 100Mi
+    memoryLimit: 125Mi
   kafka:
     server: openftth-kafka-cluster-kafka-bootstrap:9092
     topic: notification.file-changes

@@ -6,6 +6,8 @@ metadata:
     app: {{ .Release.Name }}-{{ .Chart.Name }}
 spec:
   replicas: {{ .Values.replicas }}
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: {{ .Release.Name }}-{{ .Chart.Name }}
@@ -21,9 +23,18 @@ spec:
       containers:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.memoryRequest }}
+            limits:
+              memory: {{ .Values.resources.memoryLimit }}
           ports:
             - containerPort: 8080
           env:
+            - name: GHFS_ROOT_DIR
+              value: /data/
+            - name: GHFS_PORT
+              value: "8080"
             - name: GHFS_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -37,20 +48,13 @@ spec:
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: {{ .Values.storage.path }}
-          args:
-            - "-l"
-            - "8080"
-            - "-L"
-            - "-"
-            - "--global-auth"
-            - "--user"
-            - "$(GHFS_USERNAME):$(GHFS_PASSWORD)"
-            - "-r"
-            - "/data"
-            - "-U"
-            - "--global-delete"
         - name: file-watcher-kafka-sidecar
           image: {{ .Values.fileWatcher.image }}:{{ .Values.fileWatcher.tag }}
+          resources:
+            requests:
+              memory: {{ .Values.fileWatcher.resources.memoryRequest }}
+            limits:
+              memory: {{ .Values.fileWatcher.resources.memoryLimit }}
           readinessProbe:
             exec:
               command:
