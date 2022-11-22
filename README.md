@@ -23,6 +23,7 @@ The repository contains the following Helm charts.
 * [tile-data-extract](https://github.com/DAXGRID/dax-charts/tree/master/dax/tile-data-extract)
 * [Route-network-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/route-network-search-indexer)
 * [Danish-address-seed](https://github.com/DAXGRID/dax-charts/tree/master/dax/danish-address-seed)
+* [open-ftth-backup](https://github.com/DAXGRID/dax-charts/tree/master/dax/open-ftth-backup)
 
 ### Other
 * [Tegola](https://github.com/DAXGRID/dax-charts/tree/master/dax/tegola)
