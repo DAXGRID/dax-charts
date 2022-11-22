@@ -4,7 +4,7 @@ Chart for [Aura installation integration.](https://github.com/DAXGRID/aura-insta
 
 ## Install/Upgrade
 
-First add the repository.
+Add the repository.
 
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/

@@ -4,17 +4,16 @@ Danish address seed, seeds both an Postgres(PostGIS) database and the Typesense 
 
 The first time it runs, it runs a full bulk import, and the next time it runs it will only get the latest changes and sewd with that.
 
-
 ## Install/Upgrade
 
-First add the repo
+Add the repository.
 
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
 helm repo update
 ```
 
-Example of usage where it runs every night at 00.00.
+Example of installing it with overridden parameters.
 
 ```sh
 helm upgrade --install danish-address-seed dax/danish-address-seed \
@@ -25,22 +24,3 @@ helm upgrade --install danish-address-seed dax/danish-address-seed \
      --set typesense.apiKey="myApiKey!"
      
 ```
-
-## Parameters
-
-Parameters for the helm chart.
-
-| Parameter                | Description                                  | Default                          |
-|--------------------------|----------------------------------------------|----------------------------------|
-| `image.repository`       | Image for danish-address-seed                | `"openftth/danish-address-seed"` |
-| `image.tag`              | Tag for typesense                            | `v2.0.0`                          |
-| `schedule`               | How often the job should run                 | `0 0 * * *`                      |
-| `restartPolicy`          | Restart policy                               | `Never`                          |
-| `backoffLimit`           | Backoff limit                                | `0`                              |
-| `requests.memoryRequest` | How much memory is requested                 | `"150Mi"`                        |
-| `requests.memoryLimit`   | How much memory before app is restarted      | `"300Mi"`                        |
-| `connectionString`       | The connectionstring to the postgis database | `""`                             |
-| `typesense.host`         | Typesense host                               | `""`                             |
-| `typesense.port`         | Typesense port                               | `80`                             |
-| `typesense.protocol`     | Typesense protocol                           | `http`                           |
-| `typesense.apiKey`       | Typesense apikey                             | `""`                             |

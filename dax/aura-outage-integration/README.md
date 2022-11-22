@@ -4,7 +4,7 @@ Chart for [Aura outage integration.](https://github.com/DAXGRID/aura-outage-inte
 
 ## Install/Upgrade
 
-First add the repository.
+Add the repository.
 
 ```sh
 helm repo add dax https://daxgrid.github.io/charts/
