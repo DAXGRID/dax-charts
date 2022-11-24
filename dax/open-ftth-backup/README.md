@@ -32,8 +32,7 @@ appsettings:
           port: 5432
           username: "postgres"
           password: "postgres"
-        databaseNames:
-          - MY_DATABASE
+        dumpFilenamePrefix: MY_DUMP_FILE_PREFIX_NAME
     fileServer:
       hostAddress: "http://my-http-file-server"
       username: user1
