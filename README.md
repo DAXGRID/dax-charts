@@ -15,6 +15,7 @@ helm install my-release dax/<chart>
 The repository contains the following Helm charts.
 
 ### OpenFTTH
+
 * [Relational-projector](https://github.com/DAXGRID/dax-charts/tree/master/dax/relational-projector)
 * [Address-postgis-projector](https://github.com/DAXGRID/dax-charts/tree/master/dax/Address-postgis-projector)
 * [Address-import-dawa](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-import-dawa)
@@ -26,6 +27,7 @@ The repository contains the following Helm charts.
 * [open-ftth-backup](https://github.com/DAXGRID/dax-charts/tree/master/dax/open-ftth-backup)
 
 ### Other
+
 * [Tegola](https://github.com/DAXGRID/dax-charts/tree/master/dax/tegola)
 * [Typesense](https://github.com/DAXGRID/dax-charts/tree/master/dax/typesense)
 * [Tippecanoe](https://github.com/DAXGRID/dax-charts/tree/master/dax/tippecanoe)
@@ -33,6 +35,7 @@ The repository contains the following Helm charts.
 * [Go-http-file-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/go-http-file-server)
 
 ### Aura
+
 * [Aura-address-integrator](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-address-integrator)
 * [Aura-work-integrator](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-work-integrator)
 * [Aura-outage-integration](https://github.com/DAXGRID/dax-charts/tree/master/dax/aura-outage-integration)
