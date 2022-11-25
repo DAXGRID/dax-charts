@@ -28,11 +28,20 @@ appsettings:
     uploadPath: backups
     postgresBackups:
       - connection:
-          hostAddress: "my-database-host"
+          hostAddress: "my-first-host"
           port: 5432
           username: "postgres"
           password: "postgres"
-        dumpFilenamePrefix: MY_DUMP_FILE_PREFIX_NAME
+        dumpFilenamePrefix: MY_FIRST_DUMP_FILE_PREFIX_NAME
+      - connection:
+          hostAddress: "my-second-host"
+          port: 5432
+          username: "postgres"
+          password: "postgres"
+        databaseNames:
+          - "my_first_database_name"
+          - "my_second_database_name"
+        dumpFilenamePrefix: MY_SECOND_DUMP_FILE_PREFIX_NAME
     fileServer:
       hostAddress: "http://my-http-file-server"
       username: user1
