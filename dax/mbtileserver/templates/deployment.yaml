@@ -30,18 +30,6 @@ spec:
             {{- range .Values.commandArgs }}
             - {{ . }}
             {{- end }}
-          readinessProbe:
-            httpGet:
-              path: /services
-              port: 8000
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /services
-              port: 8000
-            initialDelaySeconds: 5
-            periodSeconds: 5
         {{ if (eq .Values.watcher.enabled true) }}
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-sidecar
           image: {{ .Values.watcher.image }}:{{ .Values.watcher.tag }}
