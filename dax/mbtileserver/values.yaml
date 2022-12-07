@@ -26,5 +26,8 @@ service:
 
 commandArgs:
   - "--enable-reload-signal"
+  - "--disable-preview"
+  - "--disable-svc-list"
+  - "--disable-tilejson"
   - "-d"
   - "/data"
