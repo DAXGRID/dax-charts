@@ -25,6 +25,7 @@ The repository contains the following Helm charts.
 * [Route-network-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/route-network-search-indexer)
 * [Danish-address-seed](https://github.com/DAXGRID/dax-charts/tree/master/dax/danish-address-seed)
 * [open-ftth-backup](https://github.com/DAXGRID/dax-charts/tree/master/dax/open-ftth-backup)
+* [notification-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/notification-server)
 
 ### Other
 
