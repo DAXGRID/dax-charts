@@ -1,0 +1,6 @@
+apiVersion: v2
+name: notification-server
+appVersion: "0.1.0"
+description: Helm chart for notification server
+version: 1.0.0
+type: application
