@@ -54,7 +54,7 @@ spec:
             - name: NOTIFICATIONSERVER__SERVER
               value: {{ .Values.watcher.notificationServer.domain }}
             - name: NOTIFICATIONSERVER__PORT
-              value: {{ .Values.watcher.notificationServer.port }}
+              value: "{{ .Values.watcher.notificationServer.port }}"
             - name: FILESERVER__USERNAME
               value: {{ .Values.watcher.fileServer.username }}
             - name: FILESERVER__PASSWORD
