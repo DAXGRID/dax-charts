@@ -51,12 +51,10 @@ spec:
             failureThreshold: 100
             periodSeconds: 10
           env:
-            - name: KAFKA__CONSUMER
-              value: {{ .Values.watcher.kafka.consumer }}
-            - name: KAFKA__SERVER
-              value: {{ .Values.watcher.kafka.server }}
-            - name: KAFKA__TOPIC
-              value: {{ .Values.watcher.kafka.topic }}
+            - name: NOTIFICATIONSERVER__SERVER
+              value: {{ .Values.watcher.notificationServer.domain }}
+            - name: NOTIFICATIONSERVER__PORT
+              value: {{ .Values.watcher.notificationServer.port }}
             - name: FILESERVER__USERNAME
               value: {{ .Values.watcher.fileServer.username }}
             - name: FILESERVER__PASSWORD

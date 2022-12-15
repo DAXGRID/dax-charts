@@ -4,12 +4,11 @@ image:
 
 watcher:
   image: openftth/tile-watcher
-  tag: v1.1.0
+  tag: v2.0.0
   enabled: false
-  kafka:
-    consumer: tile_watcher_route_network
-    server: ""
-    topic: notification.file-changes
+  notificationServer:
+    domain: notification-server
+    port: 80
   fileServer:
     username: ""
     password: ""
