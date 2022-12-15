@@ -9,9 +9,9 @@ resources:
 appsettings:
   settings:
     notificationServer:
-      domain: aura-csv-work-import-consumer
-      port: notification-server
-      notificationFullFilePaths:
+      domain: notification-server
+      port: 80
+      fullFilePaths:
         - "/test-file-one.csv"
         - "/test-file-two.csv"
     fileServer:
