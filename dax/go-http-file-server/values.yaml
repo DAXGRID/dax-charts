@@ -27,5 +27,5 @@ fileWatcher:
   appsettings:
     settings:
       watchDirectory: "/data"
-      notificationServerDomain: "notification-server-notification-server"
+      notificationServerDomain: "notification-server"
       notificationServerPort: 80
