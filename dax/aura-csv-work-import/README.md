@@ -15,7 +15,8 @@ Example of installing it with overridden parameters.
 
 ```sh
 helm upgrade --install aura-csv-work-import dax/aura-csv-work-import \
-     --namespace openftth \
+     --version MY_VERSION \
+     --namespace MY_NAMESPACE \
      --set "appsettings.settings.notificationServer.fullFilePaths[0]"="/Projekter.csv" \
      --set "appsettings.settings.notificationServer.fullFilePaths[1]"="/Eftertilslutninger.csv" \
      --set "appsettings.settings.notificationServer.fullFilePaths[2]"="/Opgaver i projekter.csv" \
