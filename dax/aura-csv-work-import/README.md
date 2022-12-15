@@ -16,7 +16,9 @@ Example of installing it with overridden parameters.
 ```sh
 helm upgrade --install aura-csv-work-import dax/aura-csv-work-import \
      --namespace openftth \
-     --set "appsettings.settings.fileServer.fullFilePaths[2]"="/Opgaver i projekter.csv" \
+     --set "appsettings.settings.notificationServer.fullFilePaths[0]"="/Projekter.csv" \
+     --set "appsettings.settings.notificationServer.fullFilePaths[1]"="/Eftertilslutninger.csv" \
+     --set "appsettings.settings.notificationServer.fullFilePaths[2]"="/Opgaver i projekter.csv" \
      --set appsettings.settings.fileServer.username="user1" \
      --set appsettings.settings.fileServer.password="pass1" \
      --set appsettings.settings.eventStoreConnectionString="Host=openftth-event-store-postgresql;Port=5432;Username=postgres;Password=postgres;Database=EVENT_STORE"
