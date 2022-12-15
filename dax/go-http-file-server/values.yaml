@@ -20,7 +20,7 @@ password: pass1
 
 fileWatcher:
   image: openftth/file-change-notificator
-  tag: v0.2.0
+  tag: v0.3.0
   resources:
     memoryRequest: 100Mi
     memoryLimit: 125Mi
