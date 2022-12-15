@@ -20,6 +20,12 @@ spec:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-{{ .Chart.Name }}
+        - name: {{ .Release.Name }}-fcn-secret-volume
+          secret:
+            secretName: {{ .Release.Name }}-fcn-secret
+            items:
+            - key: appsettings
+              path: appsettings.json
       containers:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -48,7 +54,7 @@ spec:
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: {{ .Values.storage.path }}
-        - name: file-watcher-kafka-sidecar
+        - name: {{ .Release.Name }}-fcn-sidecar
           image: {{ .Values.fileWatcher.image }}:{{ .Values.fileWatcher.tag }}
           resources:
             requests:
@@ -69,16 +75,10 @@ spec:
               - /tmp/healthy
             initialDelaySeconds: 15
             periodSeconds: 15
-          env:
-            - name: KAFKA__CONSUMER
-              value: {{ .Values.fileWatcher.kafka.consumer }}
-            - name: KAFKA__SERVER
-              value: {{ .Values.fileWatcher.kafka.server }}
-            - name: KAFKA__TOPIC
-              value: {{ .Values.fileWatcher.kafka.topic }}
-            - name: WATCH__DIRECTORY
-              value: {{ .Values.fileWatcher.watch.directory }}
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: {{ .Values.storage.path }}
+            - name: {{ .Release.Name }}-fcn-secret-volume
+              mountPath: /app/appsettings.json
+              subPath: appsettings.json
       restartPolicy: Always
