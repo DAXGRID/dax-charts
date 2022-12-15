@@ -51,7 +51,7 @@ spec:
             failureThreshold: 100
             periodSeconds: 10
           env:
-            - name: NOTIFICATIONSERVER__SERVER
+            - name: NOTIFICATIONSERVER__DOMAIN
               value: {{ .Values.watcher.notificationServer.domain }}
             - name: NOTIFICATIONSERVER__PORT
               value: "{{ .Values.watcher.notificationServer.port }}"
