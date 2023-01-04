@@ -4,7 +4,7 @@ image:
 
 watcher:
   image: openftth/tile-watcher
-  tag: v2.0.0
+  tag: v2.1.0
   enabled: false
   notificationServer:
     domain: notification-server
