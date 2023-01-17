@@ -48,7 +48,7 @@ spec:
               command:
               - cat
               - /tmp/healthy
-            failureThreshold: 100
+            failureThreshold: {{ .Values.watcher.startupProbe.failureThreshold }}
             periodSeconds: 10
           env:
             - name: NOTIFICATIONSERVER__DOMAIN

@@ -18,6 +18,8 @@ watcher:
     processes:
       - name: ""
         value: ""
+  startupProbe:
+    failureThreshold: 100
 
 service:
   externalPort: 80
