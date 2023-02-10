@@ -40,18 +40,6 @@ spec:
         - name: LOGGING__LOGLEVEL_DEFAULT
           value: {{ .Values.loglevel }}
 
-        - name: KAFKA__CONSUMER
-          value: {{ .Values.kafka.consumer }}
-        - name: KAFKA__SERVER
-          value: openftth-kafka-cluster-kafka-bootstrap:9092
-        - name: KAFKA__POSITIONCONNECTIONSTRING
-          valueFrom:
-            secretKeyRef:
-              key: kafkaPositionConnectionString
-              name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
-        - name: KAFKA__TOPIC
-          value: {{ .Values.kafka.topic }}
-
         - name: TYPESENSE__HOST
           value: {{ .Values.typesense.host }}
         - name: TYPESENSE__PORT
@@ -63,4 +51,8 @@ spec:
             secretKeyRef:
               key: typesenseApiKey
               name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+
+        - name: EVENTSTORE__CONNECTIONSTRING
+          value: "{{ .Values.eventStore.ConnectionString }}"
+
       restartPolicy: Always

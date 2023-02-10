@@ -2,12 +2,10 @@ loglevel: "Information"
 
 image:
   repository: openftth/route-network-search-indexer
-  tag: v3.0.0
+  tag: v4.0.0
 
-kafka:
-  consumer: route_network_search_indexer
-  positionConnectionString: ""
-  topic: domain.route-network
+eventStore:
+  connectionString: ""
 
 typesense:
   host: openftth-search-typesense
