@@ -16,6 +16,6 @@ Example of installing it with overridden parameters.
 ```sh
 helm upgrade --install route-network-search-indexer dax/route-network-search-indexer \
      --namespace my-namespace \
-     --set kafka.positionConnectionString="Host=my-host;Port=5432;Username=postgres;Password=postgres;Database=my-database" \
+     --set eventStore.connectionString="" \
      --set typesense.apiKey="myApiKey"
 ```
