@@ -53,6 +53,9 @@ spec:
               name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
 
         - name: EVENTSTORE__CONNECTIONSTRING
-          value: "{{ .Values.eventStore.ConnectionString }}"
+          valueFrom:
+            secretKeyRef:
+              key: eventStoreConnectionString
+              name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
 
       restartPolicy: Always
