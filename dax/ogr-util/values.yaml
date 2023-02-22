@@ -1,0 +1,45 @@
+image:
+  repository: openftth/ogr-util
+  tag: v0.1.0
+
+schedule: "0 0 * * *"
+
+restartPolicy: Always
+backoffLimit: 5
+
+resources:
+  memoryRequest: 200Mi
+  memoryLimit: 225Mi
+
+## AppSettings are specified in the following format to easily map the
+## YAML configuration to a JSON configuration file for the application.
+## This means that we can always just add more fields without having to change the environment variables.
+appsettings:
+  settings:
+    executions:
+      - commandArgs: ""
+
+    ## @param localFilePath should point to the file created by the commandArgs.
+    localFilePath: ""
+
+    ## @param uploadDirPath specifies the external directory where the file should be uploaded to.
+    uploadDirPath: ""
+
+    ## @param expectedByteThreshold specify a minimum byte-size expected for the uploaded file.
+    ## If `null` is specified, no threshold is set.
+    expectedByteThreshold: null
+
+    ## @param fileServer the configurations for the file server, the place that the file is uploaded to.
+    fileServer:
+      ## @param hostAddress should always contain the protocol, `http` or `https`.
+      ## Port is not required unless it's not the default port 80 for `http` or 443 for `https`.
+      hostAddress: "http://localhost:8080"
+      username: ""
+      password: ""
+
+    ## @param postgresConnectionString the postgresql connectionString to the data-source.
+    postgresConnectionString: ""
+
+    ## @param fileTimeStamp specifies the timestamp-type suffix for the file name.
+    ## Values are "None", "Date" and "UnixTimeStamp".
+    fileTimeStamp: "None"
