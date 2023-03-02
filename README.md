@@ -34,6 +34,7 @@ The repository contains the following Helm charts.
 * [Tippecanoe](https://github.com/DAXGRID/dax-charts/tree/master/dax/tippecanoe)
 * [Mbtileserver](https://github.com/DAXGRID/dax-charts/tree/master/dax/mbtileserver)
 * [Go-http-file-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/go-http-file-server)
+* [Ogr-util](https://github.com/DAXGRID/dax-charts/tree/master/dax/ogr-util)
 
 ### Aura
 
