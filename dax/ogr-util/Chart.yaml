@@ -2,5 +2,5 @@ apiVersion: v2
 name: ogr-util
 appVersion: "0.1.0"
 description: Helm Chart for OGR-Util
-version: 1.0.0
+version: 1.0.1
 type: application
