@@ -1,6 +1,0 @@
-apiVersion: v2
-name: tegola
-appVersion: "0.13.0"
-description: A Helm chart for tegola
-version: 1.0.0
-type: application

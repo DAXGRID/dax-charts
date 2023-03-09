@@ -29,7 +29,6 @@ The repository contains the following Helm charts.
 
 ### Other
 
-* [Tegola](https://github.com/DAXGRID/dax-charts/tree/master/dax/tegola)
 * [Typesense](https://github.com/DAXGRID/dax-charts/tree/master/dax/typesense)
 * [Tippecanoe](https://github.com/DAXGRID/dax-charts/tree/master/dax/tippecanoe)
 * [Mbtileserver](https://github.com/DAXGRID/dax-charts/tree/master/dax/mbtileserver)
