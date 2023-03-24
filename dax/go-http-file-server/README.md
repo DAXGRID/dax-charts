@@ -15,7 +15,5 @@ Example of installing it with overridden parameters.
 
 ```sh
 helm upgrade --install my-release-name dax/go-http-file-server \
-  --namespace my-namespace \
-  --set username=changeMe! \
-  --set password=changeMe!
+  --namespace my-namespace
 ```
