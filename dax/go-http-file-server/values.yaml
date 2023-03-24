@@ -1,6 +1,6 @@
 image:
   repository: openftth/go-http-file-server
-  tag: v1.15.5_v4
+  tag: v1.15.8
 
 resources:
   memoryRequest: 200Mi
@@ -15,8 +15,7 @@ storage:
   size: 4Gi
   path: /data
 
-username: user1
-password: pass1
+commandLineArgs: ""
 
 fileWatcher:
   image: openftth/file-change-notificator

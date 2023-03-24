@@ -20,6 +20,12 @@ spec:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-{{ .Chart.Name }}
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-secret-volume
+          secret:
+            secretName: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+            items:
+            - key: ghfs-config
+              path: ghfs-config
         - name: {{ .Release.Name }}-fcn-secret-volume
           secret:
             secretName: {{ .Release.Name }}-fcn-secret
@@ -35,25 +41,15 @@ spec:
             limits:
               memory: {{ .Values.resources.memoryLimit }}
           ports:
-            - containerPort: 8080
-          env:
-            - name: GHFS_ROOT_DIR
-              value: /data/
-            - name: GHFS_PORT
-              value: "8080"
-            - name: GHFS_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  key: username
-                  name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
-            - name: GHFS_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: password
-                  name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+            - containerPort: 80
+          command: ["/ghfs"]
+          args: ["--config", "/ghfs-config"]
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: {{ .Values.storage.path }}
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-secret-volume
+              mountPath: /ghfs-config
+              subPath: ghfs-config
         - name: {{ .Release.Name }}-fcn-sidecar
           image: {{ .Values.fileWatcher.image }}:{{ .Values.fileWatcher.tag }}
           resources:
