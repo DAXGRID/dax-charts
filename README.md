@@ -21,11 +21,11 @@ The repository contains the following Helm charts.
 * [Address-import-dawa](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-import-dawa)
 * [Address-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-search-indexer)
 * [Equipment-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/equipment-search-indexer)
-* [tile-data-extract](https://github.com/DAXGRID/dax-charts/tree/master/dax/tile-data-extract)
+* [Tile-data-extract](https://github.com/DAXGRID/dax-charts/tree/master/dax/tile-data-extract)
 * [Route-network-search-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/route-network-search-indexer)
 * [Danish-address-seed](https://github.com/DAXGRID/dax-charts/tree/master/dax/danish-address-seed)
 * [open-ftth-backup](https://github.com/DAXGRID/dax-charts/tree/master/dax/open-ftth-backup)
-* [notification-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/notification-server)
+* [Notification-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/notification-server)
 
 ### Other
 
