@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-circuit-integration
-  tag: v0.1.1
+  tag: v0.2.0
 
 resources:
   memoryRequest: "175Mi"
@@ -9,12 +9,20 @@ resources:
 appsettings:
   settings:
     serviceBus:
-      connectionString: ""
-      topicName: ""
-      subscriptionName: ""
+      readConnectionString: ""
+      sendConnectionString: ""
       headerTypeName: ""
+      readTopicName: ""
+      readSubscriptionName: ""
+      sendTopicName: ""
+    database:
+      host: ""
+      port: ""
+      database: ""
+      username: ""
+      password: ""
     graphQL:
-      endPoint: ""
       clientId: ""
       clientSecret: ""
+      endPoint: ""
       tokenEndPoint: ""
