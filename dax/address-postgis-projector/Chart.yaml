@@ -1,6 +1,6 @@
 apiVersion: v2
 name: address-postgis-projector
-appVersion: "0.1.3"
+appVersion: "0.2.0"
 description: Helm chart for address postgis projector
-version: 1.0.3
+version: 1.0.4
 type: application
