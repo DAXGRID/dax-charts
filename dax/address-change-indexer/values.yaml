@@ -1,0 +1,12 @@
+image:
+  repository: openftth/address-change-indexer
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 2.75Gi
+  memoryLimit: 3.0Gi
+
+appsettings:
+  settings:
+    eventStoreConnectionString: ""
+    geoDatabaseConnectionString: ""

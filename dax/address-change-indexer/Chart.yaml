@@ -1,0 +1,6 @@
+apiVersion: v2
+name: address-change-indexer
+appVersion: "0.1.0"
+description: Helm chart for openftth address change indexer
+version: 1.0.0
+type: application
