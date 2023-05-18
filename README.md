@@ -26,6 +26,7 @@ The repository contains the following Helm charts.
 * [Danish-address-seed](https://github.com/DAXGRID/dax-charts/tree/master/dax/danish-address-seed)
 * [open-ftth-backup](https://github.com/DAXGRID/dax-charts/tree/master/dax/open-ftth-backup)
 * [Notification-server](https://github.com/DAXGRID/dax-charts/tree/master/dax/notification-server)
+* [Address-change-indexer](https://github.com/DAXGRID/dax-charts/tree/master/dax/address-change-indexer)
 
 ### Other
 
