@@ -1,0 +1,14 @@
+image:
+  repository: openftth/nord-energi-installation-address-creator
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 1.25Gi
+  memoryLimit: 1.5Gi
+
+appsettings:
+  settings:
+    eventStoreConnectionString: ""
+    geoDatabaseConnectionString: ""
+    supplyZonePolygonTableName: ""
+    installationAddressTableName: ""
