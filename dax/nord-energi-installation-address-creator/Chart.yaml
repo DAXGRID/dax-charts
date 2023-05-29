@@ -1,0 +1,6 @@
+apiVersion: v2
+name: nord-energi-installation-address-creator
+appVersion: "0.1.0"
+description: Helm chart for nord-energi installation address creator
+version: 1.0.0
+type: application
