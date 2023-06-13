@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-installation-integration
-  tag: v0.1.5
+  tag: v0.2.0
 
 resources:
   memoryRequest: "175Mi"
@@ -8,6 +8,7 @@ resources:
 
 appsettings:
   settings:
+    databaseConnectionString: ""
     serviceBus:
       connectionString: ""
       topicName: ""

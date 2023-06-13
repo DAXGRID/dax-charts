@@ -17,6 +17,7 @@ Example of installing it with overridden parameters.
 helm upgrade --install aura-installation-integration dax/aura-installation-integration \
      --version REPLACE_WITH_VERSION
      --namespace REPLACE_WITH_NAMESPACE \
+     --set appsettings.settings.databaseConnectionString="" \
      --set appsettings.settings.serviceBus.connectionString="" \
      --set appsettings.settings.serviceBus.topicName="" \
      --set appsettings.settings.serviceBus.subscriptionName="" \
