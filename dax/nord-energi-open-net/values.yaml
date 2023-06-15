@@ -1,0 +1,15 @@
+image:
+  repository: openftth/nord-energi-open-net
+  tag: v0.1.0
+
+resources:
+  memoryRequest: "200Mi"
+  memoryLimit: "250Mi"
+
+service:
+  externalPort: 80
+  type: ClusterIP
+
+appsettings:
+  settings:
+    connectionString: ""
