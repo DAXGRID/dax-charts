@@ -1,0 +1,18 @@
+image:
+  repository: openftth/nord-energi-installation-integrator
+  tag: v0.2.0
+
+resources:
+  memoryRequest: "200Mi"
+  memoryLimit: "250Mi"
+
+appsettings:
+  settings:
+    notificationServer:
+      domain: notification-server
+      port: 80
+    fileServer:
+      uri: http://file-server-go-http-file-server
+      username: user1
+      password: pass1
+    connectionString: ""
