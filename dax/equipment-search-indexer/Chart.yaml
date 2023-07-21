@@ -1,6 +1,6 @@
 apiVersion: v2
 name: equipment-search-indexer
-appVersion: "1.3.5"
+appVersion: "1.3.6"
 description: A Helm chart for equipment search indexer
-version: 1.3.12
+version: 1.3.13
 type: application
