@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  schedule: "{{ .Values.schedule }}"
+  startingDeadlineSeconds: 30
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: {{ .Values.backoffLimit }}
+      template:
+        spec:
+          containers:
+            - name: {{ .Chart.Name }}
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              resources:
+                requests:
+                  memory: {{ .Values.resources.memoryRequest }}
+                limits:
+                  memory: {{ .Values.resources.memoryLimit }}
+              volumeMounts:
+                - name: {{ .Chart.Name }}-volume
+                  mountPath: /app/appsettings.json
+                  subPath: appsettings.json
+              env:
+                - name: FILE_SERVER_URI
+                  value: {{ .Values.fileServer.uri }}
+                - name: FILE_SERVER_USERNAME
+                  value: {{ .Values.fileServer.username }}
+                - name: FILE_SERVER_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: fileServerPassword
+                      name: {{ .Chart.Name }}-secret
+          volumes:
+            - name: {{ .Chart.Name }}-volume
+              secret:
+                secretName: {{ .Chart.Name }}-secret
+                items:
+                - key: appsettings
+                  path: appsettings.json
+          restartPolicy: {{ .Values.restartPolicy }}

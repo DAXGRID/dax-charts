@@ -1,0 +1,151 @@
+image:
+  repository: openftth/danish-basemap-extra
+  tag: v0.1.3
+
+resources:
+  memoryRequest: 1450Mi
+  memoryLimit: 1550Mi
+
+# Every sunday at 15.00
+schedule: "0 15 * * 0"
+restartPolicy: Never
+backoffLimit: 0
+
+# Settings for uploading tilesets to the file-server.
+fileServer:
+  uri: "http://file-server-go-http-file-server"
+  username: "user1"
+  password: "pass1"
+
+# Appsettings for danish geojson extraction.
+appsettings:
+  settings:
+    outDirPath: "/app/data"
+    ftpSetting:
+      host: "ftp://ftp3.datafordeler.dk"
+      username: ""
+      password: ""
+    matrikel:
+      datasets:
+        bygningpaafremmedgrundpunkt: false
+        centroide: false
+        ejerlav: false
+        ejerlejlighed: false
+        ejerlejlighedslod: false
+        fredskovflade: false
+        fredskovlinje: false
+        jordstykke: false
+        klitfredningflade: false
+        klitfredninglinje: false
+        lodflade: false
+        matrikelkommune: false
+        matrikelskel: true
+        matrikelsogn: false
+        nullinje: false
+        optagetvej: false
+        samletfastejendom: false
+        skelpunkt: false
+        strandbeskyttelseflade: false
+        strandbeskyttelselinje: false
+    geoDanmark:
+      datasets:
+        afvandingsgroeft: false
+        anlaegdiverse: false
+        badebaadebro: false
+        bassin: false
+        begravelsesomraade: false
+        broenddaeksel: true
+        brugsgraense: false
+        bygning: true
+        bygvaerk: false
+        bykerne: false
+        chikane: false
+        daemning: false
+        dhmhestesko: false
+        dhmlinje: false
+        dige: false
+        erhverv: false
+        fotoindex: false
+        gartneri: false
+        havn: false
+        hede: false
+        hegn: true
+        helle: true
+        hoefde: false
+        hoejbebyggelse: false
+        hoejspaendingsledning: false
+        jernbane: false
+        kommuneomraade: false
+        kratbevoksning: false
+        kyst: false
+        lavbebyggelse: false
+        mast: true
+        nedloebsrist: true
+        omraadepolygon: false
+        parkering: false
+        parkeringsomraade: false
+        plads: false
+        raastofomraade: false
+        rekreativtomraade: false
+        sandklit: false
+        skorsten: false
+        skov: false
+        skraent: false
+        soe: false
+        sportsbane: false
+        startbane: false
+        statuesten: false
+        systemlinje: false
+        tekniskanlaegflade: false
+        tekniskanlaegpunkt: false
+        tekniskareal: false
+        telemast: false
+        togstation: false
+        trae: false
+        traegruppe: false
+        trafikhegn: false
+        udpegningflade: false
+        udpegninglinje: false
+        udpegningpunkt: false
+        vaadomraade: false
+        vandafstroemningsopland: false
+        vandhaendelse: false
+        vandknude: false
+        vandloebskant: false
+        vandloebsmidte: false
+        vejkant: true
+        vejmidte: true
+        vindmoelle: false
+    dawa:
+      datasets:
+        adgangsadresse: false
+        enhedsadresse: false
+        vej: false
+        postnummer: false
+        navngivenvejkommunedel: false
+    stedNavn:
+      datasets:
+        andentopografiflade: false
+        andentopografipunkt: false
+        bebyggelse: false
+        begravelsesplads: false
+        bygning: false
+        campingplads: false
+        farvand: false
+        fortidsminde: false
+        friluftsbad: false
+        havnebassin: false
+        idraetsanlaeg: false
+        jernbane: false
+        landskabsform: false
+        lufthavn: false
+        naturareal: false
+        navigationsanlaeg: false
+        restriktionsareal: false
+        sevaerdighed: false
+        soe: false
+        standsningssted: false
+        terraenkontur: false
+        urentfarvand: false
+        vandloeb: false
+        vej: false
