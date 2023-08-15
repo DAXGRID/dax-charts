@@ -18,3 +18,4 @@ appsettings:
     fileNotificationMatches: {}
     outputDirectoryPath: "/tmp/"
     triggerCommmand: "/app/files/example.sh"
+    removeFileOnFileServerWhenCompleted: false
