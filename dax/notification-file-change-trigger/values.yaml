@@ -1,0 +1,20 @@
+image:
+  repository: openftth/notification-file-change-trigger
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 225Mi
+  memoryLimit: 250Mi
+
+appsettings:
+  settings:
+    notificationServer:
+      domain: "notification-server"
+      port: 80
+    fileServer:
+      uri: "http://file-server-go-http-file-server"
+      username: ""
+      password: ""
+    fileNotificationMatches: {}
+    outputDirectoryPath: "/tmp/"
+    triggerCommmand: "/app/files/example.sh"
