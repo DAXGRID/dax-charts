@@ -19,3 +19,4 @@ appsettings:
     outputDirectoryPath: "/tmp/"
     triggerCommmand: "/app/files/example.sh"
     removeFileOnFileServerWhenCompleted: false
+    initialLoadDirectories: {}
