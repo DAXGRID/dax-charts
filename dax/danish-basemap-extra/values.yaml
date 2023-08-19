@@ -120,9 +120,9 @@ appsettings:
       datasets:
         adgangsadresse: false
         enhedsadresse: false
-        vej: false
+        vej: true
         postnummer: false
-        navngivenvejkommunedel: false
+        navngivenvejkommunedel: true
     stedNavn:
       datasets:
         andentopografiflade: false
