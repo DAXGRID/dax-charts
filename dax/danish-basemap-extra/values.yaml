@@ -1,6 +1,6 @@
 image:
   repository: openftth/danish-basemap-extra
-  tag: v0.2.0
+  tag: v0.2.1
 
 resources:
   memoryRequest: 1450Mi
