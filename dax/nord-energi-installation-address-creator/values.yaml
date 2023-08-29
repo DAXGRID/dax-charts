@@ -1,6 +1,6 @@
 image:
   repository: openftth/nord-energi-installation-address-creator
-  tag: v0.2.0
+  tag: v0.3.0
 
 resources:
   memoryRequest: 1.25Gi
