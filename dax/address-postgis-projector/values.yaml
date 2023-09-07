@@ -2,10 +2,6 @@ image:
   repository: openftth/address-postgis-projector
   tag: v0.6.0
 
-schedule: "0 0 * * *"
-restartPolicy: Never
-backoffLimit: 0
-
 resources:
   memoryRequest: 3Gi
   memoryLimit: 3.25Gi
