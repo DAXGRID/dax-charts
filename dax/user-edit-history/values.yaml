@@ -1,0 +1,12 @@
+image:
+  repository: openftth/user-edit-history
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 750Mi
+  memoryLimit: 1000Mi
+
+appsettings:
+  settings:
+    eventStoreConnectionString: ""
+    connectionString: ""
