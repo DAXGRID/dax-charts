@@ -3,8 +3,8 @@ image:
   tag: v0.1.0
 
 resources:
-  memoryRequest: 750Mi
-  memoryLimit: 1000Mi
+  memoryRequest: 500Mi
+  memoryLimit: 600Mi
 
 appsettings:
   settings:
