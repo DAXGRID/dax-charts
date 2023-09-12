@@ -19,5 +19,5 @@ helm upgrade --install relational-projector dax/relational-projector \
      --set eventStoreDatabase.password="postgres" \
      --set geoDatabase.name="OPEN_FTTH" \
      --set geoDatabase.username="postgres" \
-     --set geoDAtabase.password="postgres"
+     --set geoDatabase.password="postgres"
 ```
