@@ -1,6 +1,6 @@
 image:
   repository: openftth/ogr-util
-  tag: v0.2.3
+  tag: v0.3.0
 
 schedule: "0 0 * * *"
 
@@ -19,8 +19,9 @@ appsettings:
     executions:
       - commandArgs: ""
 
-    ## @param localFilePath should point to the file created by the commandArgs.
-    localFilePath: ""
+    ## @param localFilePaths should point to the files created by the commandArgs that you want to upload.
+    localFilePaths:
+      - ""
 
     ## @param uploadDirPath specifies the external directory where the file should be uploaded to.
     uploadDirPath: ""
