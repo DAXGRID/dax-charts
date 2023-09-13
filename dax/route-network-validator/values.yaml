@@ -1,0 +1,25 @@
+image:
+  repository: openftth/route-network-validator
+  tag: v4.0.2
+
+replicas: 1
+
+resources:
+  requests:
+    memory: 1500Mi
+  limits:
+    memory: 2Gi
+
+loglevel: "Information"
+
+postgis:
+  database: OPEN_FTTH
+  username: ""
+  password: ""
+
+notificationServer:
+  domain: "notification-server"
+  port: 80
+
+eventStore:
+  connectionString: ""
