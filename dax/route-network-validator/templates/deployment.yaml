@@ -52,7 +52,7 @@ spec:
         - name: DATABASE__PORT
           value: "5432"
         - name: DATABASE__DATABASE
-          value: {{ .Values.database.database }}
+          value: {{ .Values.postgis.database }}
         - name: DATABASE__USERNAME
           valueFrom:
             secretKeyRef:
