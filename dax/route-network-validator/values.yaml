@@ -13,6 +13,7 @@ resources:
 loglevel: "Information"
 
 postgis:
+  host: openftth-postgis
   database: OPEN_FTTH
   username: ""
   password: ""

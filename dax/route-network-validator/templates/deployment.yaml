@@ -48,7 +48,7 @@ spec:
           value: "Console"
 
         - name: DATABASE__HOST
-          value: {{ .Release.Name }}-postgis
+          value: {{ .Values.postgis.host }}
         - name: DATABASE__PORT
           value: "5432"
         - name: DATABASE__DATABASE
