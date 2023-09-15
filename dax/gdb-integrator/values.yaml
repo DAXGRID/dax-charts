@@ -1,0 +1,30 @@
+postgis:
+  host: openftth-postgis
+  database: OPEN_FTTH
+  username: postgres
+  password: postgres
+
+replicas: 1
+loglevel: "Information"
+
+resources:
+  requests:
+    memory: 300Mi
+
+application:
+  tolerance: "0.01"
+  applicationName: "GDB_INTEGRATOR"
+  sendGeographicalAreaUpdatedNotification: true
+  enableSegmentEndsAutoSnappingToRouteNode: true
+  apiGatewayHost: http://openftth-api-gateway
+
+notificationServer:
+  domain: "notification-server"
+  port: 80
+
+eventStore:
+  connectionString: ""
+
+image:
+  repository: openftth/gdb-integrator
+  tag: v7.1.0
