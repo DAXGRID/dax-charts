@@ -1,0 +1,26 @@
+replicas: 1
+serviceType: NodePort
+
+image:
+  repository: openftth/frontend
+  tag: v5.74.3
+
+desktopBridgeUri: ""
+apiGatewayHttpUri: ""
+apiGatewayWsUri: ""
+keyCloakUri: ""
+
+routeNetworkTileServerUri: ""
+aerialPhotoServerUri: ""
+basemapTileServerUri: ""
+
+colorMarkings:
+  - Blue
+  - Red
+  - Green
+
+layers: {}
+
+informationControlConfig: {}
+
+maplibreJson: ""

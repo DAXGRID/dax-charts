@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+      annotations:
+        # To always recreate on update.
+        rollme: {{ randAlphaNum 5 | quote }}
+    spec:
+      volumes:
+       - name: {{ .Release.Name }}-mnt
+         configMap:
+           name: {{ .Release.Name }}
+           items:
+           - key: config-env.js
+             path: config-env.js
+           - key: maplibre.json
+             path: maplibre.json
+      containers:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        volumeMounts:
+         - name: {{ .Release.Name }}-mnt
+           mountPath: /usr/share/nginx/html/config-env.js
+           subPath: config-env.js
+         - name: {{ .Release.Name }}-mnt
+           mountPath: /usr/share/nginx/html/maplibre.json
+           subPath: maplibre.json
+      restartPolicy: Always
