@@ -6,11 +6,13 @@ image:
   tag: v4.3.0
 
 eventStoreDatabase:
+  host: ""
   name: EVENT_STORE
   username: ""
   password: ""
 
 geoDatabase:
+  host: ""
   name: OPEN_FTTH
   username: ""
   password: ""
