@@ -1,0 +1,41 @@
+replicas: 1
+loglevel: "Information"
+
+image:
+  repository: openftth/api-gateway
+  tag: v4.3.0
+
+eventStoreDatabase:
+  name: EVENT_STORE
+  username: ""
+  password: ""
+
+geoDatabase:
+  name: OPEN_FTTH
+  username: ""
+  password: ""
+
+resources:
+  requests:
+    memory: 1500Mi
+  limits:
+    memory: 2000Mi
+
+typesense:
+  host: ""
+  port: "80"
+  apiKey: ""
+
+auth:
+  host: "http://keycloak/auth/realms/openftth"
+  requireHttps: false
+  audience: "account"
+  enable: true
+  validIssuers: ""
+
+outageService:
+  outageServiceUrl: ""
+
+notificationServer:
+  domain: "notification-server"
+  port: 80
