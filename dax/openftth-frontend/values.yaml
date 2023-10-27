@@ -24,3 +24,5 @@ layers: {}
 informationControlConfig: {}
 
 maplibreJson: ""
+
+defaultUserLanguage: "en"
