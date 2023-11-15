@@ -14,6 +14,8 @@ helm upgrade postgres-client-cronjob dax/postgres-client-cronjob \
 
 ## Example of how a script could look like.
 
-```sql
+```sh
+#!/usr/bin/env bash
+
 psql -U $PGUSERNAME -d MY_DB_NAME -h $PGHOST -p $PGPORT -c 'SELECT COUNT(*) FROM route_network.route_segment'
 ```
