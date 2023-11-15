@@ -1,0 +1,19 @@
+image:
+  repository: openftth/postgres-client
+  tag: 16
+
+schedule: "0 0 * * *"
+restartPolicy: Never
+backoffLimit: 0
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 150Mi
+
+postgresql:
+  username: ""
+  password: ""
+  port: 5432
+  host: ""
+
+command: "/scripts/execute.sh"
