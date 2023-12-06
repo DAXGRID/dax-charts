@@ -14,7 +14,7 @@ spec:
       template:
         spec:
           containers:
-            - name: {{ .Chart.Name }}
+            - name: {{ .Release.Name }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               resources:
                 requests:
