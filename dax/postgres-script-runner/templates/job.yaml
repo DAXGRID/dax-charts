@@ -1,0 +1,43 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  backoffLimit: {{ .Values.backoffLimit }}
+  template:
+    spec:
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.memoryRequest }}
+            limits:
+              memory: {{ .Values.resources.memoryLimit }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-conf-volume
+              mountPath: /scripts
+          env:
+            - name: PGUSERNAME
+              value: {{ .Values.postgresql.username }}
+            - name: PGPORT
+              value: "{{ .Values.postgresql.port }}"
+            - name: PGHOST
+              value: {{ .Values.postgresql.host }}
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgresqlPassword
+                  name: {{ .Release.Name }}-secret
+          command:
+            - /bin/sh
+            - -c
+            - "{{ .Values.command }}"
+      volumes:
+        - name: {{ .Release.Name }}-conf-volume
+          configMap:
+            name: {{ .Release.Name }}-conf
+            # 0500 is read and execute, this is set so we can execute the injected scripts.
+            defaultMode: 0500
+      restartPolicy: Never
+  backoffLimit: 0
