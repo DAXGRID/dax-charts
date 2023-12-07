@@ -1,6 +1,6 @@
 image:
   repository: openftth/route-network-validator
-  tag: v4.1.0
+  tag: v4.2.0
 
 replicas: 1
 
