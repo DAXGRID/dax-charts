@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: openftth/route-network-search-indexer
-  tag: v4.1.0
+  tag: v4.2.0
 
 eventStore:
   connectionString: ""
