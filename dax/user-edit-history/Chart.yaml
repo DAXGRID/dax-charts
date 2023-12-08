@@ -1,6 +1,6 @@
 apiVersion: v2
 name: user-edit-history
-appVersion: "0.2.0"
+appVersion: "0.3.0"
 description: Helm chart for address user edit history
-version: 1.1.1
+version: 1.1.2
 type: application
