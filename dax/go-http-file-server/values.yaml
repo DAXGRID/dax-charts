@@ -19,7 +19,7 @@ commandLineArgs: ""
 
 fileWatcher:
   image: openftth/file-change-notificator
-  tag: v0.5.0
+  tag: v0.6.1
   resources:
     memoryRequest: 100Mi
     memoryLimit: 125Mi
