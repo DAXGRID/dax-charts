@@ -1,6 +1,6 @@
 image:
   repository: openftth/nord-energi-open-net
-  tag: v0.3.5
+  tag: v0.4.0
 
 resources:
   memoryRequest: "200Mi"
