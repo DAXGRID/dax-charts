@@ -1,6 +1,6 @@
 image:
   repository: openftth/aura-installation-integration
-  tag: v0.2.2
+  tag: v0.3.0
 
 resources:
   memoryRequest: "175Mi"
