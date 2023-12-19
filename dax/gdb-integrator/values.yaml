@@ -27,4 +27,4 @@ eventStore:
 
 image:
   repository: openftth/gdb-integrator
-  tag: v7.2.0
+  tag: v7.2.1
