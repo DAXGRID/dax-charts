@@ -9,7 +9,7 @@ serviceType: NodePort
 apiKey: changeme!
 
 resources:
-  memoryRequest: "50Mi"
+  memoryRequest: "125Mi"
   memoryLimit: "150Mi"
 
 storage:
