@@ -1,0 +1,6 @@
+apiVersion: v2
+name: nord-energi-point-spreader
+appVersion: "v1.0.0"
+description: Helm chart for running Nord-energi point spreader.
+version: 1.0.0
+type: application

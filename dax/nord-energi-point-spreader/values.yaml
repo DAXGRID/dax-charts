@@ -1,0 +1,13 @@
+image:
+  repository: openftth/nord-energi-point-spreader
+  tag: v1.0.0
+
+backoffLimit: 0
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 125Mi
+
+appsettings:
+  settings:
+    connectionString: ""
