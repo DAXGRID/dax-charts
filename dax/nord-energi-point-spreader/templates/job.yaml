@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  template:
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources:
+          requests:
+            memory: {{ .Values.resources.memoryRequest }}
+          limits:
+            memory: {{ .Values.resources.memoryLimit }}
+        volumeMounts:
+          - name: {{ .Release.Name }}-volume
+            mountPath: /app/appsettings.json
+            subPath: appsettings.json
+      volumes:
+        - name: {{ .Release.Name }}-volume
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+            - key: appsettings
+              path: appsettings.json
+      restartPolicy: Never
+  backoffLimit: {{ .Values.backoffLimit }}
