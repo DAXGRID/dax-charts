@@ -27,4 +27,4 @@ maplibreJson: ""
 
 defaultUserLanguage: "en"
 
-window.initialUserPrompt: {}
+initialUserPrompt: {}
