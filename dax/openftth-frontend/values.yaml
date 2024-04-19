@@ -26,3 +26,5 @@ informationControlConfig: {}
 maplibreJson: ""
 
 defaultUserLanguage: "en"
+
+window.initialUserPrompt: {}

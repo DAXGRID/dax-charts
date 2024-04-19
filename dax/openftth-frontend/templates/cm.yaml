@@ -14,5 +14,10 @@ data:
     window.config_LAYERS = {{ .Values.layers | toJson }};
     window.config_DEFAULT_USER_LANGUAGE = "{{ .Values.defaultUserLanguage }}";
     window.config_INFORMATION_CONTROL_CONFIG = {{ .Values.informationControlConfig | toJson }};
+    {{- if .Values.initialUserPrompt }}
+    window.config_config_INITIAL_USER_PROMPT = {{ .Values.initialUserPrompt | toJson }};
+    {{- else }}
+    window.config_config_INITIAL_USER_PROMPT = null;
+    {{-  end }}
   maplibre.json: |-
 {{ .Values.maplibreJson | indent 4 }}
