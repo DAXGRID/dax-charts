@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  serviceName: {{ .Release.Name }}
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      volumes:
+        - name: {{ .Release.Name }}-dshm
+          emptyDir:
+            medium: Memory
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory}}
+          env:
+            - name: POSTGRES_DB
+              value: OPEN_FTTH
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Release.Name }}-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Release.Name }}-secret
+          ports:
+            - containerPort: 5432
+              name: {{ .Chart.Name }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-data
+              mountPath: /var/lib/postgresql/
+            - name: {{ .Release.Name }}-dshm
+              mountPath: /dev/shm
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Release.Name }}-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        {{- if .Values.volumeClaim.storageClassName }}
+        storageClassName: {{ .Values.volumeClaim.storageClassName }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.volumeClaim.storage }}
