@@ -42,6 +42,7 @@ spec:
           volumeMounts:
             - name: {{ .Release.Name }}-data
               mountPath: /var/lib/postgresql/data
+              subPath: data
             - name: {{ .Release.Name }}-dshm
               mountPath: /dev/shm
   volumeClaimTemplates:
