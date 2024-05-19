@@ -16,3 +16,6 @@ resources:
     memory: 1Gi
 
 serviceAnnotations: {}
+
+maxConnections: 300
+sharedBuffers: "256MB"
