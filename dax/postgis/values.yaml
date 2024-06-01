@@ -19,3 +19,8 @@ serviceAnnotations: {}
 
 maxConnections: 300
 sharedBuffers: "256MB"
+
+sslEnabled: false
+rootCertificate: ""
+serverCertificate: ""
+serverKey: ""

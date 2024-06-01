@@ -13,14 +13,31 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      securityContext:
+        fsGroup: 999
       volumes:
         - name: {{ .Release.Name }}-dshm
           emptyDir:
             medium: Memory
+        - name: {{ .Release.Name }}-postgres-config-volume
+          configMap:
+            name: {{ .Release.Name }}-postgres-config
+            items:
+              - key: postgresql.conf
+                path: postgresql.conf
+             {{- if .Values.sslEnabled }}
+              - key: root.crt
+                path: root.crt
+              - key: server.crt
+                path: server.crt
+              - key: server.key
+                path: server.key
+                mode: 0400
+             {{- end }}
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          args: ["-c", "max_connections={{ .Values.maxConnections }}", "-c", "shared_buffers={{ .Values.sharedBuffers }}"]
+          args: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
           resources:
             requests:
               memory: {{ .Values.resources.requests.memory}}
@@ -46,6 +63,9 @@ spec:
               subPath: data
             - name: {{ .Release.Name }}-dshm
               mountPath: /dev/shm
+            - name: {{ .Release.Name }}-postgres-config-volume
+              mountPath: /etc/postgresql
+
   volumeClaimTemplates:
     - metadata:
         name: {{ .Release.Name }}-data
