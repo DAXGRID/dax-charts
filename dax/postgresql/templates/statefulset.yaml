@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  serviceName: {{ .Release.Name }}
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      securityContext:
+        fsGroup: 999
+      volumes:
+        - name: {{ .Release.Name }}-dshm
+          emptyDir:
+            medium: Memory
+        - name: {{ .Release.Name }}-postgres-config-volume
+          configMap:
+            name: {{ .Release.Name }}-postgres-config
+            items:
+              - key: postgresql.conf
+                path: postgresql.conf
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          args: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory}}
+          env:
+            - name: POSTGRES_DB
+              value: {{ .Values.databaseName }}
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: {{ .Release.Name }}-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Release.Name }}-secret
+          ports:
+            - containerPort: 5432
+              name: {{ .Chart.Name }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-data
+              mountPath: /var/lib/postgresql/data
+              subPath: data
+            - name: {{ .Release.Name }}-dshm
+              mountPath: /dev/shm
+            - name: {{ .Release.Name }}-postgres-config-volume
+              mountPath: /etc/postgresql
+
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Release.Name }}-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        {{- if .Values.volumeClaim.storageClassName }}
+        storageClassName: {{ .Values.volumeClaim.storageClassName }}
+        {{- end }}
+        resources:
+          requests:
+            storage: {{ .Values.volumeClaim.storage }}
