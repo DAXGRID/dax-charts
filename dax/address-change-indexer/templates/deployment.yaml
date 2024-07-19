@@ -24,6 +24,13 @@ spec:
             memory: {{ .Values.resources.memoryRequest }}
           limits:
             memory: {{ .Values.resources.memoryLimit }}
+        startupProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/healthy
+          failureThreshold: 60
+          timeoutSeconds: 10
         volumeMounts:
           - name: {{ .Release.Name }}-{{ .Chart.Name }}-volume
             mountPath: /app/appsettings.json
