@@ -1,0 +1,27 @@
+image:
+  repository: openftth/new-file-job-operator
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 125Mi
+  memoryLimit: 150Mi
+
+appsettings:
+  settings:
+    inCluster: true
+    fileServer:
+      username: "example_user"
+      password: "example_password"
+      domain: "http://file-server-go-http-file-server.default"
+      pollingPath: "/"
+      pollingIntervalMs: 500
+      pollingRetryIntervalMs: 500
+      pollingRetryMaxCount: 600
+    job:
+      podNamePrefix: "my-awesome-job"
+      podNamespace: "my-namespace"
+      podContainerImage: "openftth/file-operator-dummy-job:v1.0.0"
+      podCommand: null
+      podArgs: null
+      memoryRequest: "250Mi"
+      memoryLimit: "300Mi"
