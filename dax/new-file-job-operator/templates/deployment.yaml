@@ -29,6 +29,9 @@ spec:
           - name: {{ .Release.Name }}-volume
             mountPath: /app/appsettings.json
             subPath: appsettings.json
+      env:
+        - name: JOB_CONFIG_MAP_NAME
+          value: {{ .Release.Name }}-job-config
       volumes:
         - name: {{ .Release.Name }}-volume
           secret:
