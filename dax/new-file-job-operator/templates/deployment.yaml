@@ -25,13 +25,13 @@ spec:
             memory: {{ .Values.resources.memoryRequest }}
           limits:
             memory: {{ .Values.resources.memoryLimit }}
+        env:
+          - name: JOB_CONFIG_MAP_NAME
+            value: {{ .Release.Name }}-job-config
         volumeMounts:
           - name: {{ .Release.Name }}-volume
             mountPath: /app/appsettings.json
             subPath: appsettings.json
-      env:
-        - name: JOB_CONFIG_MAP_NAME
-          value: {{ .Release.Name }}-job-config
       volumes:
         - name: {{ .Release.Name }}-volume
           secret:
