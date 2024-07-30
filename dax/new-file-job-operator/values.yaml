@@ -1,6 +1,6 @@
 image:
   repository: openftth/new-file-job-operator
-  tag: v0.1.0
+  tag: v0.2.0
 
 resources:
   memoryRequest: 125Mi
@@ -20,7 +20,7 @@ appsettings:
     job:
       podNamePrefix: "my-awesome-job"
       podNamespace: "my-namespace"
-      podContainerImage: "openftth/file-operator-dummy-job:v1.0.0"
+      podContainerImage: "openftth/file-operator-dummy-job:v1.1.0"
       podCommand: null
       podArgs: null
       memoryRequest: "250Mi"
