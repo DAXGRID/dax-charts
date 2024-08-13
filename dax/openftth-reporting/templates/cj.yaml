@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Release.Name }}
 spec:
   schedule: "{{ .Values.schedule }}"
   startingDeadlineSeconds: 30
@@ -14,7 +14,7 @@ spec:
       template:
         spec:
           containers:
-            - name: {{ .Chart.Name }}
+            - name: {{ .Release.Name }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               resources:
                 requests:
@@ -22,13 +22,13 @@ spec:
                 limits:
                   memory: {{ .Values.resources.memoryLimit }}
               volumeMounts:
-                - name: {{ .Chart.Name }}-volume
+                - name: {{ .Release.Name }}-volume
                   mountPath: /app/appsettings.json
                   subPath: appsettings.json
           volumes:
-            - name: {{ .Chart.Name }}-volume
+            - name: {{ .Release.Name }}-volume
               secret:
-                secretName: {{ .Chart.Name }}-secret
+                secretName: {{ .Release.Name }}-secret
                 items:
                 - key: appsettings
                   path: appsettings.json
