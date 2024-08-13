@@ -1,0 +1,23 @@
+image:
+  repository: openftth/reporting
+  tag: v0.1.0
+
+schedule: "0 0 * * *"
+restartPolicy: Never
+backoffLimit: 0
+
+resources:
+  memoryRequest: 200Mi
+  memoryLimit: 250Mi
+
+appsettings:
+  settings:
+    clientId: ""
+    clientSecret: ""
+    reportApiBaseAddress: ""
+    tokenEndpoint: ""
+    uploadPath: ""
+    fileServer:
+      hostAddress: ""
+      username: ""
+      password: ""
