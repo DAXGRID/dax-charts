@@ -1,0 +1,6 @@
+apiVersion: v2
+name: openftth-reporting
+appVersion: "0.1.0"
+description: Helm chart for openftth reporting
+version: 1.0.0
+type: application
