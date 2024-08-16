@@ -1,0 +1,19 @@
+image:
+  repository: openftth/pod-failure-notifier
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 125Mi
+  memoryLimit: 150Mi
+
+appsettings:
+  settings:
+    inCluster: true
+    watchNamespaces: {}
+    notificationMailSubject: "This is the email subject header."
+    notificationMailSender: ""
+    notificationMailRecipients: {}
+    mail:
+      host: ""
+      username: ""
+      password: ""
