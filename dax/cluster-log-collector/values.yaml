@@ -1,0 +1,13 @@
+image:
+  repository: openftth/cluster-log-collector
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 200Mi
+  memoryLimit: 250Mi
+
+appsettings:
+  settings:
+    inCluster: true
+    databaseLocation: "/data/"
+    namespacesToWatch: []
