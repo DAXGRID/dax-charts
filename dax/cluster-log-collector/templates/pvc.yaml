@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-database-volume-claim
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   {{ if .Values.volumeClaim.storageClassName }}
   storageClassName: {{ .Values.volumeClaim.storageClassName }}
   {{ end }}
