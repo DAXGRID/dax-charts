@@ -33,7 +33,6 @@ spec:
         volumeMounts:
           - name: {{ .Release.Name }}-database-volume
             mountPath: "/data"
-            readOnly: true
       volumes:
         - name: {{ .Release.Name }}-database-volume
           persistentVolumeClaim:
