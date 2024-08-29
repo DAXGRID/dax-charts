@@ -31,6 +31,22 @@ spec:
           - name: {{ .Release.Name }}-appsettings-volume
             mountPath: /app/appsettings.json
             subPath: appsettings.json
+      - name: {{ .Release.Name }}-web
+        image: {{ .Values.sqliteWeb.image.repository }}:{{ .Values.sqliteWeb.image.tag }}
+        resources:
+          requests:
+            memory: {{ .Values.sqliteWeb.resources.memoryRequest }}
+          limits:
+            memory: {{ .Values.sqliteWeb.resources.memoryLimit }}
+        command: ["/bin/sh", "-c", "{{ .Values.sqliteWeb.command }}"]
+        env:
+          - name: SQLITE_WEB_PASSWORD
+            value: {{ .Values.sqliteWeb.password}}
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+          - name: {{ .Release.Name }}-database-volume
+            mountPath: "/data"
       volumes:
         - name: {{ .Release.Name }}-database-volume
           persistentVolumeClaim:
