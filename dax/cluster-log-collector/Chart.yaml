@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cluster-log-collector
-appVersion: "0.2.0"
+appVersion: "0.3.0"
 description: Cluster log collector
-version: 1.3.2
+version: 1.3.3
 type: application
