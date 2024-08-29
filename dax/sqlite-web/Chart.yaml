@@ -1,0 +1,6 @@
+apiVersion: v2
+name: sqlite-web
+appVersion: "6.4.0"
+description: sqlite-web
+version: 1.0.0
+type: application
