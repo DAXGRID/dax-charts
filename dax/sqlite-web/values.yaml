@@ -1,0 +1,15 @@
+image:
+  repository: openftth/sqlite-web
+  tag: 6.4.0
+
+replicas: 1
+port: 80
+serviceType: ClusterIP
+
+databaseVolumeClaimName: "my-volume-claim"
+password: "pleaseChangeMe!"
+command: "sqlite_web -P -T -x -H 0.0.0.0 --read-only /data/database.db"
+
+resources:
+  memoryRequest: 200Mi
+  memoryLimit: 250Mi
