@@ -5,8 +5,8 @@ metadata:
 spec:
   accessModes:
   - ReadWriteMany
-  {{ if .Values.storage.className }}
-  storageClassName: {{ .Values.storage.className }}
+  {{ if .Values.volumeClaim.storageClassName }}
+  storageClassName: {{ .Values.volumeClaim.storageClassName }}
   {{ end }}
   resources:
     requests:
