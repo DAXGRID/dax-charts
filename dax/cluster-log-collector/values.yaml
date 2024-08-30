@@ -17,9 +17,6 @@ appsettings:
     namespacesToWatch: []
 
 sqliteWeb:
-  image:
-    repository: openftth/sqlite-web
-  tag: v0.5.0
   command: "sqlite_web -P -T -x -H 0.0.0.0 --read-only /data/cluster_log_collector.db"
   password: "pleaseChangeMe!"
   resources:
