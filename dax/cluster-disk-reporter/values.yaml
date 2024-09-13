@@ -1,6 +1,6 @@
 image:
   repository: openftth/cluster-disk-reporter
-  tag: v0.2.0
+  tag: v0.3.0
 
 schedule: "0 0 * * 0"
 restartPolicy: Never
