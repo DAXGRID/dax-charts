@@ -1,0 +1,22 @@
+image:
+  repository: openftth/cluster-disk-reporter
+  tag: v0.2.0
+
+schedule: "0 0 * * 0"
+restartPolicy: Never
+backoffLimit: 0
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 125Mi
+
+appsettings:
+  settings:
+    inCluster: true
+    mailSubject: ""
+    mailSender: ""
+    mailRecipients: []
+    mail:
+      host: ""
+      username: ""
+      password: ""
