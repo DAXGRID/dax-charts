@@ -29,7 +29,7 @@ spec:
             command:
             - cat
             - /tmp/healthy
-          failureThreshold: 120
+          failureThreshold: 240
           timeoutSeconds: 10
         volumeMounts:
           - name: {{ .Release.Name }}-{{ .Chart.Name }}-volume
