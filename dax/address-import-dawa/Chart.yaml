@@ -1,6 +1,6 @@
 apiVersion: v2
 name: address-import-dawa
-appVersion: "0.9.0"
+appVersion: "0.9.1"
 description: Helm chart for address import dawa
-version: 1.2.5
+version: 1.2.6
 type: application
