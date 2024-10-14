@@ -1,0 +1,19 @@
+image:
+  repository: openftth/topology-job-operator
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 125Mi
+  memoryLimit: 150Mi
+
+appsettings:
+  settings:
+    inCluster: true
+    job:
+      podNamePrefix: "my-awesome-job"
+      podNamespace: "my-namespace"
+      podContainerImage: "openftth/file-operator-dummy-job:v1.1.0"
+      podCommand: null
+      podArgs: null
+      memoryRequest: "250Mi"
+      memoryLimit: "300Mi"
