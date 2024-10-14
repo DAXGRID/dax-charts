@@ -1,0 +1,10 @@
+image:
+  repository: openftth/job-topology-api
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 125Mi
+
+port: 80
+serviceType: ClusterIP
