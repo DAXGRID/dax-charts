@@ -39,4 +39,6 @@ spec:
             items:
             - key: appsettings
               path: appsettings.json
+      imagePullSecrets:
+        - name: {{ .Values.imgPullSecret }}
       restartPolicy: Always
