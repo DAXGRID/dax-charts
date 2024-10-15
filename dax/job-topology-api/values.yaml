@@ -2,6 +2,8 @@ image:
   repository: daxgrid/job-topology-api
   tag: v0.1.0
 
+imgPullSecret: regcred
+
 resources:
   memoryRequest: 100Mi
   memoryLimit: 125Mi

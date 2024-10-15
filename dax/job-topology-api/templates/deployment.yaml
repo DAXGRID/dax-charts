@@ -24,4 +24,6 @@ spec:
             memory: {{ .Values.resources.memoryRequest }}
           limits:
             memory: {{ .Values.resources.memoryLimit }}
+      imagePullSecrets:
+        - name: {{ .Values.imgPullSecret }}
       restartPolicy: Always
