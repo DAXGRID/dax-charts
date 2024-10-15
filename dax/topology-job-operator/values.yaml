@@ -1,5 +1,5 @@
 image:
-  repository: openftth/topology-job-operator
+  repository: daxgrid/topology-job-operator
   tag: v0.1.0
 
 resources:
