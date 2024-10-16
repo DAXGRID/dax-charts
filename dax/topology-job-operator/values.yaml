@@ -12,7 +12,7 @@ appsettings:
   settings:
     inCluster: true
     jobPollingIntervalMs: 60000
-    authenticationApi: {
+    authenticationApi:
       baseUri: ""
       username: "my-username"
       password: "my-password"
