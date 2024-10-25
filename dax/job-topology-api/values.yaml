@@ -13,4 +13,4 @@ serviceType: ClusterIP
 
 appsettings:
   settings:
-    blobstorageConnectionString: ""
+    blobStorageConnectionString: ""
