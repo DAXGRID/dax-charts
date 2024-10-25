@@ -10,3 +10,7 @@ resources:
 
 port: 80
 serviceType: ClusterIP
+
+appsettings:
+  settings:
+    blobstorageConnectionString: ""

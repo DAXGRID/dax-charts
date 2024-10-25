@@ -24,6 +24,17 @@ spec:
             memory: {{ .Values.resources.memoryRequest }}
           limits:
             memory: {{ .Values.resources.memoryLimit }}
+        volumeMounts:
+          - name: {{ .Release.Name }}-appsettings-volume
+            mountPath: /app/appsettings.json
+            subPath: appsettings.json
       imagePullSecrets:
         - name: {{ .Values.imgPullSecret }}
+      volumes:
+        - name: {{ .Release.Name }}-appsettings-volume
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+            - key: appsettings
+              path: appsettings.json
       restartPolicy: Always
