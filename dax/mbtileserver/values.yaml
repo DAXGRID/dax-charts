@@ -1,6 +1,6 @@
 image:
   repository: openftth/mbtileserver
-  tag: v0.10.0
+  tag: v0.11.0
 
 watcher:
   image: openftth/tile-watcher
