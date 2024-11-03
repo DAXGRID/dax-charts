@@ -13,7 +13,7 @@ appsettings:
     inCluster: true
     jobPollingIntervalMs: 60000
     tenantId: ""
-    "authenticationEnabled": true
+    authenticationEnabled: true
     authenticationApi:
       baseUri: ""
       username: "my-username"
