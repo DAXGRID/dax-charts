@@ -12,16 +12,15 @@ appsettings:
   settings:
     inCluster: true
     jobPollingIntervalMs: 60000
+    tenantId: ""
+    "authenticationEnabled": true
     authenticationApi:
       baseUri: ""
       username: "my-username"
       password: "my-password"
-      maxRetries": 10
-      retryIntervalMs": 500
+      scope: ""
     topologyJobApi:
       baseUri: ""
-      maxRetries: 10
-      retryIntervalMs: 500
     job:
       podNamePrefix: "my-awesome-job"
       podNamespace: "my-namespace"
