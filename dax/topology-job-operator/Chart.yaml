@@ -1,6 +1,6 @@
 apiVersion: v2
 name: topology-job-operator
-appVersion: "0.7.0"
+appVersion: "0.8.0"
 description: Helm chart for topology job operator
-version: 1.3.11
+version: 1.3.12
 type: application
