@@ -1,6 +1,6 @@
 image:
   repository: openftth/address-search-indexer
-  tag: v0.8.4
+  tag: v0.8.5
 
 resources:
   memoryRequest: 1Gi
