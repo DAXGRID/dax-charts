@@ -1,0 +1,31 @@
+image:
+  repository: daxgrid/file-server
+  tag: v0.1.0
+
+replicas: 1
+
+resources:
+  memoryRequest: 125Mi
+  memoryLimit: 175Mi
+
+port: 80
+serviceType: ClusterIP
+
+storage:
+  className: ""
+  size: 4Gi
+  path: /data
+
+appsettings:
+  settings:
+    fileServerUsers: []
+      # - username: user1
+      #   password: password
+      #   folderPath: "/home/user1/fileserver"
+      #   deleteAccess: false
+      #   writeAccess: false
+      # - username: user2
+      #   password: password
+      #   folderPath: "/home/user2/fileserver"
+      #   deleteAccess: true
+      #   writeAccess: true

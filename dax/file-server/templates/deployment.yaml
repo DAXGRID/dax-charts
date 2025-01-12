@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      volumes:
+        - name: {{ .Release.Name }}-data
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}
+        - name: {{ .Release.Name }}-secret-volume
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+            - key: appsettings
+              path: appsettings.json
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.memoryRequest }}
+            limits:
+              memory: {{ .Values.resources.memoryLimit }}
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: {{ .Release.Name }}-data
+              mountPath: {{ .Values.storage.path }}
+            - name: {{ .Release.Name }}-secret-volume
+              mountPath: /app/appsettings.json
+              subPath: appsettings.json
+      restartPolicy: Always
