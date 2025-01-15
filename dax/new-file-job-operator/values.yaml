@@ -1,6 +1,6 @@
 image:
-  repository: openftth/new-file-job-operator
-  tag: v0.3.0
+  repository: daxgrid/new-file-job-operator
+  tag: v0.4.0
 
 resources:
   memoryRequest: 125Mi
