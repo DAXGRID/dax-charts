@@ -1,6 +1,6 @@
 apiVersion: v2
 name: new-file-job-operator
-appVersion: "0.4.0"
+appVersion: "0.4.1"
 description: Helm chart for the new file job operator
-version: 0.4.1
+version: 0.4.2
 type: application
