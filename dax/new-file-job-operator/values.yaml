@@ -9,6 +9,7 @@ resources:
 appsettings:
   settings:
     inCluster: true
+    outputUri: "https://example.com/output"
     fileServer:
       username: "example_user"
       password: "example_password"
