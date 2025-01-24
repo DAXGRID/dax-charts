@@ -24,3 +24,4 @@ sslEnabled: false
 rootCertificate: ""
 serverCertificate: ""
 serverKey: ""
+postgresDatabaseName: "OPEN_FTTH"
