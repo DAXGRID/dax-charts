@@ -43,7 +43,7 @@ spec:
               memory: {{ .Values.resources.requests.memory}}
           env:
             - name: POSTGRES_DB
-              value: {{ Values.postgresDatabaseName }}
+              value: {{ .Values.postgresDatabaseName }}
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
