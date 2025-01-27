@@ -1,6 +1,6 @@
 apiVersion: v2
 name: file-server
-appVersion: "0.15.0"
+appVersion: "0.15.1"
 description: Helm chart for the DAX file server
-version: 1.0.16
+version: 1.0.17
 type: application
