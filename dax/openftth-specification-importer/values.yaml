@@ -1,0 +1,15 @@
+image:
+  repository: openftth/specification-importer
+  tag: v0.1.0
+
+resources:
+  memoryRequest: 150Mi
+  memoryLimit: 175Mi
+
+appsettings:
+  settings:
+    specificationFilesRootPath: "/specifications"
+    clientId: ""
+    clientSecret: ""
+    tokenEndpoint: ""
+    graphQlAddress: ""

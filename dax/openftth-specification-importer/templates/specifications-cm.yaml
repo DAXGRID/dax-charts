@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-specifications-cm
+data:
+{{- range $.Values.specifications }}
+  {{ .name }}:
+    |-
+{{ .value | indent 4 }}
+{{- end }}
