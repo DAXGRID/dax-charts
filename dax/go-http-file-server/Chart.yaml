@@ -1,6 +1,6 @@
 apiVersion: v2
 name: go-http-file-server
-appVersion: "1.20.1"
+appVersion: "1.20.2"
 description: A helm chart for go-http-file-server
-version: 5.1.2
+version: 5.1.3
 type: application
