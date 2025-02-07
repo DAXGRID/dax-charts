@@ -9,12 +9,20 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          {{ if .Values.executeScript }}
+          command: ["./execute.sh"]
+          {{ end }}
           resources:
             requests:
               memory: {{ .Values.resources.memoryRequest }}
             limits:
               memory: {{ .Values.resources.memoryLimit }}
           volumeMounts:
+            {{ if .Values.executeScript }}
+            - name: {{ .Release.Name }}-execute-volume
+              mountPath: /app/execute.sh
+              subPath: execute.sh
+            {{ end }}
             - name: {{ .Release.Name }}-appsettings-volume
               mountPath: /app/appsettings.json
               subPath: appsettings.json
@@ -30,5 +38,12 @@ spec:
         - name: {{ .Release.Name }}-specifications-volume
           configMap:
             name: {{ .Release.Name }}-specifications-cm
+        {{ if .Values.executeScript }}
+        - name: {{ .Release.Name }}-execute-volume
+          configMap:
+            name: {{ .Release.Name }}-execute-cm
+            # 0500 is read and execute, this is set so we can execute the injected scripts.
+            defaultMode: 0500
+        {{ end }}
       restartPolicy: Never
   backoffLimit: 0
