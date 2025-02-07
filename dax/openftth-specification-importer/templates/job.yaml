@@ -42,6 +42,9 @@ spec:
         - name: {{ .Release.Name }}-execute-volume
           configMap:
             name: {{ .Release.Name }}-execute-cm
+            items:
+            - key: executeScript
+              path: execute.sh
             # 0500 is read and execute, this is set so we can execute the injected scripts.
             defaultMode: 0500
         {{ end }}
