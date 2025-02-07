@@ -1,0 +1,9 @@
+{{ if .Values.executeScript }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-execute-cm
+data:
+  executeScript: |-
+{{ .Values.executeScript | indent 4 }}
+{{ end }}

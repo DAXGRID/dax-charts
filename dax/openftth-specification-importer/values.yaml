@@ -6,6 +6,8 @@ resources:
   memoryRequest: 150Mi
   memoryLimit: 175Mi
 
+executeScript: null
+
 appsettings:
   settings:
     specificationFilesRootPath: "/specifications"
