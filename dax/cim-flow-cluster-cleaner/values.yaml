@@ -1,0 +1,18 @@
+image:
+  repository: daxgrid/cim-flow-cluster-cleaner
+  tag: v0.1.0
+
+schedule: "0 0 * * 0"
+restartPolicy: Never
+backoffLimit: 0
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 125Mi
+
+appsettings:
+  settings:
+    inCluster: true
+    podNamespace: ""
+    podNamePrefix: ""
+    maxJobCount: 5

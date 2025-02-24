@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cim-flow-cluster-cleaner
+appVersion: "0.1.0"
+description: CIM Flow Cluster Cleaner
+version: 0.1.0
+type: application
