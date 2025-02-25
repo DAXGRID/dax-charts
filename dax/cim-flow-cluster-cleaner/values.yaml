@@ -16,9 +16,9 @@ appsettings:
     podNamespace: ""
     podNamePrefix: ""
     maxJobCount: 5
-    fileServereUrl: "https://my-file-server.com",
-    fileServerUsername: "my_username",
-    fileServerPassword: "my_password",
-    outputPath: "output",
-    archivePath: "archive",
+    fileServereUrl: "https://my-file-server.com"
+    fileServerUsername: "my_username"
+    fileServerPassword: "my_password"
+    outputPath: "output"
+    archivePath: "archive"
     maxFilesCount: 7
