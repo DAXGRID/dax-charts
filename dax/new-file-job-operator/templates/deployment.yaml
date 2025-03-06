@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
+        checksum/config: {{ .Values.configChecksum }}
     spec:
       serviceAccountName: {{ .Release.Name }}-account
       containers:
@@ -27,7 +28,7 @@ spec:
             memory: {{ .Values.resources.memoryLimit }}
         env:
           - name: JOB_CONFIG_MAP_NAME
-            value: {{ .Release.Name }}-job-config
+            value: {{ .Release.Name- }}-{{ .Values.configChecksum }}-job-config
         volumeMounts:
           - name: {{ .Release.Name }}-volume
             mountPath: /app/appsettings.json

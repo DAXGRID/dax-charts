@@ -6,6 +6,11 @@ resources:
   memoryRequest: 125Mi
   memoryLimit: 150Mi
 
+# Example MD5 sum.
+# Example command to get config checksum of a folder:
+# tar cf - ./ | md5sum | awk '{print $1}'
+configChecksum: "2f74b553c147fa80d9f9748f5cbfe32b"
+
 appsettings:
   settings:
     inCluster: true
