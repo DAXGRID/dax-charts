@@ -28,7 +28,7 @@ spec:
             memory: {{ .Values.resources.memoryLimit }}
         env:
           - name: JOB_CONFIG_MAP_NAME
-            value: {{ .Release.Name }}-{{ .Values.configChecksum }}-job-config
+            value: {{ .Values.configChecksum }}-job-config
         volumeMounts:
           - name: {{ .Release.Name }}-volume
             mountPath: /app/appsettings.json
