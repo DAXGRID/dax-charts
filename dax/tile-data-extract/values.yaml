@@ -1,6 +1,6 @@
 image:
   repository: openftth/tile-data-extract
-  tag: v0.6.0
+  tag: v0.6.1
 
 schedule: "*/30 * * * *"
 
