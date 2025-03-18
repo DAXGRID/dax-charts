@@ -17,8 +17,9 @@ resources:
 
 serviceAnnotations: {}
 
-maxConnections: 300
-sharedBuffers: "256MB"
+maxConnections: 100
+sharedBuffers: "128MB"
+effectiveCacheSize: "4096MB"
 
 sslEnabled: false
 rootCertificate: ""

@@ -35,5 +35,14 @@ data:
 
     default_text_search_config = 'pg_catalog.english'
 
+    {{- if .Values.effectiveCacheSize }}
+    effective_cache_size = {{ .Values.effectiveCacheSize }}
+    {{- end }}
+
+    {{- if .Values.maxConnections }}
     max_connections = {{ .Values.maxConnections }}
+    {{- end }}
+
+    {{- if .Values.sharedBuffers }}
     shared_buffers = {{ .Values.sharedBuffers }}
+    {{- end }}
