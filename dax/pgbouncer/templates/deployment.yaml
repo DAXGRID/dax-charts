@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        args: [ "pgbouncer-config/pgbouncer.ini" ]
+        resources:
+          requests:
+            memory: {{ .Values.resources.memoryRequest }}
+          limits:
+            memory: {{ .Values.resources.memoryLimit }}
+        volumeMounts:
+          - name: {{ .Release.Name }}-pgbouncer-config-volume
+            mountPath: /home/pgbouncer/pgbouncer-config
+          - name: {{ .Release.Name }}-userlist-volume
+            mountPath: /home/pgbouncer/userlist.txt
+            subPath: userlist.txt
+      volumes:
+        - name: {{ .Release.Name }}-pgbouncer-config-volume
+          configMap:
+            name: {{ .Release.Name }}-pgbouncer-config
+            items:
+              - key: pgbouncer.ini
+                path: pgbouncer.ini
+             {{- if .Values.config.ssl.enabled }}
+              - key: root.crt
+                path: root.crt
+              - key: server.crt
+                path: server.crt
+              - key: server.key
+                path: server.key
+                mode: 0400
+             {{- end }}
+        - name: {{ .Release.Name }}-userlist-volume
+          secret:
+            secretName: {{ .Release.Name }}-userlist-secret
+            items:
+              - key: userlist.txt
+                path: userlist.txt
+      restartPolicy: Always
