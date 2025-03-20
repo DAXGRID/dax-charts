@@ -20,7 +20,7 @@ data:
     [pgbouncer]
     listen_port = 6432
     listen_addr = {{ .Values.config.listenAddress }}
-    auth_type = md5
+    auth_type = {{ .Values.config.authType }}
     auth_file = userlist.txt
     admin_users = {{ .Values.config.adminUsers }}
 
