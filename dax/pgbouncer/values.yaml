@@ -7,7 +7,8 @@ image:
 
 resources:
   requests:
-    memory: 1Gi
+    memoryRequest: 100Mi
+    memoryLimit: 150Mi
 
 config:
   adminUsers: postgres
