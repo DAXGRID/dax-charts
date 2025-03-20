@@ -1,0 +1,27 @@
+serviceType: NodePort
+serviceAnnotations: {}
+
+image:
+  repository: daxgrid/pgbouncer
+  tag: 1.15.0-1-1
+
+resources:
+  requests:
+    memory: 1Gi
+
+config:
+  adminUsers: postgres
+  listenAddress: "*"
+  databases:
+    - host: postgres
+      name: postgres
+      port: 5432
+  ssl:
+    enabled: false
+    key: ""
+    cert: ""
+    root: ""
+
+userlist:
+  - name: postgres
+    password: postgres

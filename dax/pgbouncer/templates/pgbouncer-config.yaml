@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-pgbouncer-config
+data:
+  {{- if .Values.config.ssl.sslEnabled }}
+  root.crt: |-
+{{ .Values.config.ssl.root | indent 4 }}
+  server.crt: |-
+{{ .Values.config.ssl.cert | indent 4 }}
+  server.key: |-
+{{ .Values.config.ssl.key | indent 4 }}
+  {{- end }}
+  pgbouncer.ini: |
+    [databases]
+    {{- range $.Values.config.databases }}
+    {{ .name }} = host={{ .host }} port={{ .port }} dbname={{ .name }}
+    {{- end }}
+
+    [pgbouncer]
+    listen_port = 6432
+    listen_addr = {{ .Values.config.listenAddress }}
+    auth_type = plain
+    auth_file = userlist.txt
+    admin_users = {{ .Values.config.adminUsers }}
+
+    # Needed otherwise it fails when trying to connect.
+    # https://github.com/bitnami/containers/issues/25394
+    ignore_startup_parameters = extra_float_digits
+
+    {{- if .Values.config.ssl.enabled }}
+    client_tls_sslmode = prefer
+    client_tls_key_file = pgbouncer-config/server.key
+    client_tls_cert_file = pgbouncer-config/server.crt
+    client_tls_ca_file = pgbouncer-config/root.crt
+    {{- end }}

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: pgbouncer
+appVersion: "1.15.0-1"
+description: Helm chart for pg-bouncer.
+version: 1.0.0
+type: application
