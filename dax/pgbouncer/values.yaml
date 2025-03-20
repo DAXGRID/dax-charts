@@ -12,6 +12,7 @@ resources:
 config:
   adminUsers: postgres
   listenAddress: "*"
+  authType: "md5"
   databases:
     - host: postgres
       name: postgres
