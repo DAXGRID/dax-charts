@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-pgbouncer-config
 data:
-  {{- if .Values.config.ssl.sslEnabled }}
+  {{- if .Values.config.ssl.enabled }}
   root.crt: |-
 {{ .Values.config.ssl.root | indent 4 }}
   server.crt: |-
