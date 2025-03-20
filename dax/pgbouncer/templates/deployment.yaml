@@ -43,7 +43,6 @@ spec:
                 path: server.crt
               - key: server.key
                 path: server.key
-                mode: 0400
              {{- end }}
         - name: {{ .Release.Name }}-userlist-volume
           secret:
