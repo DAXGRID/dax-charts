@@ -21,6 +21,9 @@ maxConnections: 100
 sharedBuffers: "128MB"
 effectiveCacheSize: "4096MB"
 effectiveIoConcurrency: 10
+seqPageCost: 1.0
+randomPageCost: 4.0
+cpuTupleCost: 0.01
 
 sslEnabled: false
 rootCertificate: ""
