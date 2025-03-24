@@ -46,3 +46,7 @@ data:
     {{- if .Values.sharedBuffers }}
     shared_buffers = {{ .Values.sharedBuffers }}
     {{- end }}
+
+    {{- if .Values.effectiveIoConcurrency }}
+    effective_io_concurrency = {{ .Values.effectiveIoConcurrency }}
+    {{- end }}

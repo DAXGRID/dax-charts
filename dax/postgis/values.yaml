@@ -20,6 +20,7 @@ serviceAnnotations: {}
 maxConnections: 100
 sharedBuffers: "128MB"
 effectiveCacheSize: "4096MB"
+effectiveIoConcurrency: 10
 
 sslEnabled: false
 rootCertificate: ""
