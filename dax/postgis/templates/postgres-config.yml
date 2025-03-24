@@ -50,3 +50,15 @@ data:
     {{- if .Values.effectiveIoConcurrency }}
     effective_io_concurrency = {{ .Values.effectiveIoConcurrency }}
     {{- end }}
+
+    {{- if .Values.seqPageCost }}
+    seq_page_cost = {{ .Values.seqPageCost }}
+    {{- end }}
+
+    {{- if .Values.randomPageCost }}
+    random_page_cost = {{ .Values.randomPageCost }}
+    {{- end }}
+
+    {{- if .Values.cpuTupleCost }}
+    cpu_tuple_cost = {{ .Values.cpuTupleCost }}
+    {{- end }}
