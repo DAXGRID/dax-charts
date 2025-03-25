@@ -3,7 +3,7 @@ serviceAnnotations: {}
 
 image:
   repository: daxgrid/pgbouncer
-  tag: 1.15.0-1-1
+  tag: 1.23.1-r0
 
 resources:
   requests:
