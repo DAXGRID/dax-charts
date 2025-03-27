@@ -49,7 +49,7 @@ spec:
           value: {{ .Values.loglevel }}
           
         - name: EVENTSTOREDATABASE__HOST
-          value: openftth-event-store-postgresql
+          value: {{ .Values.eventStoreDatabase.host }}
         - name: EVENTSTOREDATABASE__PORT
           value: "5432"
         - name: EVENTSTOREDATABASE__DATABASE
@@ -63,7 +63,7 @@ spec:
               name: {{ .Release.Name }}-{{ .Chart.Name }}-secret        
 
         - name: GEODATABASE__HOST
-          value: openftth-postgis
+          value: {{ .Values.geoDatabase.name }}
         - name: GEODATABASE__PORT
           value: "5432"
         - name: GEODATABASE__DATABASE
