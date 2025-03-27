@@ -63,7 +63,7 @@ spec:
               name: {{ .Release.Name }}-{{ .Chart.Name }}-secret        
 
         - name: GEODATABASE__HOST
-          value: {{ .Values.geoDatabase.name }}
+          value: {{ .Values.geoDatabase.host }}
         - name: GEODATABASE__PORT
           value: "5432"
         - name: GEODATABASE__DATABASE
