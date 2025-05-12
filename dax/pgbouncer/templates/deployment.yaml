@@ -36,6 +36,10 @@ spec:
             items:
               - key: pgbouncer.ini
                 path: pgbouncer.ini
+              {{- if eq .Values.config.authType "hba" }}
+              - key: pg_hba.conf
+                path: pg_hba.conf
+              {{- end }}
              {{- if .Values.config.ssl.enabled }}
               - key: root.crt
                 path: root.crt
