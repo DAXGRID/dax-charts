@@ -17,6 +17,7 @@ spec:
         # To always recreate on update.
         rollme: {{ randAlphaNum 5 | quote }}
     spec:
+      terminationGracePeriodSeconds: 180
       containers:
       - name: {{ .Release.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -31,11 +32,6 @@ spec:
             port: 6432
           initialDelaySeconds: 15
           periodSeconds: 10
-        lifecycle:
-          preStop:
-            exec:
-              command: ["sleep", "120"]
-              terminationGracePeriodSeconds: 180
         resources:
           requests:
             memory: {{ .Values.resources.memoryRequest }}
