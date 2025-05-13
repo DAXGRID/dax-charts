@@ -31,6 +31,10 @@ spec:
             port: 6432
           initialDelaySeconds: 15
           periodSeconds: 10
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sleep", "30"]
         resources:
           requests:
             memory: {{ .Values.resources.memoryRequest }}
