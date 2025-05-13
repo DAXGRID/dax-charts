@@ -34,7 +34,8 @@ spec:
         lifecycle:
           preStop:
             exec:
-              command: ["sleep", "30"]
+              command: ["sleep", "120"]
+              terminationGracePeriodSeconds: 180
         resources:
           requests:
             memory: {{ .Values.resources.memoryRequest }}
