@@ -3,7 +3,7 @@ loglevel: "Information"
 
 image:
   repository: openftth/desktop-bridge
-  tag: v2.4.0
+  tag: v2.5.0
 
 notificationServer:
   domain: "notification-server"
