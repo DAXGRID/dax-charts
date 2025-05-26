@@ -1,6 +1,6 @@
 apiVersion: v2
 name: aura-installation-integration
-appVersion: "0.3.0"
+appVersion: "0.4.0"
 description: A Helm chart for Aura installation integration
-version: 1.1.3
+version: 1.1.4
 type: application
