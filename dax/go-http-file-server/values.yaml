@@ -1,6 +1,6 @@
 image:
   repository: openftth/go-http-file-server
-  tag: v1.20.3
+  tag: v1.20.4
 
 resources:
   memoryRequest: 200Mi
