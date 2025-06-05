@@ -1,6 +1,0 @@
-apiVersion: v2
-name: aura-outage-integration
-appVersion: "0.3.1"
-description: A Helm chart for Aura outage integration
-version: 1.2.2
-type: application

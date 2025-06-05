@@ -1,6 +1,0 @@
-apiVersion: v2
-name: aura-csv-work-import
-appVersion: "0.7.2"
-description: A Helm chart for Aura CSV work import
-version: 1.1.14
-type: application
