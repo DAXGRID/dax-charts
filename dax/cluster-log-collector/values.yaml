@@ -1,6 +1,6 @@
 image:
   repository: openftth/cluster-log-collector
-  tag: v0.13.1
+  tag: v0.13.2
 
 resources:
   memoryRequest: 200Mi
