@@ -1,6 +1,6 @@
 apiVersion: v2
 name: openftth-api-gateway
-appVersion: "7.14.0"
+appVersion: "7.14.1"
 description: A Helm chart for api-gateway
-version: 1.1.102
+version: 1.1.103
 type: application
