@@ -16,6 +16,7 @@ spec:
       labels:
         app: {{ .Release.Name }}
         checksum/config: {{ .Values.configChecksum }}
+        checksum/appsettings: {{ .Values.appsettingsChecksum }}
     spec:
       serviceAccountName: {{ .Release.Name }}-account
       containers:
@@ -36,7 +37,7 @@ spec:
       volumes:
         - name: {{ .Release.Name }}-volume
           secret:
-            secretName: {{ .Release.Name }}-secret
+            secretName: {{ .Release.Name }}-secret-{{ .Values.appsettingsChecksum }}
             items:
             - key: appsettings
               path: appsettings.json
