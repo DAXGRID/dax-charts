@@ -1,0 +1,25 @@
+serviceType: ClusterIP
+serviceAnnotations: {}
+
+replicas: 1
+
+resources:
+  memoryRequest: 750Mi
+  memoryLimit: 1000Mi
+
+image:
+  repository: keycloak/keycloak
+  tag: 26.3
+
+healthEnabled: "true"
+
+username: ""
+password: ""
+
+hostname: ""
+
+database:
+  type: postgres
+  connectionstring: ""
+  username: ""
+  password: ""

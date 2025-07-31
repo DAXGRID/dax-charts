@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        args: ["start"]
+        resources:
+          requests:
+            memory: {{ .Values.resources.memoryRequest }}
+          limits:
+            memory: {{ .Values.resources.memoryLimit }}
+        env:
+          - name: KC_BOOTSTRAP_ADMIN_USERNAME
+            value: {{ .Values.username }}
+          - name: KC_BOOTSTRAP_ADMIN_PASSWORD
+            value: {{ .Values.password }}
+          - name: KC_DB
+            value: {{ .Values.database.type }}
+          - name: KC_DB_URL
+            value: {{ .Values.database.connectionstring }}
+          - name: KC_DB_USERNAME
+            value: {{ .Values.database.username }}
+          - name: KC_DB_PASSWORD
+            value: {{ .Values.database.password }}
+          # This is enabled because we run it behind a load balancer that has HTTPS required.
+          - name: KC_HTTP_ENABLED
+            value: "true"
+          - name: KC_HOSTNAME_STRICT
+            value: "true"
+          - name: KC_HOSTNAME
+            value: {{ .Values.hostname }}
+          - name: KC_PROXY_HEADERS
+            value: "xforwarded"
+          # This is a hack until we switch away from /auth path.
+          # Before the default path was /auth but was changed. Currently our implementations require's that path to be /auth.
+          - name: KC_HTTP_RELATIVE_PATH
+            value: "/auth"
+      restartPolicy: Always
