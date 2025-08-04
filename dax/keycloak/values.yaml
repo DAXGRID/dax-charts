@@ -17,6 +17,7 @@ username: ""
 password: ""
 
 hostname: ""
+hostnameStrict: "false"
 
 database:
   type: postgres
