@@ -41,8 +41,10 @@ spec:
             value: "true"
           - name: KC_HOSTNAME_STRICT
             value: "false"
+          {{- if .Values.hostname }}
           - name: KC_HOSTNAME
             value: {{ .Values.hostname }}
+          {{- end }}
           - name: KC_PROXY_HEADERS
             value: "xforwarded"
           # This is a hack until we switch away from /auth path.
