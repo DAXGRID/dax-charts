@@ -3,7 +3,7 @@ loglevel: "Information"
 
 image:
   repository: openftth/api-gateway
-  tag: v7.24.1
+  tag: v7.24.2
 
 eventStoreDatabase:
   host: ""
