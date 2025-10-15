@@ -1,0 +1,16 @@
+image:
+  repository: daxgrid/cimflow-job-overview
+  tag: v0.1.0
+
+replicas: 1
+
+port: 80
+serviceType: ClusterIP
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 125Mi
+
+customerName: customer-name
+username: username
+password: password
