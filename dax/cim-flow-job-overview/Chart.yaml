@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cim-flow-job-overview
+appVersion: "0.1.0"
+description: CIM Flow job overview
+version: 0.1.0
+type: application
