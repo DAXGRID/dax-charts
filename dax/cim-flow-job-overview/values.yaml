@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/cimflow-job-overview
-  tag: v0.5.1
+  tag: v0.6.0
 
 replicas: 1
 
