@@ -1,6 +1,6 @@
 image:
   repository: openftth/address-change-indexer
-  tag: v0.6.1
+  tag: v0.6.2
 
 resources:
   memoryRequest: 2.75Gi
