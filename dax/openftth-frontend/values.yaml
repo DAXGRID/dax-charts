@@ -3,7 +3,7 @@ serviceType: NodePort
 
 image:
   repository: openftth/frontend
-  tag: v8.31.0
+  tag: v8.32.0
 
 desktopBridgeUri: ""
 apiGatewayHttpUri: ""
