@@ -1,6 +1,6 @@
 image:
   repository: openftth/pod-failure-notifier
-  tag: v0.7.0
+  tag: v0.8.0
 
 resources:
   memoryRequest: 125Mi
