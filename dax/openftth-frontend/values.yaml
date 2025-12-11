@@ -28,3 +28,5 @@ maplibreJson: ""
 defaultUserLanguage: "en"
 
 initialUserPrompt: {}
+
+tags: {}
