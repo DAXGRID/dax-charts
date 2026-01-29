@@ -13,3 +13,5 @@ resources:
 appsettings:
   settings:
     eventStoreConnectionString: ""
+    datafordelerApiKey: ""
+    enableMigration: false
