@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/new-file-job-operator
-  tag: v0.11.0
+  tag: v0.12.0
 
 resources:
   memoryRequest: 125Mi
