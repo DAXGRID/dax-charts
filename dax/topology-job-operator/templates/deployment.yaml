@@ -27,7 +27,7 @@ spec:
             memory: {{ .Values.resources.memoryLimit }}
         env:
           - name: JOB_CONFIG_MAP_NAME
-            value: {{ .Release.Name }}-job-config
+            value: {{ .Values.configChecksum }}-job-config
         volumeMounts:
           - name: {{ .Release.Name }}-volume
             mountPath: /app/appsettings.json
@@ -35,7 +35,7 @@ spec:
       volumes:
         - name: {{ .Release.Name }}-volume
           secret:
-            secretName: {{ .Release.Name }}-secret
+            secretName: {{ .Release.Name }}-secret-{{ .Values.appsettingsChecksum }}
             items:
             - key: appsettings
               path: appsettings.json
