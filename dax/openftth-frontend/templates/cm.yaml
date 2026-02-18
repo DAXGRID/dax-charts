@@ -20,5 +20,10 @@ data:
     {{- else }}
     window.config_INITIAL_USER_PROMPT = null;
     {{-  end }}
+    {{- if .Values.defaultWorkTaskStatus }}
+    window.config_DEFAULT_WORK_TASK_STATUS = {{ .Values.defaultWorkTaskStatus | toJson }};
+    {{- else }}
+    window.config_DEFAULT_WORK_TASK_STATUS = null;
+    {{-  end }}
   maplibre.json: |-
 {{ .Values.maplibreJson | indent 4 }}
