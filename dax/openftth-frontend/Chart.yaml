@@ -1,6 +1,6 @@
 apiVersion: v2
 name: openftth-frontend
-appVersion: "8.43.0"
+appVersion: "8.44.0"
 description: A Helm chart for openftth-frontend
-version: 1.3.9
+version: 1.3.10
 type: application
