@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/topology-job-operator
-  tag: v0.13.0
+  tag: v0.14.0
 
 imgPullSecret: regcred
 
