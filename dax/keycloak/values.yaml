@@ -9,7 +9,7 @@ resources:
 
 image:
   repository: keycloak/keycloak
-  tag: 26.5.4
+  tag: 26.5.6
 
 healthEnabled: "true"
 
