@@ -13,6 +13,7 @@ resources:
 appsettings:
   settings:
     inCluster: true
+    ignoredNamespaces: []
     mailSubject: ""
     mailSender: ""
     mailRecipients: []
