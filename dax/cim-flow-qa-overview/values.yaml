@@ -1,0 +1,14 @@
+image:
+  repository: daxgrid/cimflow-qa-overview
+  tag: v0.1.0
+
+imgPullSecret: regcred
+
+replicas: 1
+
+port: 80
+serviceType: ClusterIP
+
+resources:
+  memoryRequest: 100Mi
+  memoryLimit: 125Mi
