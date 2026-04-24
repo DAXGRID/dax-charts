@@ -79,10 +79,10 @@ spec:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: /data
           args:
-            - {{ directDownload.uri }}
-            - {{ directDownload.fileName }}
-            - {{ directDownload.dest }}
-            - {{ directDownload.username }}
-            - {{ directDownload.password }}
+            - {{ .Values.directDownload.uri }}
+            - {{ .Values.directDownload.fileName }}
+            - {{ .Values.directDownload.dest }}
+            - {{ .Values.directDownload.username }}
+            - {{ .Values.directDownload.password }}
         {{ end }}
       restartPolicy: Always
