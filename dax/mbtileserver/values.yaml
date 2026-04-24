@@ -21,6 +21,16 @@ watcher:
   startupProbe:
     failureThreshold: 100
 
+directDownload:
+  image: daxgrid/file-server-direct-download
+  tag: v0.1.0
+  enabled: false
+  dest: "/data"
+  fileName: ""
+  username: ""
+  password: ""
+  uri: ""
+
 service:
   externalPort: 80
   type: ClusterIP

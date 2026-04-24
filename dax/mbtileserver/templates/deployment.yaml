@@ -72,4 +72,17 @@ spec:
               add:
                 - SYS_PTRACE
         {{ end }}
+        {{ if (eq .Values.directDownload.enabled true) }}
+        - name: {{ .Release.Name }}-{{ .Chart.Name }}-direct-download-sidecar
+          image: {{ .Values.directDownload.image }}:{{ .Values.directDownload.tag }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
+              mountPath: /data
+          args:
+            - {{ directDownload.uri }}
+            - {{ directDownload.fileName }}
+            - {{ directDownload.dest }}
+            - {{ directDownload.username }}
+            - {{ directDownload.password }}
+        {{ end }}
       restartPolicy: Always
