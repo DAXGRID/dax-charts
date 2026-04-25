@@ -1,0 +1,9 @@
+{{- if .Values.maplibreJson }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+data:
+  maplibre.json: |-
+{{ .Values.maplibreJson | indent 4 }}
+{{- end }}

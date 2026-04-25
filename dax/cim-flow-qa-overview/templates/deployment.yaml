@@ -15,10 +15,19 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
+      annotations:
+        # To always recreate on update.
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          {{- if .Values.maplibreJson }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-mnt
+              mountPath: /usr/share/nginx/html/maplibre.json
+              subPath: maplibre.json
+          {{- end }}
           resources:
             requests:
               memory: {{ .Values.resources.memoryRequest }}
@@ -26,6 +35,15 @@ spec:
               memory: {{ .Values.resources.memoryLimit }}
           ports:
             - containerPort: 80
+      {{- if .Values.maplibreJson }}
+      volumes:
+       - name: {{ .Release.Name }}-mnt
+         configMap:
+           name: {{ .Release.Name }}
+           items:
+           - key: maplibre.json
+             path: maplibre.json
+      {{- end }}
       imagePullSecrets:
         - name: {{ .Values.imgPullSecret }}
       restartPolicy: Always
