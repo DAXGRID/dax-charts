@@ -7,3 +7,8 @@ data:
   maplibre.json: |-
 {{ .Values.maplibreJson | indent 4 }}
 {{- end }}
+  maplibre.json: |-
+{{ .Values.maplibreJson | indent 4 }}
+{{- end }}
+  settings.json: |-
+{{ .Values.settings | toJson | indent 4 }}
