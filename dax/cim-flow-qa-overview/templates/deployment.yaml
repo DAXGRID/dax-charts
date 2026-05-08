@@ -19,6 +19,7 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: Always
           {{- if .Values.maplibreJson }}
           volumeMounts:
             - name: {{ .Release.Name }}-mnt
