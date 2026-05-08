@@ -1,11 +1,11 @@
-{{- if .Values.maplibreJson }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}
 data:
+  {{- if .Values.maplibreJson }}
   maplibre.json: |-
 {{ .Values.maplibreJson | indent 4 }}
-{{- end }}
+  {{- end }}
   settings.json: |-
 {{ .Values.settings | toJson | indent 4 }}
