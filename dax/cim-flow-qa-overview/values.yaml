@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/cimflow-qa-overview
-  tag: v3.0.1
+  tag: v3.0.2
 
 imgPullSecret: regcred
 
