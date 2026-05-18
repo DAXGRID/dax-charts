@@ -6,8 +6,6 @@ metadata:
     app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicas }}
-  strategy:
-    type: Recreate
   selector:
     matchLabels:
       app: {{ .Release.Name }}
