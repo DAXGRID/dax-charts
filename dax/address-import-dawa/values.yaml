@@ -1,6 +1,6 @@
 image:
   repository: openftth/address-import-dawa
-  tag: v1.0.0
+  tag: v2.0.0
 
 schedule: "0 0 * * *"
 restartPolicy: Never
