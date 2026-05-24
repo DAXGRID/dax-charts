@@ -5,7 +5,7 @@ serviceType: ClusterIP
 
 image:
   repository: openftth/postgis
-  tag: 16-3.4
+  tag: 18.4-3.6.3
 
 volumeClaim:
   storageClassName: ""
