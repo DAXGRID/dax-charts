@@ -1,5 +1,5 @@
 image:
-  repository: openftth/notification-file-change-trigger
+  repository: daxgrid/notification-file-change-trigger
   tag: v0.10.0
 
 resources:
