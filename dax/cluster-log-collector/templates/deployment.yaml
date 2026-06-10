@@ -15,9 +15,9 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
-        annotations:
-          # To always recreate on update.
-          rollme: {{ randAlphaNum 5 | quote }}
+      annotations:
+        # To always recreate on update.
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       serviceAccountName: {{ .Release.Name }}-account
       containers:
