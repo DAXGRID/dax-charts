@@ -21,36 +21,31 @@ fileServer:
 appsettings:
   settings:
     outDirPath: "/app/data"
-    ftpSetting:
-      host: "ftp://ftp3.datafordeler.dk"
-      username: ""
-      password: ""
+    datafordelerApiKey: ""
     matrikel:
       datasets:
+        bygningpaafremmedgrundflade: false
         bygningpaafremmedgrundpunkt: false
         centroide: false
         ejerlav: false
         ejerlejlighed: false
         ejerlejlighedslod: false
-        fredskovflade: false
-        fredskovlinje: false
         jordstykke: false
-        klitfredningflade: false
-        klitfredninglinje: false
+        jordstykketemaflade: false
         lodflade: false
         matrikelkommune: false
+        matrikelregion: false
         matrikelskel: true
         matrikelsogn: false
+        matrikulaersag: false
         nullinje: false
         optagetvej: false
         samletfastejendom: false
         skelpunkt: false
-        strandbeskyttelseflade: false
-        strandbeskyttelselinje: false
+        temalinje: false
     geoDanmark:
       datasets:
         afvandingsgroeft: false
-        anlaegdiverse: false
         badebaadebro: false
         bassin: false
         begravelsesomraade: false
@@ -108,7 +103,6 @@ appsettings:
         udpegninglinje: false
         udpegningpunkt: false
         vaadomraade: false
-        vandafstroemningsopland: false
         vandhaendelse: false
         vandknude: false
         vandloebskant: false
@@ -116,6 +110,11 @@ appsettings:
         vejkant: true
         vejmidte: true
         vindmoelle: false
+        historisklinje: false
+        vandafstroemningsopland: false
+        historiskpunkt: false
+        anlaegdiverse: false
+        historiskflade: false
     dawa:
       datasets:
         adgangsadresse: false
@@ -149,3 +148,9 @@ appsettings:
         urentfarvand: false
         vandloeb: false
         vej: false
+        ubearbejdetnavnlinje: false
+        faergerutelinje: false
+        ubearbejdetnavnpunkt: false
+        faergerutepunkt: false
+        rute: false
+        ubearbejdetnavnflade: false
