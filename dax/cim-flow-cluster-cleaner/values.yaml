@@ -19,6 +19,7 @@ appsettings:
     fileServerUrl: "https://my-file-server.com"
     fileServerUsername: "my_username"
     fileServerPassword: "my_password"
-    outputPath: "output"
-    archivePath: "archive"
+    fileServerCleanFolders:
+      - "output"
+      - "archive"
     maxFilesCount: 7
