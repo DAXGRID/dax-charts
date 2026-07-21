@@ -55,7 +55,7 @@ spec:
                   key: password
                   name: {{ .Release.Name }}-secret
             - name: POSTGRES_HOST_AUTH_METHOD
-              value: "MD5"
+              value: "scram-sha-256"
           ports:
             - containerPort: 5432
               name: {{ .Chart.Name }}
