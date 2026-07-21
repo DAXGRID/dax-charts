@@ -11,9 +11,6 @@ data:
   server.key: |-
 {{ .Values.serverKey | indent 4 }}
   {{- end }}
-  pg_hba.conf: |
-    # TYPE  DATABASE        USER            ADDRESS                 METHOD
-    host    all             all             all               md5
   postgresql.conf: |
     listen_addresses = '*'
 
