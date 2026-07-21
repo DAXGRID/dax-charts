@@ -62,3 +62,7 @@ data:
     {{- if .Values.cpuTupleCost }}
     cpu_tuple_cost = {{ .Values.cpuTupleCost }}
     {{- end }}
+
+    {{- if .Values.maxWalSize }}
+    max_wal_size = {{ .Values.maxWalSize }}
+    {{- end }}
