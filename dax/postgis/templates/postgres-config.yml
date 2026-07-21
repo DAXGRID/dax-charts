@@ -13,7 +13,7 @@ data:
   {{- end }}
   pg_hba.conf: |
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
-    host    all             all             0.0.0.0/0               md5
+    host    all             all             all               md5
   postgresql.conf: |
     listen_addresses = '*'
 
