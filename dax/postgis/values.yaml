@@ -24,7 +24,7 @@ effectiveIoConcurrency: 10
 seqPageCost: 1.0
 randomPageCost: 4.0
 cpuTupleCost: 0.01
-maxWalSize: "1028Mi"
+maxWalSize: "1028MB"
 walLevel: "replica"
 
 sslEnabled: false
