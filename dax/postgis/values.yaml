@@ -26,9 +26,11 @@ randomPageCost: 4.0
 cpuTupleCost: 0.01
 maxWalSize: "1028MB"
 walLevel: "replica"
+maxWalSenders: 10
 
 sslEnabled: false
 rootCertificate: ""
 serverCertificate: ""
 serverKey: ""
 postgresDatabaseName: "OPEN_FTTH"
+

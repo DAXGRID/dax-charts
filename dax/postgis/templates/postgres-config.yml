@@ -70,3 +70,7 @@ data:
     {{- if .Values.walLevel }}
     wal_level = {{ .Values.walLevel }}
     {{- end }}
+
+    {{- if .Values.maxWalSenders }}
+    max_wal_senders = {{ .Values.maxWalSenders }}
+    {{- end }}
