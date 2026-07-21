@@ -59,8 +59,8 @@ spec:
               name: {{ .Chart.Name }}
           volumeMounts:
             - name: {{ .Release.Name }}-data
-              mountPath: /var/lib/postgresql/data
-              subPath: data
+              mountPath: /var/lib/postgresql
+              subPath: postgresql
             - name: {{ .Release.Name }}-dshm
               mountPath: /dev/shm
             - name: {{ .Release.Name }}-postgres-config-volume
