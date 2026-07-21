@@ -66,3 +66,7 @@ data:
     {{- if .Values.maxWalSize }}
     max_wal_size = {{ .Values.maxWalSize }}
     {{- end }}
+
+    {{- if .Values.walLevel }}
+    wal_level = {{ .Values.walLevel }}
+    {{- end }}
