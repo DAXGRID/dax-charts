@@ -37,7 +37,7 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          args: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
+          args: ["-c", "config_file=/etc/postgresql/postgresql.conf", "-c", "hba_file=/etc/postgresql/pg_hba.conf"]
           resources:
             requests:
               memory: {{ .Values.resources.requests.memory}}
@@ -65,7 +65,6 @@ spec:
               mountPath: /dev/shm
             - name: {{ .Release.Name }}-postgres-config-volume
               mountPath: /etc/postgresql
-
   volumeClaimTemplates:
     - metadata:
         name: {{ .Release.Name }}-data
