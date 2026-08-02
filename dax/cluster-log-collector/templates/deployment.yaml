@@ -35,7 +35,7 @@ spec:
             mountPath: /app/appsettings.json
             subPath: appsettings.json
       - name: {{ .Release.Name }}-web
-        image: openftth/sqlite-web:6.4.0
+        image: openftth/sqlite-web:7.2.0
         resources:
           requests:
             memory: {{ .Values.sqliteWeb.resources.memoryRequest }}
