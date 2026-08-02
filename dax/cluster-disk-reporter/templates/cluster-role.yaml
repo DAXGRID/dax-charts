@@ -5,4 +5,4 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["pods", "persistentvolumeclaims", "persistentvolume", "pods/exec"]
-    verbs: ["get", "list"]
+    verbs: ["get", "create", "list"]
