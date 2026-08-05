@@ -14,8 +14,8 @@ spec:
       labels:
         app: {{ .Release.Name }}
       annotations:
-        # To always recreate on update.
-        rollme: {{ randAlphaNum 5 | quote }}
+        # To restart if there are changes to the appsettings.
+        rollme: {{ .Values.settings | toJson | b64enc }}
     spec:
       containers:
         - name: {{ .Release.Name }}
