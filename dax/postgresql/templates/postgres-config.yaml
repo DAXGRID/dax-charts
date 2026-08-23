@@ -3,6 +3,14 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-postgres-config
 data:
+  {{- if .Values.sslEnabled }}
+  root.crt: |-
+{{ .Values.rootCertificate | indent 4 }}
+  server.crt: |-
+{{ .Values.serverCertificate | indent 4 }}
+  server.key: |-
+{{ .Values.serverKey | indent 4 }}
+  {{- end }}
   postgresql.conf: |
     listen_addresses = '*'
 
