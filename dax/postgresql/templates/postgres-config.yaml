@@ -17,6 +17,16 @@ data:
 
     default_text_search_config = 'pg_catalog.english'
 
+    {{- if .Values.sslEnabled }}
+    ssl = on
+    ssl_ca_file = '/etc/postgresql/root.crt'
+    ssl_cert_file = '/etc/postgresql/server.crt'
+    ssl_crl_file = ''
+    ssl_key_file = '/etc/postgresql/server.key'
+    ssl_ciphers = 'HIGH:MEDIUM:+3DES:!aNULL'
+    ssl_prefer_server_ciphers = on
+    {{- end }}
+
     {{- if .Values.effectiveCacheSize }}
     effective_cache_size = {{ .Values.effectiveCacheSize }}
     {{- end }}
