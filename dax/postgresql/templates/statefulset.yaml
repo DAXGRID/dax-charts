@@ -25,6 +25,15 @@ spec:
             items:
               - key: postgresql.conf
                 path: postgresql.conf
+             {{- if .Values.sslEnabled }}
+              - key: root.crt
+                path: root.crt
+              - key: server.crt
+                path: server.crt
+              - key: server.key
+                path: server.key
+                mode: 0400
+             {{- end }}
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
