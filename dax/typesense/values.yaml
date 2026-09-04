@@ -1,6 +1,6 @@
 image:
   repository: typesense/typesense
-  tag: 32.2
+  tag: 30.2
 
 replicas: 1
 port: 80
