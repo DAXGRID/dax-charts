@@ -43,7 +43,7 @@ spec:
               port: 8080
             initialDelaySeconds: 10
             timeoutSeconds: 15
-            failureThreshold: 50
+            failureThreshold: 100
           readinessProbe:
             httpGet:
               path: /metrics/health
