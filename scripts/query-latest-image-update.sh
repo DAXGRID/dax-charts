@@ -24,6 +24,8 @@ query_img_version() {
         version_regex="^[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$"
     elif [[ "$CURRENT_TAG" =~ ^v[0-9]+.[0-9]+$ ]]; then
         version_regex="^v[0-9]+.[0-9]+$"
+    elif [[ "$CURRENT_TAG" =~ ^[0-9]+.[0-9]+-trixie$ ]]; then
+        version_regex="^[0-9]+.[0-9]+-trixie$"
     elif [[ "$CURRENT_TAG" =~ ^[0-9]+\.[0-9]+$ ]]; then
         version_regex="^[0-9]+.[0-9]+$"
     elif [[ "$CURRENT_TAG" =~ ^[0-9]+$ ]]; then
@@ -31,6 +33,7 @@ query_img_version() {
     fi
 
     response=$(curl -s "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/namespaces/${COMPANY}/repositories/${IMAGE_NAME}/tags?page_size=100")
+
     echo $response | jq -r --arg regex "$version_regex" '
   .results
   | map(select(.name | test($regex)))
@@ -47,14 +50,21 @@ filearray=($(find ./dax -type f -exec grep -Il -e "image: " {} +))
 
 find ./dax -type f -exec grep -Il -e "^image:$" {} + |
     while IFS= read -r file; do
-        echo "Processing: $file"
+        echo "Checking: $file"
 
         repository=$(yq '(.. | select(kind == "map" and .repository != null) | .repository)' $file)
-        tag=$(yq '(.. | select(kind == "map" and .tag != null) | .tag)' $file)
+        tag=$(yq '(.. | first(kind == "map" and .tag != null) | select(. != null) | .tag)' $file)
 
         token=$(get_docker_token)
-        organization="${repository%%/*}"
-        image_name="${repository#*/}"
+
+        if [[ "$repository" =~ "/" ]]; then
+            organization="${repository%%/*}"
+            image_name="${repository#*/}"
+        else
+            organization="library"
+            image_name="$repository"
+        fi
+
         newest_tag=$(query_img_version $organization $image_name $token $tag)
 
         if [[ -n "$newest_tag" ]]; then
@@ -62,12 +72,10 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                 echo "Organization: $organization"
                 echo "Image name: $image_name"
                 echo "Updating $tag to $newest_tag"
+                echo ""
             fi
         else
-            echo "Could not find tag."
+            echo "Could not find tag for $image_name."
+            echo ""
         fi
-
-        echo ""
     done
-
-
