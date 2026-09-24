@@ -31,8 +31,7 @@ query_img_version() {
     fi
 
     response=$(curl -s "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/namespaces/${COMPANY}/repositories/${IMAGE_NAME}/tags?page_size=100")
-    # echo $response | jq -r ".results | map(select(.name | test(\"${version_regex}\"))) | sort_by(.name) | reverse | first | .name"
-echo $response | jq -r --arg regex "$version_regex" '
+    echo $response | jq -r --arg regex "$version_regex" '
   .results
   | map(select(.name | test($regex)))
   | max_by(
