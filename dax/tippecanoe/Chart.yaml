@@ -1,6 +1,0 @@
-apiVersion: v2
-name: tippecanoe
-appVersion: "1.36.0"
-description: A Helm chart for Tippecanoe
-version: 2.1.0
-type: application
