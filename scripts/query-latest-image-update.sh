@@ -57,10 +57,16 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
         image_name="${repository#*/}"
         newest_tag=$(query_img_version $organization $image_name $token $tag)
 
-        echo "Organization: $organization"
-        echo "Image name: $image_name"
-        echo "Current Tag: $tag"
-        echo "Newest tag: $newest_tag"
+        if [[ -n "$newest_tag" ]]; then
+            if [[ "$tag" != "$newest_tag" ]]; then
+                echo "Organization: $organization"
+                echo "Image name: $image_name"
+                echo "Updating $tag to $newest_tag"
+            fi
+        else
+            echo "Could not find tag."
+        fi
+
         echo ""
     done
 
