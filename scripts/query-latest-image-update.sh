@@ -46,7 +46,7 @@ query_img_version() {
 '
 }
 
-filearray=($(find ./dax -type f -exec grep -Il -e "image: " {} +))
+git pull --rebase
 
 find ./dax -type f -exec grep -Il -e "^image:$" {} + |
     while IFS= read -r file; do
@@ -75,6 +75,8 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                     echo "Image name: $image_name"
                     echo "Updating $tag to $newest_tag"
                     sed -i "/repository: ${repository%%/*}\/$image_name/{n;s/tag: $tag/tag: $newest_tag/;}" "$file"
+                    git add "$file"
+                    git commit -m "updated $image_name to $newest_tag in $file"
                 fi
             else
                 echo "Could not find tag for $image_name."
