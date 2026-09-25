@@ -32,7 +32,7 @@ query_img_version() {
         version_regex="^[0-9]+$"
     fi
 
-    response=$(curl -s "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/namespaces/${COMPANY}/repositories/${IMAGE_NAME}/tags?page_size=100")
+    response=$(curl -s -H "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/namespaces/${COMPANY}/repositories/${IMAGE_NAME}/tags?page_size=100")
 
     echo $response | jq -r --arg regex "$version_regex" '
   .results
