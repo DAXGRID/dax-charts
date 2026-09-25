@@ -2,10 +2,10 @@
 
 set -e
 
-get_docker_token() {
-    DOCKER_USERNAME=""
-    DOCKER_PASSWORD=""
+DOCKER_USERNAME=$1
+DOCKER_PASSWORD=$2
 
+get_docker_token() {
     token=$(curl -s --json "{\"identifier\":\"$DOCKER_USERNAME\",\"secret\":\"$DOCKER_PASSWORD\"}" "https://hub.docker.com/v2/auth/token" | jq -r ".access_token")
     echo $token
 }
