@@ -25,7 +25,7 @@ watcher:
 directDownload:
   image:
     repository: daxgrid/file-server-direct-download
-    tag: v0.2.0
+    tag: v0.3.0
   enabled: false
   dest: "/data"
   fileName: ""
