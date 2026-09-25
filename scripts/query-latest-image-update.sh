@@ -53,7 +53,6 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
         echo "Checking: $file"
 
         combined=$(yq -o=json '[(.. | select(kind == "map" and key == "image"))]' $file)
-        # echo $combined
 
         token=$(get_docker_token)
 
@@ -75,7 +74,32 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                     echo "Image name: $image_name"
                     echo "Updating $tag to $newest_tag"
                     sed -i "/repository: ${repository%%/*}\/$image_name/{n;s/tag: $tag/tag: $newest_tag/;}" "$file"
-                    git add "$file"
+
+                    chart_folder_path="$(dirname "$file")"
+                    chart_version="$(grep -w '^version:' $chart_folder_path/Chart.yaml)"
+                    image_tag=$2
+                    major=0
+                    minor=0
+                    build=0
+
+                    # break down the chart version number into it's components
+                    regex="([0-9]+).([0-9]+).([0-9]+)"
+                    if [[ $chart_version =~ $regex ]]; then
+                        major="${BASH_REMATCH[1]}"
+                        minor="${BASH_REMATCH[2]}"
+                        build="${BASH_REMATCH[3]}"
+                    fi
+
+                    build=$(echo $build + 1 | bc)
+                    new_chart_version="${major}.${minor}.${build}"
+
+                    # Updates the appVersion in the chart file.
+                    sed -i "/appVersion:.*/c\appVersion: \"$image_tag\"" "$chart_folder_path/Chart.yaml"
+
+                    # Updates the version in the chart file.
+                    sed -i "/^version:.*/c\version: $new_chart_version" "$chart_folder_path/Chart.yaml"
+
+                    git add .
                     git commit -m "updated $image_name to $newest_tag in $file"
                 fi
             else
