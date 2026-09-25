@@ -48,13 +48,13 @@ query_img_version() {
 
 git pull --rebase
 
+token=$(get_docker_token)
+
 find ./dax -type f -exec grep -Il -e "^image:$" {} + |
     while IFS= read -r file; do
         echo "Checking: $file"
 
         combined=$(yq -o=json '[(.. | select(kind == "map" and key == "image"))]' $file)
-
-        token=$(get_docker_token)
 
         while IFS=$'\t' read -r repository tag; do
             if [[ "$repository" =~ "/" ]]; then
