@@ -70,7 +70,7 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
             newest_tag=$(query_img_version $organization $image_name $token $tag)
 
             if [[ -n "$newest_tag" ]]; then
-                echo "Checking for $repository in $file:"
+                echo "Checking for $repository in $file"
                 if [[ "$tag" != "$newest_tag" ]]; then
                     echo "Organization: $organization"
                     echo "Image name: $image_name"
