@@ -75,8 +75,9 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                     echo "Updating $tag to $newest_tag"
                     sed -i "/repository: ${repository%%/*}\/$image_name/{n;s/tag: $tag/tag: $newest_tag/;}" "$file"
 
-                    chart_folder_path="$(dirname "$file")"
-                    chart_version="$(grep -w '^version:' $chart_folder_path/Chart.yaml)"
+                    chart_path="$(dirname "$file")/Chart.yaml"
+                    chart_version="$(grep -w '^version:' $chart_path)"
+                    chart_name="$(yq '.name' "$chart_path")"
                     image_tag=$2
                     major=0
                     minor=0
@@ -93,11 +94,13 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                     build=$(echo $build + 1 | bc)
                     new_chart_version="${major}.${minor}.${build}"
 
-                    # Updates the appVersion in the chart file.
-                    sed -i "/appVersion:.*/c\appVersion: \"$image_tag\"" "$chart_folder_path/Chart.yaml"
+                    if [[ $chart_name == *"$image_name"* ]]; then
+                        # Updates the appVersion in the chart file.
+                        sed -i "/appVersion:.*/c\appVersion: \"$tag\"" "$chart_path"
+                    fi
 
                     # Updates the version in the chart file.
-                    sed -i "/^version:.*/c\version: $new_chart_version" "$chart_folder_path/Chart.yaml"
+                    sed -i "/^version:.*/c\version: $new_chart_version" "$chart_path"
 
                     git add .
                     git commit -m "updated $image_name to $newest_tag in $file"
