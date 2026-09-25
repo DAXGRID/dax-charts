@@ -3,8 +3,9 @@ image:
   tag: v0.11.0
 
 watcher:
-  image: openftth/tile-watcher
-  tag: v3.5.0
+  image:
+    repository: openftth/tile-watcher
+    tag: v4.0.0
   enabled: false
   notificationServer:
     domain: notification-server
@@ -22,8 +23,9 @@ watcher:
     failureThreshold: 100
 
 directDownload:
-  image: daxgrid/file-server-direct-download
-  tag: v0.2.0
+  image:
+    repository: daxgrid/file-server-direct-download
+    tag: v0.2.0
   enabled: false
   dest: "/data"
   fileName: ""

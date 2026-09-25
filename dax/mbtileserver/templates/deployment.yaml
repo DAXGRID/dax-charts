@@ -32,7 +32,7 @@ spec:
             {{- end }}
         {{ if (eq .Values.watcher.enabled true) }}
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-sidecar
-          image: {{ .Values.watcher.image }}:{{ .Values.watcher.tag }}
+          image: {{ .Values.watcher.image.repository }}:{{ .Values.watcher.image.tag }}
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: /data
@@ -74,7 +74,7 @@ spec:
         {{ end }}
         {{ if (eq .Values.directDownload.enabled true) }}
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-direct-download-sidecar
-          image: {{ .Values.directDownload.image }}:{{ .Values.directDownload.tag }}
+          image: {{ .Values.directDownload.image.repository }}:{{ .Values.directDownload.image.tag }}
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: /data
