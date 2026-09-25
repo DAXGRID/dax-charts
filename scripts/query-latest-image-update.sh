@@ -98,7 +98,7 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
 
                     if [[ $chart_name == *"$image_name"* ]]; then
                         # Updates the appVersion in the chart file.
-                        sed -i "/appVersion:.*/c\appVersion: \"$tag\"" "$chart_path"
+                        sed -i "/appVersion:.*/c\appVersion: \"$new_chart_version\"" "$chart_path"
                     fi
 
                     # Updates the version in the chart file.
