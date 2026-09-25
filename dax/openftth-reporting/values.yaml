@@ -1,6 +1,6 @@
 image:
   repository: openftth/reporting
-  tag: v0.2.3
+  tag: v0.3.0
 
 schedule: "0 0 * * *"
 restartPolicy: Never
