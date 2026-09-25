@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+set -e
+
 get_docker_token() {
     DOCKER_USERNAME=""
     DOCKER_PASSWORD=""
