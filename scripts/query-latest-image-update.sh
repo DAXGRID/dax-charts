@@ -80,6 +80,8 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                     chart_path="$(dirname "$file")/Chart.yaml"
                     chart_version="$(grep -w '^version:' $chart_path)"
                     chart_name="$(yq '.name' "$chart_path")"
+                    old_app_version="$(yq '.appVersion' "$chart_path")"
+
                     image_tag=$2
                     major=0
                     minor=0
@@ -96,7 +98,7 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
                     build=$(echo $build + 1 | bc)
                     new_chart_version="${major}.${minor}.${build}"
 
-                    if [[ $chart_name == *"$image_name"* ]]; then
+                    if [[ "$chart_name" == *"$image_name"* || "$old_app_version" == *"$tag"* ]]; then
                         # Updates the appVersion in the chart file.
                         sed -i "/appVersion:.*/c\appVersion: \"$newest_tag\"" "$chart_path"
                     fi
