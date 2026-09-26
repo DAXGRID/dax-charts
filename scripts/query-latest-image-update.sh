@@ -5,6 +5,10 @@ set -e
 DOCKER_USERNAME=$1
 DOCKER_PASSWORD=$2
 
+# By switching to the directory of the file, the current path of the script executor becomes inconsequential.
+cd "$(dirname "$0")"
+cd ..
+
 get_docker_token() {
     token=$(curl -s --json "{\"identifier\":\"$DOCKER_USERNAME\",\"secret\":\"$DOCKER_PASSWORD\"}" "https://hub.docker.com/v2/auth/token" | jq -r ".access_token")
     echo $token
