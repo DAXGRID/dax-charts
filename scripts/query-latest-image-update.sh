@@ -116,3 +116,5 @@ find ./dax -type f -exec grep -Il -e "^image:$" {} + |
             echo ""
         done < <(jq -r '.[] | [.repository, .tag] | @tsv' <<< "$combined")
     done
+
+git push
