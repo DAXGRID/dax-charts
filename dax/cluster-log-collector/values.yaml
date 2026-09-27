@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/cluster-log-collector
-  tag: v0.15.1
+  tag: v0.15.2
 
 resources:
   memoryRequest: 200Mi
