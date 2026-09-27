@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/mbtileserver
-  tag: nullnull
+  tag: v0.11.1
 
 watcher:
   image:

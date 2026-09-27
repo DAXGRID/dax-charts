@@ -1,6 +1,6 @@
 apiVersion: v2
 name: mbtileserver
-appVersion: "null"
+appVersion: "v0.11.1"
 description: A Helm chart for mbtileserver
-version: 7.0.7
+version: 7.0.8
 type: application
