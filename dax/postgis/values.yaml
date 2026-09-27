@@ -5,7 +5,7 @@ serviceType: ClusterIP
 
 image:
   repository: daxgrid/postgis
-  tag: 18.4-3.6.3
+  tag: 18.6-3.6.4
 
 volumeClaim:
   storageClassName: ""
