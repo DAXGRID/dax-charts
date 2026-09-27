@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/open-ftth-backup
-  tag: v0.8.1
+  tag: v0.8.2
 
 schedule: "0 0 * * *"
 restartPolicy: Never
