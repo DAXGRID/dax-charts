@@ -5,7 +5,7 @@ image:
 watcher:
   image:
     repository: daxgrid/tile-watcher
-    tag: v4.0.0
+    tag: v4.1.0
   enabled: false
   notificationServer:
     domain: notification-server
