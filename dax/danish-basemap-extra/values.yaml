@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/danish-basemap-extra
-  tag: v0.6.0
+  tag: v0.6.1
 
 resources:
   memoryRequest: 1450Mi
