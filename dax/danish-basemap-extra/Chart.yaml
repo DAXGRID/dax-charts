@@ -1,6 +1,6 @@
 apiVersion: v2
 name: danish-basemap-extra
-appVersion: "v0.6.1"
+appVersion: "v0.7.0"
 description: Helm chart for danish basemap extra
-version: 1.1.2
+version: 1.1.3
 type: application
