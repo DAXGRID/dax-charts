@@ -26,5 +26,5 @@ eventStore:
   connectionString: ""
 
 image:
-  repository: openftth/gdb-integrator
+  repository: daxgrid/gdb-integrator
   tag: v8.0.1

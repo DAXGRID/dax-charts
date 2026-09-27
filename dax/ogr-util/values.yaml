@@ -1,5 +1,5 @@
 image:
-  repository: openftth/ogr-util
+  repository: daxgrid/ogr-util
   tag: v1.0.0
 
 schedule: "0 0 * * *"

@@ -1,5 +1,5 @@
 image:
-  repository: openftth/notification-server
+  repository: daxgrid/notification-server
   tag: v0.4.1
 
 resources:

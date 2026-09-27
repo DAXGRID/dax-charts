@@ -1,7 +1,7 @@
 loglevel: "Information"
 
 image:
-  repository: openftth/equipment-search-indexer
+  repository: daxgrid/equipment-search-indexer
   tag: v2.1.0
 
 resources:

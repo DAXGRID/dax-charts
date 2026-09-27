@@ -1,5 +1,5 @@
 image:
-  repository: openftth/address-search-indexer
+  repository: daxgrid/address-search-indexer
   tag: v2.0.0
 
 resources:

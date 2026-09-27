@@ -1,5 +1,5 @@
 image:
-  repository: openftth/user-edit-history
+  repository: daxgrid/user-edit-history
   tag: v0.4.1
 
 resources:

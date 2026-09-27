@@ -1,5 +1,5 @@
 image:
-  repository: openftth/specification-importer
+  repository: daxgrid/specification-importer
   tag: v0.9.1
 
 resources:

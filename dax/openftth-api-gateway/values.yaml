@@ -2,7 +2,7 @@ replicas: 1
 loglevel: "Information"
 
 image:
-  repository: openftth/api-gateway
+  repository: daxgrid/api-gateway
   tag: v8.11.1
 
 eventStoreDatabase:

@@ -34,7 +34,7 @@ appsettings:
     job:
       podNamePrefix: "my-awesome-job"
       podNamespace: "my-namespace"
-      podContainerImage: "openftth/file-operator-dummy-job:v1.1.0"
+      podContainerImage: "daxgrid/file-operator-dummy-job:v1.1.0"
       podCommand: null
       podArgs: null
       memoryRequest: "250Mi"

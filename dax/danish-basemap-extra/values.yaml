@@ -1,5 +1,5 @@
 image:
-  repository: openftth/danish-basemap-extra
+  repository: daxgrid/danish-basemap-extra
   tag: v0.6.0
 
 resources:

@@ -1,5 +1,5 @@
 image:
-  repository: openftth/address-change-indexer
+  repository: daxgrid/address-change-indexer
   tag: v0.6.5
 
 resources:

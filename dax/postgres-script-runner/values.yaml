@@ -1,5 +1,5 @@
 image:
-  repository: openftth/postgres-client
+  repository: daxgrid/postgres-client
   tag: 18
 
 backoffLimit: 0

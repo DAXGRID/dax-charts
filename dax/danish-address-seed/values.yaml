@@ -1,5 +1,5 @@
 image:
-  repository: openftth/danish-address-seed
+  repository: daxgrid/danish-address-seed
   tag: v3.0.2
 
 schedule: "0 0 * * *"

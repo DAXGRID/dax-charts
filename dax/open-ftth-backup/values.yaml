@@ -1,5 +1,5 @@
 image:
-  repository: openftth/open-ftth-backup
+  repository: daxgrid/open-ftth-backup
   tag: v0.8.1
 
 schedule: "0 0 * * *"

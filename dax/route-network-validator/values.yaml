@@ -1,5 +1,5 @@
 image:
-  repository: openftth/route-network-validator
+  repository: daxgrid/route-network-validator
   tag: v6.0.0
 
 replicas: 1

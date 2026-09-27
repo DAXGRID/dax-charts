@@ -1,5 +1,5 @@
 image:
-  repository: openftth/go-http-file-server
+  repository: daxgrid/go-http-file-server
   tag: v1.22.0
 
 resources:
@@ -18,7 +18,7 @@ storage:
 commandLineArgs: ""
 
 fileWatcher:
-  image: openftth/file-change-notificator
+  image: daxgrid/file-change-notificator
   tag: v0.6.1
   resources:
     memoryRequest: 100Mi

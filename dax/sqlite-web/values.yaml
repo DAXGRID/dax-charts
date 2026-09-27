@@ -1,5 +1,5 @@
 image:
-  repository: openftth/sqlite-web
+  repository: daxgrid/sqlite-web
   tag: 7.2.0
 
 replicas: 1

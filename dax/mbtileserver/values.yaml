@@ -1,10 +1,10 @@
 image:
-  repository: openftth/mbtileserver
+  repository: daxgrid/mbtileserver
   tag: v0.11.0
 
 watcher:
   image:
-    repository: openftth/tile-watcher
+    repository: daxgrid/tile-watcher
     tag: v4.0.0
   enabled: false
   notificationServer:

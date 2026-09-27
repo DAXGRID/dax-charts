@@ -2,7 +2,7 @@ replicas: 1
 loglevel: "Information"
 
 image:
-  repository: openftth/desktop-bridge
+  repository: daxgrid/desktop-bridge
   tag: v2.6.3
 
 notificationServer:

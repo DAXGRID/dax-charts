@@ -1,5 +1,5 @@
 image:
-  repository: openftth/cluster-log-collector
+  repository: daxgrid/cluster-log-collector
   tag: v0.15.1
 
 resources:

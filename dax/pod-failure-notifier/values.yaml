@@ -1,5 +1,5 @@
 image:
-  repository: openftth/pod-failure-notifier
+  repository: daxgrid/pod-failure-notifier
   tag: v0.10.1
 
 resources:

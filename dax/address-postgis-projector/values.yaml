@@ -1,5 +1,5 @@
 image:
-  repository: openftth/address-postgis-projector
+  repository: daxgrid/address-postgis-projector
   tag: v1.1.0
 
 resources:

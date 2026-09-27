@@ -1,5 +1,5 @@
 image:
-  repository: openftth/address-import-dawa
+  repository: daxgrid/address-import-dawa
   tag: v2.2.0
 
 schedule: "0 0 * * *"

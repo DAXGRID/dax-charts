@@ -1,5 +1,5 @@
 image:
-  repository: openftth/reporting
+  repository: daxgrid/reporting
   tag: v0.3.0
 
 schedule: "0 0 * * *"
