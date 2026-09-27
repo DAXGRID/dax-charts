@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: daxgrid/route-network-search-indexer
-  tag: v5.0.0
+  tag: v5.0.1
 
 eventStore:
   connectionString: ""
