@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: daxgrid/equipment-search-indexer
-  tag: v2.1.0
+  tag: v2.1.1
 
 resources:
   memoryRequest: "1Gi"
