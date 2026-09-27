@@ -27,4 +27,4 @@ eventStore:
 
 image:
   repository: daxgrid/gdb-integrator
-  tag: v8.0.1
+  tag: v8.0.2
