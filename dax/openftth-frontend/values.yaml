@@ -3,7 +3,7 @@ serviceType: NodePort
 
 image:
   repository: daxgrid/frontend
-  tag: v8.78.3
+  tag: v8.78.4
 
 desktopBridgeUri: ""
 apiGatewayHttpUri: ""
