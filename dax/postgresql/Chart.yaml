@@ -1,6 +1,6 @@
 apiVersion: v2
 name: postgresql
-appVersion: "18.6-alpine"
+appVersion: "18.6-trixie"
 description: Helm chart for PostgreSQL.
-version: 2.4.7
+version: 2.4.8
 type: application

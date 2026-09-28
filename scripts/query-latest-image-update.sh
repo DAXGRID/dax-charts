@@ -30,8 +30,8 @@ query_img_version() {
         version_regex="^[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$"
     elif [[ "$CURRENT_TAG" =~ ^v[0-9]+.[0-9]+$ ]]; then
         version_regex="^v[0-9]+.[0-9]+$"
-    elif [[ "$CURRENT_TAG" =~ ^[0-9]+.[0-9]+-alpine$ ]]; then
-        version_regex="^[0-9]+.[0-9]+-alpine$"
+    elif [[ "$CURRENT_TAG" =~ ^[0-9]+.[0-9]+-trixie$ ]]; then
+        version_regex="^[0-9]+.[0-9]+-trixie$"
     elif [[ "$CURRENT_TAG" =~ ^[0-9]+\.[0-9]+$ ]]; then
         version_regex="^[0-9]+.[0-9]+$"
     elif [[ "$CURRENT_TAG" =~ ^[0-9]+$ ]]; then
