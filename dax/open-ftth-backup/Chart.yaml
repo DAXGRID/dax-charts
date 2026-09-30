@@ -1,6 +1,6 @@
 apiVersion: v2
 name: open-ftth-backup
-appVersion: "v0.9.0"
+appVersion: "v0.9.1"
 description: Helm chart for open-ftth backup
-version: 1.4.8
+version: 1.4.9
 type: application
