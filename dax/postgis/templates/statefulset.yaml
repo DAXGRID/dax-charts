@@ -37,6 +37,7 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: Always
           args: ["-c", "config_file=/etc/postgresql/postgresql.conf", "-c", "max_wal_senders={{.Values.maxWalSenders}}"]
           resources:
             requests:
