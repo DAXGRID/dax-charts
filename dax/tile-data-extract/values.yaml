@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/tile-data-extract
-  tag: v0.8.1
+  tag: v0.8.2
 
 schedule: "*/30 * * * *"
 
