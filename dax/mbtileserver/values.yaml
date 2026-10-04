@@ -20,7 +20,7 @@ watcher:
       - name: ""
         value: ""
   startupProbe:
-    failureThreshold: 100
+    failureThreshold: 200
 
 directDownload:
   image:
