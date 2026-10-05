@@ -6,6 +6,13 @@ executors:
     - image: dtzar/helm-kubectl
 
 jobs:
+  lint-charts:
+    executor: helm-kubectl
+    steps:
+      - checkout
+      - run:
+          name: Lint all charts
+          command: helm lint dax/*
   package-and-upload:
     executor: helm-kubectl
     steps:
@@ -36,7 +43,10 @@ jobs:
 workflows:
   package-and-upload-chart:
     jobs:
+      - lint-charts
       - package-and-upload:
+          requires:
+            - lint-charts
           filters:
             branches:
               only:
