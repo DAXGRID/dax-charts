@@ -1,5 +1,5 @@
 replicas: 1
-serviceType: NodePort
+serviceType: ClusterIP
 
 image:
   repository: daxgrid/frontend

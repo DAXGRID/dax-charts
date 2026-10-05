@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ .Release.Name }}
 spec:
-  type: ClusterIP
+  type: {{ .Values.serviceType }}
   ports:
   - name: http
     protocol: TCP
