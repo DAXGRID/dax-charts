@@ -25,11 +25,11 @@ spec:
               imagePullPolicy: IfNotPresent
               env:
                 - name: FILE_TO_UPLOAD_PATH
-                  value: {{ .Values.appsettings.settings.outputFilePath }}
+                  value: {{ .Values.appsettings.settings.outputFilePath | quote }}
                 - name: FILE_SERVER_URI
-                  value: {{ .Values.fileServer.uri }}
+                  value: {{ .Values.fileServer.uri | quote }}
                 - name: FILE_SERVER_USERNAME
-                  value: {{ .Values.fileServer.username }}
+                  value: {{ .Values.fileServer.username | quote }}
                 - name: FILE_SERVER_PASSWORD
                   valueFrom:
                     secretKeyRef:
