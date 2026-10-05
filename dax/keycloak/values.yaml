@@ -11,13 +11,10 @@ image:
   repository: keycloak/keycloak
   tag: 26.8.0
 
-healthEnabled: "true"
-
 username: ""
 password: ""
 
 hostname: ""
-hostnameStrict: "false"
 
 database:
   type: postgres
