@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Lint all charts
-          command: helm lint dax/*
+          command: helm lint --strict dax/*
   package-and-upload:
     executor: helm-kubectl
     steps:
