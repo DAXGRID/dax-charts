@@ -6,9 +6,8 @@ image:
   tag: 1.25.2-r0
 
 resources:
-  requests:
-    memoryRequest: 100Mi
-    memoryLimit: 150Mi
+  memoryRequest: 100Mi
+  memoryLimit: 150Mi
 
 config:
   adminUsers: postgres
