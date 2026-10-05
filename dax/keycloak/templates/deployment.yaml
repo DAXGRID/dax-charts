@@ -25,17 +25,23 @@ spec:
             memory: {{ .Values.resources.memoryLimit }}
         env:
           - name: KC_BOOTSTRAP_ADMIN_USERNAME
-            value: {{ .Values.username }}
+            value: {{ .Values.username | quote }}
           - name: KC_BOOTSTRAP_ADMIN_PASSWORD
-            value: {{ .Values.password }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-secret
+                key: password
           - name: KC_DB
-            value: {{ .Values.database.type }}
+            value: {{ .Values.database.type | quote }}
           - name: KC_DB_URL
-            value: {{ .Values.database.connectionstring }}
+            value: {{ .Values.database.connectionstring | quote }}
           - name: KC_DB_USERNAME
-            value: {{ .Values.database.username }}
+            value: {{ .Values.database.username | quote }}
           - name: KC_DB_PASSWORD
-            value: {{ .Values.database.password }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-secret
+                key: databasePassword
           # This is enabled because we run it behind a load balancer that has HTTPS required.
           - name: KC_HTTP_ENABLED
             value: "true"
