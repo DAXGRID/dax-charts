@@ -4,7 +4,9 @@ image:
 
 schedule: "*/30 * * * *"
 
-appsettings: {}
+appsettings:
+  settings:
+    outputFilePath: ""
 
 fileServer:
   uri: ""
