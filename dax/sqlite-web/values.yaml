@@ -2,7 +2,6 @@ image:
   repository: daxgrid/sqlite-web
   tag: 7.2.0
 
-replicas: 1
 port: 80
 serviceType: ClusterIP
 
