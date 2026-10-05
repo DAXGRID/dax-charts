@@ -44,9 +44,9 @@ spec:
                 key: databasePassword
           # This is enabled because we run it behind a load balancer that has HTTPS required.
           - name: KC_HTTP_ENABLED
-            value: "true"
+            value: {{ .Values.kcHttpEnabled }}
           - name: KC_HOSTNAME_STRICT
-            value: "false"
+            value: {{ .Values.hostnameStrict }}
           {{- if .Values.hostname }}
           - name: KC_HOSTNAME
             value: {{ .Values.hostname }}
