@@ -58,7 +58,10 @@ spec:
             - name: FILESERVER__USERNAME
               value: {{ .Values.watcher.fileServer.username }}
             - name: FILESERVER__PASSWORD
-              value: {{ .Values.watcher.fileServer.password }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+                  key: fileServerPassword
             - name: FILESERVER__URI
               value: {{ .Values.watcher.fileServer.uri }}
             - name: TILEPROCESS__DESTINATION
@@ -78,11 +81,17 @@ spec:
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: /data
+          env:
+            - name: DIRECTDOWNLOAD_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+                  key: directDownloadPassword
           args:
             - {{ .Values.directDownload.uri }}
             - {{ .Values.directDownload.fileName }}
             - {{ .Values.directDownload.dest }}
             - {{ .Values.directDownload.username }}
-            - {{ .Values.directDownload.password }}
+            - $(DIRECTDOWNLOAD_PASSWORD)
         {{ end }}
       restartPolicy: Always
