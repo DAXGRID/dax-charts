@@ -27,7 +27,18 @@ spec:
               memory: {{ .Values.resources.memoryLimit }}
           ports:
             - containerPort: 8080
-          args: ["{{ .Values.customerName }}", "{{ .Values.username }}", "{{ .Values.password }}" ]
+          env:
+            - name: JOBOVERVIEW_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: username
+            - name: JOBOVERVIEW_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: password
+          args: ["{{ .Values.customerName }}", "$(JOBOVERVIEW_USERNAME)", "$(JOBOVERVIEW_PASSWORD)" ]
       imagePullSecrets:
         - name: {{ .Values.imgPullSecret }}
       restartPolicy: Always
