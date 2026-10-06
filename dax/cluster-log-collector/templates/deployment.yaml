@@ -44,7 +44,10 @@ spec:
         command: ["/bin/sh", "-c", "{{ .Values.sqliteWeb.command }}"]
         env:
           - name: SQLITE_WEB_PASSWORD
-            value: {{ .Values.sqliteWeb.password}}
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Release.Name }}-secret
+                key: sqliteWebPassword
         ports:
           - containerPort: 8080
         volumeMounts:
