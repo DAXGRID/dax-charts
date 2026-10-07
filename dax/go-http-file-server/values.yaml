@@ -18,7 +18,7 @@ storage:
 commandLineArgs: ""
 
 fileWatcher:
-  image: daxgrid/file-change-notificator
+  repository: daxgrid/file-change-notificator
   tag: v0.6.1
   resources:
     memoryRequest: 100Mi
