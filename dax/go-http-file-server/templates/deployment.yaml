@@ -53,7 +53,7 @@ spec:
               mountPath: /ghfs-config
               subPath: ghfs-config
         - name: {{ .Release.Name }}-fcn-sidecar
-          image: {{ .Values.fileWatcher.repository }}:{{ .Values.fileWatcher.tag }}
+          image: {{ .Values.fileWatcher.image.repository }}:{{ .Values.fileWatcher.image.tag }}
           resources:
             requests:
               memory: {{ .Values.fileWatcher.resources.memoryRequest }}
