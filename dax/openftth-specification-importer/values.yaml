@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/specification-importer
-  tag: v0.10.0
+  tag: v0.10.1
 
 resources:
   memoryRequest: 150Mi
