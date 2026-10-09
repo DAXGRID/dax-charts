@@ -3,7 +3,7 @@ loglevel: "Information"
 
 image:
   repository: daxgrid/desktop-bridge
-  tag: v2.8.1
+  tag: v2.8.2
 
 notificationServer:
   domain: "notification-server"
