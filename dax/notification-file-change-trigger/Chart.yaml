@@ -1,6 +1,6 @@
 apiVersion: v2
 name: notification-file-change-trigger
-appVersion: "v0.13.2"
+appVersion: "v0.13.3"
 description: Helm chart for notification file change trigger
-version: 2.0.14
+version: 2.0.15
 type: application
