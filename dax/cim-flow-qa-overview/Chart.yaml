@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cim-flow-qa-overview
-appVersion: "5.54.1"
+appVersion: "5.54.2"
 description: CIM Flow QA Overview
-version: 0.6.47
+version: 0.6.48
 type: application
