@@ -3,7 +3,7 @@ serviceType: ClusterIP
 
 image:
   repository: daxgrid/frontend
-  tag: v8.81.1
+  tag: v8.81.2
 
 desktopBridgeUri: ""
 apiGatewayHttpUri: ""
