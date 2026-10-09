@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/route-network-validator
-  tag: v6.0.3
+  tag: v6.0.4
 
 replicas: 1
 
