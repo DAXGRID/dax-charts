@@ -38,6 +38,9 @@ spec:
         - name: {{ .Release.Name }}-specifications-volume
           configMap:
             name: {{ .Release.Name }}-specifications-cm
+            # 0555 is read and execute for everyone, this is set so the
+            # non-root app user can read and execute the injected files.
+            defaultMode: 0555
         {{ if .Values.executeScript }}
         - name: {{ .Release.Name }}-execute-volume
           configMap:
@@ -45,8 +48,9 @@ spec:
             items:
             - key: executeScript
               path: execute.sh
-            # 0500 is read and execute, this is set so we can execute the injected scripts.
-            defaultMode: 0500
+            # 0555 is read and execute for everyone, this is set so the
+            # non-root app user can execute the injected script.
+            defaultMode: 0555
         {{ end }}
       restartPolicy: Never
   backoffLimit: 0

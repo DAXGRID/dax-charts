@@ -2,5 +2,5 @@ apiVersion: v2
 name: openftth-specification-importer
 appVersion: "v0.10.3"
 description: Helm chart for OpenFTTH specification importer
-version: 1.2.11
+version: 1.2.12
 type: application
