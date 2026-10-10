@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/address-change-indexer
-  tag: v0.6.9
+  tag: v0.6.10
 
 resources:
   memoryRequest: 2.75Gi
