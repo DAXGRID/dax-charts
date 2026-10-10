@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/address-import-dawa
-  tag: v2.3.3
+  tag: v2.3.4
 
 schedule: "0 0 * * *"
 restartPolicy: Never
