@@ -9,7 +9,7 @@ resources:
 
 image:
   repository: keycloak/keycloak
-  tag: 26.8.0
+  tag: 26.8.1
 
 username: ""
 password: ""
