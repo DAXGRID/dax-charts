@@ -3,7 +3,7 @@ loglevel: "Information"
 
 image:
   repository: daxgrid/api-gateway
-  tag: v8.11.9
+  tag: v8.11.10
 
 eventStoreDatabase:
   host: ""
