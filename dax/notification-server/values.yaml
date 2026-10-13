@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/notification-server
-  tag: v0.4.6
+  tag: v0.4.7
 
 resources:
   memoryRequest: 100Mi
