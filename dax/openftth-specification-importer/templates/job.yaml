@@ -3,7 +3,6 @@ kind: Job
 metadata:
   name: {{ .Release.Name }}
 spec:
-  backoffLimit: {{ .Values.backoffLimit }}
   template:
     spec:
       securityContext:
