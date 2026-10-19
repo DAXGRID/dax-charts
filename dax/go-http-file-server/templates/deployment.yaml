@@ -23,17 +23,6 @@ spec:
         fsGroup: 65534
         seccompProfile:
           type: RuntimeDefault
-      containerSecurityContext:
-        allowPrivilegeEscalation: false
-        privileged: false
-        readOnlyRootFilesystem: true
-        runAsNonRoot: true
-        runAsUser: 65534
-        runAsGroup: 65534
-        capabilities:
-          drop: ["ALL"]
-          seccompProfile:
-            type: RuntimeDefault
       volumes:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
           persistentVolumeClaim:
@@ -53,6 +42,11 @@ spec:
       containers:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           resources:
             requests:
               memory: {{ .Values.resources.memoryRequest }}
@@ -70,6 +64,11 @@ spec:
               subPath: ghfs-config
         - name: {{ .Release.Name }}-fcn-sidecar
           image: {{ .Values.fileWatcher.image.repository }}:{{ .Values.fileWatcher.image.tag }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           resources:
             requests:
               memory: {{ .Values.fileWatcher.resources.memoryRequest }}

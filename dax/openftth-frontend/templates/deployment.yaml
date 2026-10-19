@@ -29,6 +29,10 @@ spec:
       containers:
       - name: {{ .Release.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          seccompProfile:
+            type: RuntimeDefault
         volumeMounts:
          - name: {{ .Release.Name }}-mnt
            mountPath: /usr/share/nginx/html/config-env.js

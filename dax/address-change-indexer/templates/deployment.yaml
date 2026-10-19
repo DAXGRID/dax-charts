@@ -17,12 +17,19 @@ spec:
         app: {{ .Release.Name }}-{{ .Chart.Name }}
     spec:
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        runAsNonRoot: true
+        runAsUser: 1654
+        runAsGroup: 1654
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: {{ .Release.Name }}-{{ .Chart.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         securityContext:
-          {{- toYaml .Values.securityContext | nindent 10 }}
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
         resources:
           requests:
             memory: {{ .Values.resources.memoryRequest }}

@@ -21,6 +21,16 @@ spec:
       containers:
         - name: {{ .Release.Name }}-{{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65534
+            runAsGroup: 65534
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
           ports:
             - containerPort: 8000
           volumeMounts:
@@ -71,6 +81,11 @@ spec:
               value: {{ .value }}
             {{- end }}
           securityContext:
+            runAsNonRoot: true
+            runAsUser: 1654
+            runAsGroup: 1654
+            allowPrivilegeEscalation: false
+            # Keeps the SYS_PTRACE capability the tile-watcher has always been given.
             capabilities:
               add:
                 - SYS_PTRACE
@@ -78,6 +93,16 @@ spec:
         {{ if (eq .Values.directDownload.enabled true) }}
         - name: {{ .Release.Name }}-{{ .Chart.Name }}-direct-download-sidecar
           image: {{ .Values.directDownload.image.repository }}:{{ .Values.directDownload.image.tag }}
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65534
+            runAsGroup: 65534
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
           volumeMounts:
             - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
               mountPath: /data
