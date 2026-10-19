@@ -18,7 +18,7 @@ appsettings:
 
 sqliteWeb:
   command: "sqlite_web -P -T -x -H 0.0.0.0 --read-only /data/cluster_log_collector.db"
-  password: "pleaseChangeMe!"
+  password: ""
   resources:
     memoryRequest: 200Mi
     memoryLimit: 250Mi

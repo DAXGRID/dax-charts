@@ -15,4 +15,4 @@ resources:
 
 customerName: customer-name
 username: username
-password: password
+password: ""

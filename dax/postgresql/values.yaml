@@ -1,6 +1,6 @@
 databaseName: postgres
 username: postgres
-password: postgres
+password: ""
 
 serviceType: ClusterIP
 

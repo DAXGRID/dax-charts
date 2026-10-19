@@ -27,7 +27,7 @@ appsettings:
     authenticationApi:
       baseUri: ""
       username: "my-username"
-      password: "my-password"
+      password: ""
       scope: ""
     topologyJobApi:
       baseUri: ""

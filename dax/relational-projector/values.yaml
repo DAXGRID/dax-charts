@@ -12,10 +12,10 @@ eventStoreDatabase:
   host: openftth-event-store-postgresql
   name: EVENT_STORE
   username: postgres
-  password: postgres
+  password: ""
 
 geoDatabase:
   host: openftth-postgis
   name: OPEN_FTTH
   username: postgres
-  password: postgres
+  password: ""

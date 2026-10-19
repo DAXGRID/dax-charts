@@ -18,7 +18,7 @@ appsettings:
     maxJobCount: 5
     fileServerUrl: "https://my-file-server.com"
     fileServerUsername: "my_username"
-    fileServerPassword: "my_password"
+    fileServerPassword: ""
     fileServerCleanFolders:
       - folderPath: "output"
         fileNameRegex: null

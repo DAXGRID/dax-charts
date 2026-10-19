@@ -6,7 +6,7 @@ replicas: 1
 port: 80
 serviceType: NodePort
 
-apiKey: changeme!
+apiKey: ""
 
 resources:
   memoryRequest: "125Mi"

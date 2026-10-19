@@ -18,13 +18,13 @@ appsettings:
           hostAddress: "my-first-host"
           port: 5432
           username: "postgres"
-          password: "postgres"
+          password: ""
         dumpFilenamePrefix: MY_FIRST_DUMP_FILE_PREFIX_NAME
       - connection:
           hostAddress: "my-second-host"
           port: 5432
           username: "postgres"
-          password: "postgres"
+          password: ""
         databaseNames:
           - "my_first_database_name"
           - "my_second_database_name"
@@ -32,4 +32,4 @@ appsettings:
     fileServer:
       hostAddress: "http://my-http-file-server"
       username: user1
-      password: pass1
+      password: ""

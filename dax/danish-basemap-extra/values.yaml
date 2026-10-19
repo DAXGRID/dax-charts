@@ -15,7 +15,7 @@ backoffLimit: 0
 fileServer:
   uri: "http://file-server-go-http-file-server"
   username: "user1"
-  password: "pass1"
+  password: ""
 
 # Appsettings for danish geojson extraction.
 appsettings:

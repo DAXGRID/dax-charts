@@ -2,7 +2,7 @@ postgis:
   host: openftth-postgis
   database: OPEN_FTTH
   username: postgres
-  password: postgres
+  password: ""
 
 replicas: 1
 loglevel: "Information"
