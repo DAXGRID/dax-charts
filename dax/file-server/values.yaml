@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/file-server
-  tag: v0.24.7
+  tag: v0.24.8
 
 replicas: 1
 
