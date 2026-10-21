@@ -1,6 +1,6 @@
 apiVersion: v2
 name: route-network-validator
-appVersion: "v6.0.8"
+appVersion: "v6.0.9"
 description: A Helm chart for route network validator
-version: 1.2.13
+version: 1.2.14
 type: application
