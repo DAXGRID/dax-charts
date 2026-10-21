@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/notification-file-change-trigger
-  tag: v0.13.7
+  tag: v0.13.8
 
 resources:
   memoryRequest: 225Mi
