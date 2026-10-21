@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/cim-flow-cluster-cleaner
-  tag: v0.8.8
+  tag: v0.8.9
 
 schedule: "0 0 * * 0"
 restartPolicy: Never
