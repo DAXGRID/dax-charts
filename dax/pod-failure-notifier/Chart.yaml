@@ -1,6 +1,6 @@
 apiVersion: v2
 name: pod-failure-notifier
-appVersion: "v0.10.9"
+appVersion: "v0.10.10"
 description: Pod failure notifier
-version: 1.6.23
+version: 1.6.24
 type: application

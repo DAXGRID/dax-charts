@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/pod-failure-notifier
-  tag: v0.10.9
+  tag: v0.10.10
 
 resources:
   memoryRequest: 125Mi
