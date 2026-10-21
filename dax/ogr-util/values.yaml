@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/ogr-util
-  tag: v1.2.7
+  tag: v1.2.8
 
 schedule: "0 0 * * *"
 
