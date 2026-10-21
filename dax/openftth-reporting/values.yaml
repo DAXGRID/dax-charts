@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/reporting
-  tag: v0.3.7
+  tag: v0.3.8
 
 schedule: "0 0 * * *"
 restartPolicy: Never
