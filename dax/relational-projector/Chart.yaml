@@ -1,6 +1,6 @@
 apiVersion: v2
 name: relational-projector
-appVersion: "v1.24.12"
+appVersion: "v1.24.13"
 description: Service that project OpenFTTH events into a relational database
-version: 1.3.25
+version: 1.3.26
 type: application

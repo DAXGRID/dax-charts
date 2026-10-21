@@ -2,7 +2,7 @@ loglevel: "Information"
 
 image:
   repository: daxgrid/relational-projector
-  tag: v1.24.12
+  tag: v1.24.13
   
 resources:
   memoryRequest: "512Mi"
