@@ -14,8 +14,11 @@ spec:
       labels:
         app: {{ .Release.Name }}
       annotations:
-        # To always recreate on update.
-        rollme: {{ randAlphaNum 5 | quote }}
+        # Only restarts when the config, userlist or certificates change, so an
+        # upgrade without changes does not drop the connected client sessions.
+        checksum/config: {{ include (print $.Template.BasePath "/pgbouncer-config.yaml") . | sha256sum }}
+        checksum/userlist: {{ include (print $.Template.BasePath "/userlist-secret.yaml") . | sha256sum }}
+        checksum/tls: {{ include (print $.Template.BasePath "/tls-secret.yaml") . | sha256sum }}
     spec:
       terminationGracePeriodSeconds: 600
       containers:
