@@ -13,6 +13,14 @@ config:
   adminUsers: postgres
   listenAddress: "*"
   authType: md5
+  # Session mode is required by QGIS (cursors, SET, LISTEN, edit transactions).
+  poolMode: session
+  # In session mode each client holds a server connection, so the pool size
+  # caps concurrent clients. Keep defaultPoolSize + reservePoolSize below
+  # postgres max_connections, with room for other services.
+  defaultPoolSize: 60
+  reservePoolSize: 5
+  maxClientConn: 200
   databases:
     - host: postgres
       name: postgres

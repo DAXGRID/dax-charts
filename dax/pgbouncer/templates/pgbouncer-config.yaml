@@ -23,6 +23,10 @@ data:
     auth_type = {{ .Values.config.authType }}
     auth_file = userlist.txt
     admin_users = {{ .Values.config.adminUsers }}
+    pool_mode = {{ .Values.config.poolMode }}
+    default_pool_size = {{ .Values.config.defaultPoolSize }}
+    reserve_pool_size = {{ .Values.config.reservePoolSize }}
+    max_client_conn = {{ .Values.config.maxClientConn }}
 
     # In case of auth type hba, we enable the pg_hba settings.
     {{- if eq .Values.config.authType "hba" }}

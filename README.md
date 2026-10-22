@@ -1,4 +1,4 @@
-# DAX Helm Charts
+# Dax Helm Charts
 
 Helm charts for DAX organization using [Helm](https://github.com/helm/helm) for Kubernetes.
 
