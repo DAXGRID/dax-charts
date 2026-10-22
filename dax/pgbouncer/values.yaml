@@ -1,6 +1,8 @@
 replicas: 1
 
-serviceType: NodePort
+# LoadBalancer gives QGIS clients a stable address on port 5432.
+# Use ClusterIP if pgbouncer should only be reachable inside the cluster.
+serviceType: LoadBalancer
 serviceAnnotations: {}
 
 image:

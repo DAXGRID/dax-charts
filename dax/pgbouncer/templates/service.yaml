@@ -10,6 +10,8 @@ spec:
   ports:
     - port: 5432
       targetPort: 6432
+  {{- if ne .Values.serviceType "ClusterIP" }}
   externalTrafficPolicy: Local
+  {{- end }}
   selector:
     app: {{ .Release.Name }}
