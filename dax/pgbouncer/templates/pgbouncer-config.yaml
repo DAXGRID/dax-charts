@@ -27,6 +27,10 @@ data:
     default_pool_size = {{ .Values.config.defaultPoolSize }}
     reserve_pool_size = {{ .Values.config.reservePoolSize }}
     max_client_conn = {{ .Values.config.maxClientConn }}
+    tcp_keepalive = 1
+    tcp_keepidle = {{ .Values.config.tcpKeepalive.idle }}
+    tcp_keepintvl = {{ .Values.config.tcpKeepalive.interval }}
+    tcp_keepcnt = {{ .Values.config.tcpKeepalive.count }}
 
     # In case of auth type hba, we enable the pg_hba settings.
     {{- if eq .Values.config.authType "hba" }}

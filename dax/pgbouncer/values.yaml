@@ -25,6 +25,12 @@ config:
   defaultPoolSize: 60
   reservePoolSize: 5
   maxClientConn: 200
+  # Detects dead client connections (e.g. dropped by NAT or firewalls), so they
+  # free their pool slot after ~2 minutes instead of the OS default of ~2 hours.
+  tcpKeepalive:
+    idle: 60
+    interval: 10
+    count: 6
   databases:
     - host: postgres
       name: postgres
