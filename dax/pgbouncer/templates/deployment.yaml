@@ -45,23 +45,28 @@ spec:
             subPath: userlist.txt
       volumes:
         - name: {{ .Release.Name }}-pgbouncer-config-volume
-          configMap:
-            name: {{ .Release.Name }}-pgbouncer-config
-            items:
-              - key: pgbouncer.ini
-                path: pgbouncer.ini
-              {{- if eq .Values.config.authType "hba" }}
-              - key: pg_hba.conf
-                path: pg_hba.conf
+          projected:
+            sources:
+              - configMap:
+                  name: {{ .Release.Name }}-pgbouncer-config
+                  items:
+                    - key: pgbouncer.ini
+                      path: pgbouncer.ini
+                    {{- if eq .Values.config.authType "hba" }}
+                    - key: pg_hba.conf
+                      path: pg_hba.conf
+                    {{- end }}
+              {{- if .Values.config.ssl.enabled }}
+              - secret:
+                  name: {{ .Release.Name }}-tls-secret
+                  items:
+                    - key: root.crt
+                      path: root.crt
+                    - key: server.crt
+                      path: server.crt
+                    - key: server.key
+                      path: server.key
               {{- end }}
-             {{- if .Values.config.ssl.enabled }}
-              - key: root.crt
-                path: root.crt
-              - key: server.crt
-                path: server.crt
-              - key: server.key
-                path: server.key
-             {{- end }}
         - name: {{ .Release.Name }}-userlist-volume
           secret:
             secretName: {{ .Release.Name }}-userlist-secret
