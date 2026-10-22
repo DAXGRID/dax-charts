@@ -22,7 +22,10 @@ sharedBuffers: "128MB"
 effectiveCacheSize: "4096MB"
 effectiveIoConcurrency: 10
 seqPageCost: 1.0
-randomPageCost: 4.0
+# 1.1 assumes SSD storage, use 4.0 for spinning disks.
+# Not 1.0 because sequential reads are still slightly cheaper on SSD (OS
+# read-ahead), and it makes the planner prefer seq scans on equal cost.
+randomPageCost: 1.1
 cpuTupleCost: 0.01
 maxWalSize: "1028MB"
 walLevel: "replica"
