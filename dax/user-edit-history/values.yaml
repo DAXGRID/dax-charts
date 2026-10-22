@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/user-edit-history
-  tag: v0.5.4
+  tag: v0.5.5
 
 resources:
   memoryRequest: 500Mi
