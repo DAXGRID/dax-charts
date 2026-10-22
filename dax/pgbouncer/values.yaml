@@ -31,6 +31,9 @@ config:
     idle: 60
     interval: 10
     count: 6
+  # Appends the client IP and port to application_name, so pg_stat_activity
+  # shows which client owns each connection instead of only the pgbouncer IP.
+  applicationNameAddHost: true
   databases:
     - host: postgres
       name: postgres
