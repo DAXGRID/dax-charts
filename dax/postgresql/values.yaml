@@ -21,10 +21,18 @@ serviceAnnotations: {}
 maxConnections: 100
 sharedBuffers: "128MB"
 effectiveCacheSize: "4096MB"
-effectiveIoConcurrency: 10
+# 200 assumes SSD storage, which handles many concurrent reads, use 2 for
+# spinning disks.
+effectiveIoConcurrency: 200
 seqPageCost: 1.0
-randomPageCost: 4.0
+# 1.1 assumes SSD storage, use 4.0 for spinning disks.
+# Not 1.0 because sequential reads are still slightly cheaper on SSD (OS
+# read-ahead), and it makes the planner prefer seq scans on equal cost.
+randomPageCost: 1.1
 cpuTupleCost: 0.01
+# Higher values mean fewer checkpoints during bulk imports, but WAL can use up
+# to this much disk, so keep it well below volumeClaim.storage.
+maxWalSize: "2GB"
 
 sslEnabled: false
 rootCertificate: ""
