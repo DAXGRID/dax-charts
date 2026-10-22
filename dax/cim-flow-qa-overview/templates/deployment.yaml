@@ -14,8 +14,9 @@ spec:
       labels:
         app: {{ .Release.Name }}
       annotations:
-        # To restart if there are changes to the appsettings.
-        rollme: {{ .Values.settings | toJson | b64enc }}
+        # To restart if there are changes to the settings or maplibre config.
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        checksum/config: {{ include (print $.Template.BasePath "/cm.yaml") . | sha256sum }}
     spec:
       containers:
         - name: {{ .Release.Name }}
@@ -25,15 +26,15 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           imagePullPolicy: Always
-          {{- if .Values.maplibreJson }}
           volumeMounts:
+            - name: {{ .Release.Name }}-secret-volume
+              mountPath: /app/settings.json
+              subPath: settings.json
+            {{- if .Values.maplibreJson }}
             - name: {{ .Release.Name }}-mnt
               mountPath: /app/web/maplibre.json
               subPath: maplibre.json
-            - name: {{ .Release.Name }}-mnt
-              mountPath: /app/settings.json
-              subPath: settings.json
-          {{- end }}
+            {{- end }}
           resources:
             requests:
               memory: {{ .Values.resources.memoryRequest }}
@@ -56,16 +57,20 @@ spec:
             timeoutSeconds: 15
             periodSeconds: 50
       volumes:
-       - name: {{ .Release.Name }}-mnt
-         configMap:
-           name: {{ .Release.Name }}
-           items:
-          {{- if .Values.maplibreJson }}
-           - key: maplibre.json
-             path: maplibre.json
-          {{- end }}
-           - key: settings.json
-             path: settings.json
+        - name: {{ .Release.Name }}-secret-volume
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+            - key: settings.json
+              path: settings.json
+        {{- if .Values.maplibreJson }}
+        - name: {{ .Release.Name }}-mnt
+          configMap:
+            name: {{ .Release.Name }}
+            items:
+            - key: maplibre.json
+              path: maplibre.json
+        {{- end }}
       imagePullSecrets:
         - name: {{ .Values.imgPullSecret }}
       restartPolicy: Always
