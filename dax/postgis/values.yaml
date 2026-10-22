@@ -29,7 +29,9 @@ seqPageCost: 1.0
 # read-ahead), and it makes the planner prefer seq scans on equal cost.
 randomPageCost: 1.1
 cpuTupleCost: 0.01
-maxWalSize: "1028MB"
+# Higher values mean fewer checkpoints during bulk imports, but WAL can use up
+# to this much disk, so keep it well below volumeClaim.storage.
+maxWalSize: "2GB"
 walLevel: "replica"
 maxWalSenders: 10
 
