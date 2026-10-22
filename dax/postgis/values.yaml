@@ -11,15 +11,19 @@ volumeClaim:
   storageClassName: ""
   storage: 10Gi
 
+# Keep sharedBuffers and effectiveCacheSize in line with this when changing it.
 resources:
   requests:
-    memory: 1Gi
+    memory: 2Gi
 
 serviceAnnotations: {}
 
 maxConnections: 100
-sharedBuffers: "128MB"
-effectiveCacheSize: "4096MB"
+# ~25% of the memory request, requires a restart to change.
+sharedBuffers: "512MB"
+# ~75% of the memory request, only a planner hint for how much data is likely
+# cached by postgres and the OS, does not allocate memory.
+effectiveCacheSize: "1536MB"
 # 200 assumes SSD storage, which handles many concurrent reads, use 2 for
 # spinning disks.
 effectiveIoConcurrency: 200
