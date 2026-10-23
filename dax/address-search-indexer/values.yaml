@@ -1,6 +1,6 @@
 image:
   repository: daxgrid/address-search-indexer
-  tag: v2.0.11
+  tag: v2.0.12
 
 resources:
   memoryRequest: 1Gi
